@@ -1,7 +1,7 @@
 {
-  "name": "storybook",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vemo-ui-library",
+  "version": "0.0.2",
+  "private": false,
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@testing-library/jest-dom": "^4.2.4",
@@ -48,5 +48,17 @@
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sernstberger/vemo-ui-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sernstberger/vemo-ui-library/issues"
+  },
+  "homepage": "https://github.com/sernstberger/vemo-ui-library#readme"
 }

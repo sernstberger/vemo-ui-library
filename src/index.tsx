@@ -1,16 +1,13 @@
-// export { default as Icons } from './components/Icons';
+export * from './components'
 
+// import * as React from 'react'
+// // import './styles.scss'
 
-import * as React from 'react'
-// import './styles.scss'
+// const Icon: React.FC = () => (
+//   <div className="package">
+//     <h2>Do cool adfadsf</h2>
+//   </div>
+// )
 
-const Icon: React.FC = () => (
-  <div className="package">
-    <h2>Do cool adfadsf</h2>
-  </div>
-)
-
-export default Icon
-// export { default as Icons } from './components/Icons';
-
-
+// export default Icon
+// // export { default as Icons } from './components/Icons';

@@ -1,11 +1,15 @@
 {
-  "name": "npm-react-typescript-template",
-  "version": "1.0.0",
+  "name": "vemo-ui-library",
+  "version": "0.0.6",
+  "private": false,
   "description": "A template for publishing a React + TypeScript package to npm",
-  "author": "ovieokeh",
+  "author": "Steve Ernstberger / Vemo Education",
   "license": "Apache-2.0",
-  "repository": "ovieokeh/npm-react-typescript-template",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sernstberger/vemo-ui-library.git"
+  },
   "engines": {
     "node": ">=8",
     "npm": ">=5"

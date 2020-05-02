@@ -22,8 +22,9 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.12",
-    "styled-components": "^5.1.0",
-    "react-scripts": "3.4.1"
+    "@types/styled-components": "^5.1.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0"
   },
   "peerDependencies": {
     "react": ">= 16.8.0 < 2",
@@ -31,30 +32,20 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
-
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18",
-
-
+    "@types/react": "^16.3.13",
+    "@types/react-dom": "^16.0.5",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-
-
-
-
-
-
-
-    "@types/react": "^16.3.13",
-    "@types/react-dom": "^16.0.5",
-    "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

@@ -11,6 +11,7 @@ export default {
 
 export const ValidatedInputBaseStory = () => (
   <ValidatedInputBase
-    label="foooooo"
+    label="Text Input"
+    required
   />
 )

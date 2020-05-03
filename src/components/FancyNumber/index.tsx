@@ -3,9 +3,9 @@ import { Typography, TypographyProps } from '@material-ui/core'
 import styles from './styles'
 import { getDollars, getChange } from '../../utils/format/money'
 
-interface FancyNumberProps extends TypographyProps {
+export interface FancyNumberProps extends TypographyProps {
   number: number
-  label?: JSX.Element
+  label?: string | JSX.Element
   money?: boolean
 }
 

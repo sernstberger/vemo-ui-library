@@ -1,8 +1,8 @@
-const convertToUSD = (amount = 0) => {
+const convertToUSD = (amount: number = 0) => {
   return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
 }
 
-const formatMoney = (amount = 0, collapse = false) => {
+const formatMoney = (amount: number = 0, collapse: boolean = false) => {
   if (Number(amount) === Number('invalid')) {
     return amount
   }
@@ -18,7 +18,7 @@ const formatMoney = (amount = 0, collapse = false) => {
   }
 }
 
-const getChange = (amount) => {
+const getChange = (amount: number) => {
   if (Number(amount) === Number('invalid')) {
     return amount
   }
@@ -26,7 +26,7 @@ const getChange = (amount) => {
   return change
 }
 
-const getDollars = (amount) => {
+const getDollars = (amount: number) => {
   if (Number(amount) === Number('invalid')) {
     return amount
   }
@@ -34,7 +34,7 @@ const getDollars = (amount) => {
   return dollars.replace('$', '')
 }
 
-const formatPercentage = (number) => {
+const formatPercentage = (number: number) => {
   const dividedNumber = number / 100
   const options = {
     style: 'percent',

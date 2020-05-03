@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Typography, TypographyProps } from '@material-ui/core'
 import styles from './styles'
 import { getDollars, getChange } from '../../utils/format/money'
@@ -30,31 +29,5 @@ const FancyNumber = (props: FancyNumberProps) => {
     </span>
   )
 }
-
-// const Sup = styled('sup')`
-//   ${({ theme }) => `
-//   font-size: 0.5em, // this is intentionally using em's, so that no matter how big the text is, the size of the <sup> will proportionate
-//   position: relative,
-//   top: 2px,
-//   color: 'green'
-// `}
-// `
-
-// color: ${theme.palette.text.primary}
-
-// largeNumber: {
-//   color: theme.palette.text.primary
-// },
-// sup: {
-//   fontSize: '0.5em', // this is intentionally using em's, so that no matter how big the text is, the size of the <sup> will proportionate
-//   position: 'relative',
-//   top: 2,
-//   color: theme.palette.text.primary
-// },
-// subLabel: {
-//   fontWeight: 500,
-//   marginLeft: theme.spacing(1),
-//   color: theme.palette.text.secondary
-// }
 
 export default FancyNumber

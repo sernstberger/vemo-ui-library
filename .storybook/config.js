@@ -5,11 +5,9 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import theme from '../src/theme';
 
 const StylesDecorator = storyFn => (
-  // <StylesProvider injectFirst>
   <ThemeProvider theme={theme}>
     {storyFn()}
   </ThemeProvider>
-  // </StylesProvider>
 )
 
 addDecorator(StylesDecorator)

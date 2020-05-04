@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react'
-// import { isValid } from 'yup'
 import { Field } from 'formik'
 import {
   TextField,
@@ -14,21 +13,14 @@ import NumberFormat from 'react-number-format'
 import styles from '../styles'
 import { StudentsLine } from '../../Icons'
 
+export interface CustomValidationProps {
+  schema: any // not sure what the right type is here
+  message: string
+}
+
 export interface ValidatedInputBaseProps extends StandardTextFieldProps {
-  //   // This should take a Yup validation or an array of Yup validations
-  // customValidation: oneOfType([
-  //   shape({
-  //     schema: any,
-  //     message: string
-  //   }),
-  //   arrayOf(
-  //     shape({
-  //       schema: any,
-  //       message: string
-  //     })
-  //   )
-  // ])
-  customValidation?: any
+  // This should take a Yup validation or an array of Yup validations
+  customValidation?: CustomValidationProps | CustomValidationProps[]
   decimalScale?: any
   exactLength?: number
   field: string

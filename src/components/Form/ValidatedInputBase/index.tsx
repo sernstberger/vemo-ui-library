@@ -53,19 +53,22 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
 // This is meant to be a common component for several input types. It shouldn't be used on its own.
 const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
   const {
+    adornment = undefined,
     disabled = false,
     field,
     hasCounter = false,
     helperText = undefined,
     // icon,
     inputMode = 'none',
+    inputProps,
+    InputProps,
     isLoading = false,
     label,
     placeholder = undefined,
     required = false,
     size,
     tooltip = undefined,
-    type = 'text'
+    type = 'text',
 
     //   customValidation = undefined,
     //   maxLength = 100,
@@ -74,9 +77,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     //     select,
     //     minLength,
     //     maxLength,
-    //     InputProps,
     //     className,
-    //     inputProps,
     //     decimalScale,
     //     exactLength,
     //     // these should NOT be used, just here so they don't get added with ...rest
@@ -86,7 +87,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     //     minHeight,
     //     isLoading,
     //
-    //     ...rest
+        ...rest
   } = props
 
   const classes = styles()

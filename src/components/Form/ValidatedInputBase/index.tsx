@@ -29,6 +29,7 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   //   )
   // ])
   customValidation?: any
+  decimalScale?: any
   exactLength?: number
   field: string
   hasCounter?: boolean
@@ -48,7 +49,7 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   isLoading?: boolean
   maxLength?: number
   minLength?: number
-  size?: 'small' | 'medium' | 'large'
+  // size?: 'small' | 'medium' | 'large' | undefined
   tooltip?: any
 }
 
@@ -73,7 +74,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     type = 'text',
     maxLength = 100,
     minLength = 0,
-    //     decimalScale,
+    decimalScale,
     exactLength = undefined,
     //     // these should NOT be used, just here so they don't get added with ...rest
     //     stepValue,
@@ -207,12 +208,13 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
             )}
             <Component
               id={name}
+              placeholder={placeholder || `Enter ${label}`}
               {...{
                 required,
-                name,
-                placeholder,
+                // name,
                 inputMode,
-                value
+                value,
+                type
               }}
               // NumberFormat props
               {...(isNumber

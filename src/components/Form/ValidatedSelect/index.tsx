@@ -1,7 +1,16 @@
 import React from 'react'
-import ValidatedInputBase from '../ValidatedInputBase'
+import ValidatedInputBase, { ValidatedInputBaseProps } from '../ValidatedInputBase'
 
-const ValidatedSelect = (props) => {
+interface OptionProps {
+  label: string
+  value: string
+}
+
+interface ValidatedSelectProps extends ValidatedInputBaseProps {
+  options: OptionProps[] | string[]
+}
+
+const ValidatedSelect = (props: ValidatedSelectProps) => {
   const { options, ...rest } = props
 
   return (
@@ -9,7 +18,7 @@ const ValidatedSelect = (props) => {
       <option value="">
         Select {props.label}
       </option>
-      {options.map((option, index) => {
+      {options.map((option: OptionProps | string, index: number) => {
         const isObject = typeof option === 'object' && option !== null
         const _value = isObject ? option.value : option
         const _label = isObject ? option.label : option
@@ -22,20 +31,5 @@ const ValidatedSelect = (props) => {
     </ValidatedInputBase>
   )
 }
-
-// const ValidatedSelectProps = {
-//   ...InputWithValidationBaseProps,
-//   options: PropTypes.oneOfType([
-//     PropTypes.arrayOf(
-//       PropTypes.shape({
-//         value: PropTypes.string.isRequired,
-//         label: PropTypes.string.isRequired
-//       })
-//     ),
-//     PropTypes.arrayOf(PropTypes.string.isRequired)
-//   ]).isRequired
-// }
-
-// ValidatedSelect.propTypes = ValidatedSelectProps
 
 export default ValidatedSelect

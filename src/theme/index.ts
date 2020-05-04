@@ -29,15 +29,64 @@ let theme = createMuiTheme({
     //   main: green[500],
     //   dark: green[700],
     // },
+  },
+  spacing: 8,
+  typography: {
+    fontFamily: '"Montserrat", "Helvetica", "Arial", sans-serif',
+
+    h1: {
+      fontSize: '1.625rem',
+      fontWeight: 700
+    },
+    h2: {
+      fontSize: '0.8125rem',
+      fontWeight: 700,
+      letterSpacing: 1.5,
+      textTransform: 'uppercase'
+    },
+    h3: {
+      fontSize: '1.25rem',
+      fontWeight: 700
+    },
+    h4: {
+      fontSize: '1.125rem',
+      fontWeight: 500
+    },
+    h5: {
+      fontSize: '0.875rem',
+      fontWeight: 600
+    },
+    h6: {
+      fontSize: '0.75rem',
+      fontWeight: 500
+    },
+    subtitle1: {
+      fontSize: '0.875rem',
+      fontWeight: 700
+    },
+    subtitle2: {
+      fontSize: '1.4rem',
+      fontWeight: 500
+    },
+    body1: {
+      fontSize: '1rem',
+      fontWeight: 600
+    },
+    body2: {
+      fontSize: '0.875rem',
+      fontWeight: 500
+    },
+    caption: {
+      // fontSize: '1.6rem',
+    },
+    overline: {
+      // fontSize: '1.4rem',
+    },
+    footnote: {
+      fontSize: '0.8125rem',
+      fontWeight: 'normal'
+    }
   }
-  // typography: {
-  //   fontFamily: "'Work Sans', sans-serif",
-  //   fontSize: 14,
-  //   fontWeightLight: 300, // Work Sans
-  //   fontWeightRegular: 400, // Work Sans
-  //   fontWeightMedium: 700, // Roboto Condensed
-  //   fontFamilySecondary: "'Roboto Condensed', sans-serif",
-  // },
 })
 
 // A custom theme for this app

@@ -29,8 +29,14 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   //   )
   // ])
   customValidation?: any
+  exactLength?: number
   field: string
   hasCounter?: boolean
+  icon?: {
+    name: React.ReactNode
+    position?: 'start' | 'end'
+    color?: string
+  }
   inputMode?:
     | 'decimal'
     | 'email'
@@ -40,14 +46,10 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
     | 'tel'
     | 'url'
   isLoading?: boolean
+  maxLength?: number
+  minLength?: number
+  size?: 'small' | 'medium' | 'large'
   tooltip?: any
-
-  //   maxLength: number,
-  icon?: {
-    name: React.ReactNode
-    position?: 'start' | 'end'
-    color?: string
-  }
 }
 
 // This is meant to be a common component for several input types. It shouldn't be used on its own.
@@ -69,13 +71,10 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     size,
     tooltip = undefined,
     type = 'text',
-
-    //   maxLength = 100,
-    //     minLength,
-    //     maxLength,
-    //     className,
+    maxLength = 100,
+    minLength = 0,
     //     decimalScale,
-    //     exactLength,
+    exactLength = undefined,
     //     // these should NOT be used, just here so they don't get added with ...rest
     //     stepValue,
     //     maxValue,
@@ -248,7 +247,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   {tooltip && (
                     <Tooltip title={<span>{tooltip}</span>}>
                       <span>
-                        <StudentsLine />
+                        <StudentsLine color="textSecondary" fontSize="small" />
                         {/* <Icon icon="help" color="textSecondary" /> */}
                       </span>
                     </Tooltip>

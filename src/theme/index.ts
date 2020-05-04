@@ -1,22 +1,21 @@
-import red from '@material-ui/core/colors/red'
 import { createMuiTheme, fade, darken } from '@material-ui/core/styles'
 
 // Colors
 const catskill_white = 'rgb(245, 248, 250)'
 const mystic_grey = 'rgb(218, 224, 230)'
 const raven_grey = 'rgb(109, 115, 120)'
-const dark_grey = 'rgb(102, 102, 102)'
+// const dark_grey = 'rgb(102, 102, 102)'
 const success_green = '#009F74'
 const green_haze = 'rgb(0, 159, 116)'
 const error_red = '#D92D27'
-const caution_yellow = 'rgb(247, 220, 62)'
-const dark_yellow = 'rgb(245, 187, 61)'
+// const caution_yellow = 'rgb(247, 220, 62)'
+// const dark_yellow = 'rgb(245, 187, 61)'
 const midnight = 'rgb(0, 28, 51)'
 const vemo_blue = '#0073D1'
 const vemo_dark_blue = 'rgb(3, 65, 111)'
 
 // const highlight_blue = 'rgb(0, 146, 255)'
-const horizon_blue = 'rgb(92, 125, 153)'
+// const horizon_blue = 'rgb(92, 125, 153)'
 const bismark_blue = 'rgb(64, 99, 128)'
 const saffron = '#F5BB3D'
 

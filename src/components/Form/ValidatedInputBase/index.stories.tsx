@@ -3,6 +3,7 @@ import React from 'react'
 import ValidatedInputBase from './index'
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
+import { Typography } from '@material-ui/core'
 
 export default {
   title: 'Validated Input',
@@ -21,9 +22,10 @@ export const Base = () => (
       <ValidatedInputBase
         field="foo"
         label="Base"
-        required={boolean('Required', true)}
+        required={boolean('Required', false)}
         error={boolean('Error', false)}
         helperText="Helper text goes here"
+        tooltip={text('Tooltip', 'Tooltip text goes here')}
       />
 
       <ValidatedInputBase

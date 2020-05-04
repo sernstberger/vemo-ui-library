@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react'
-// import PropTypes from 'prop-types'
 // import { isValid } from 'yup'
 import { Field } from 'formik'
 import {
@@ -15,7 +14,7 @@ import NumberFormat from 'react-number-format'
 import styles from '../styles'
 
 export interface ValidatedInputBaseProps extends StandardTextFieldProps {
-  adornment: any
+  adornment?: any
   //   // This should take a Yup validation or an array of Yup validations
   // customValidation: oneOfType([
   //   shape({
@@ -29,7 +28,7 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   //     })
   //   )
   // ])
-  customValidation: any
+  customValidation?: any
   field: string
   hasCounter?: boolean
   inputMode?:
@@ -257,7 +256,6 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                 </span>
               }
               InputLabelProps={{ required: false }}
-              fullWidth
               disabled={isLoading || isSubmitting || disabled}
               InputProps={{
                 ...InputProps,

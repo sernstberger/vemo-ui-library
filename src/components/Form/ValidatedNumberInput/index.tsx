@@ -18,12 +18,14 @@ const ValidatedNumberInput = (props: ValidatedNumberInputProps) => {
     label,
     decimalScale,
     inputProps,
-    customValidation
+    customValidation,
+    ...rest
   } = props
 
   return (
     <ValidatedInputBase
-      {...props}
+      {...rest}
+      {...{ label }}
       inputMode="numeric"
       type="number"
       inputProps={{

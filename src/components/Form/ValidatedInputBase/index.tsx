@@ -15,6 +15,21 @@ import NumberFormat from 'react-number-format'
 import styles from '../styles'
 
 export interface ValidatedInputBaseProps extends StandardTextFieldProps {
+  adornment: any
+  //   // This should take a Yup validation or an array of Yup validations
+  // customValidation: oneOfType([
+  //   shape({
+  //     schema: any,
+  //     message: string
+  //   }),
+  //   arrayOf(
+  //     shape({
+  //       schema: any,
+  //       message: string
+  //     })
+  //   )
+  // ])
+  customValidation: any
   field: string
   hasCounter?: boolean
   inputMode?:
@@ -34,26 +49,13 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   //   position: oneOf(['start', 'end']).isRequired,
   //   color: string
   // }),
-
-  //   // This should take a Yup validation or an array of Yup validations
-  //   customValidation: oneOfType([
-  //     shape({
-  //       schema: any.isRequired,
-  //       message: string.isRequired
-  //     }),
-  //     arrayOf(
-  //       shape({
-  //         schema: any.isRequired,
-  //         message: string.isRequired
-  //       })
-  //     )
-  //   ])
 }
 
 // This is meant to be a common component for several input types. It shouldn't be used on its own.
 const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
   const {
     adornment = undefined,
+    customValidation = undefined,
     disabled = false,
     field,
     hasCounter = false,
@@ -70,11 +72,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     tooltip = undefined,
     type = 'text',
 
-    //   customValidation = undefined,
     //   maxLength = 100,
-
-    //     customValidation,
-    //     select,
     //     minLength,
     //     maxLength,
     //     className,
@@ -87,7 +85,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     //     minHeight,
     //     isLoading,
     //
-        ...rest
+    ...rest
   } = props
 
   const classes = styles()

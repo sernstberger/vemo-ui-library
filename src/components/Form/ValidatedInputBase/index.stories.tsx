@@ -11,7 +11,12 @@ export default {
 }
 
 export const Base = () => (
-  <Formik>
+  <Formik
+    initialValues={{
+      foo: '',
+      bar: ''
+    }}
+  >
     <div>
       <ValidatedInputBase
         field="foo"

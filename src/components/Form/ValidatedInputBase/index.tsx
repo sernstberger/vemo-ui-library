@@ -44,7 +44,7 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
 
   //   maxLength: number,
   icon?: {
-    name: any
+    name: React.ReactNode
     position?: 'start' | 'end'
     color?: string
   }

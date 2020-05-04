@@ -12,9 +12,9 @@ import {
 import NumberFormat from 'react-number-format'
 // import Icon from '../Icon'
 import styles from '../styles'
+import { StudentsLine } from '../../Icons'
 
 export interface ValidatedInputBaseProps extends StandardTextFieldProps {
-  adornment?: any
   //   // This should take a Yup validation or an array of Yup validations
   // customValidation: oneOfType([
   //   shape({
@@ -43,23 +43,22 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   tooltip?: any
 
   //   maxLength: number,
-  // icon: shape({
-  //   name: string.isRequired,
-  //   position: oneOf(['start', 'end']).isRequired,
-  //   color: string
-  // }),
+  icon?: {
+    name: any
+    position?: 'start' | 'end'
+    color?: string
+  }
 }
 
 // This is meant to be a common component for several input types. It shouldn't be used on its own.
 const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
   const {
-    adornment = undefined,
     customValidation = undefined,
     disabled = false,
     field,
     hasCounter = false,
     helperText = undefined,
-    // icon,
+    icon,
     inputMode = 'none',
     inputProps,
     InputProps,
@@ -163,9 +162,9 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
         field: { value, onBlur, name, onChange },
         form: { touched, errors, setFieldValue, isSubmitting }
       }) => {
-        // const adornmentPosition = icon
-        //   ? `${icon.position}Adornment`
-        //   : 'startAdornment'
+        const adornmentPosition = icon
+          ? `${icon.position}Adornment`
+          : 'startAdornment'
 
         if (value === 'blank') {
           setFieldValue(name, '')
@@ -177,24 +176,25 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
 
         const isLarge = size === 'large'
 
-        // const adornment = (isLoading || icon) && {
-        //   [adornmentPosition]: (
-        //     <InputAdornment
-        //       position={(icon && icon.position) || 'start'}
-        //       className={isLarge ? classes.largeInput : ''}
-        //     >
-        //       {isLoading ? (
-        //         <CircularProgress size={20} />
-        //       ) : (
-        //         <Icon
-        //           color={icon.color}
-        //           icon={icon.name}
-        //           size={isLarge ? 'inherit' : undefined}
-        //         />
-        //       )}
-        //     </InputAdornment>
-        //   )
-        // }
+        const adornment = (isLoading || icon) && {
+          [adornmentPosition]: (
+            <InputAdornment
+              position={(icon && icon.position) || 'start'}
+              className={isLarge ? classes.largeInput : ''}
+            >
+              {isLoading ? (
+                <CircularProgress size={20} />
+              ) : (
+                // <Icon
+                //   color={icon.color}
+                //   icon={icon.name}
+                //   size={isLarge ? 'inherit' : undefined}
+                // />
+                icon.name
+              )}
+            </InputAdornment>
+          )
+        }
 
         return (
           <div className={classes.textWrapper}>
@@ -248,8 +248,8 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   {tooltip && (
                     <Tooltip title={<span>{tooltip}</span>}>
                       <span>
+                        <StudentsLine />
                         {/* <Icon icon="help" color="textSecondary" /> */}
-                        icon goes here
                       </span>
                     </Tooltip>
                   )}

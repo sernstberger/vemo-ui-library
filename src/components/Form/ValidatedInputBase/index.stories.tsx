@@ -4,6 +4,7 @@ import ValidatedInputBase from './index'
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
 import { Typography } from '@material-ui/core'
+import { StudentsLine } from '../../Icons'
 
 export default {
   title: 'Validated Input',
@@ -26,6 +27,7 @@ export const Base = () => (
         error={boolean('Error', false)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
+        icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
       />
 
       <ValidatedInputBase

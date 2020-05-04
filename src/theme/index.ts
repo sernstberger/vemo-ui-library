@@ -4,7 +4,7 @@ import { createMuiTheme } from '@material-ui/core/styles'
 
 const vemoBlue = '#0073D1'
 
-const rawTheme = createMuiTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       // light: '#7986cb',
@@ -43,18 +43,18 @@ const rawTheme = createMuiTheme({
 
 // A custom theme for this app
 
-const theme = {
-  ...rawTheme,
+theme = {
+  ...theme,
   overrides: {
     MuiInputBase: {
       root: {
         borderRadius: 4,
         position: 'relative',
-        backgroundColor: rawTheme.palette.common.white,
+        backgroundColor: theme.palette.common.white,
         border: '2px solid #ced4da',
         fontSize: '1rem',
         fontWeight: 600,
-        transition: rawTheme.transitions.create(['border-color', 'box-shadow']),
+        transition: theme.transitions.create(['border-color', 'box-shadow']),
         width: '100%',
 
         // 'label + &': {
@@ -62,13 +62,13 @@ const theme = {
         // },
 
         '&$focused': {
-          borderColor: rawTheme.palette.primary.main
+          borderColor: theme.palette.primary.main
         },
         '&$disabled': {
-          backgroundColor: rawTheme.palette.background.default
+          backgroundColor: theme.palette.background.default
         },
         '&$error': {
-          borderColor: rawTheme.palette.error.main
+          borderColor: theme.palette.error.main
         }
       }
     }

@@ -5,7 +5,7 @@ import { getDollars, getChange } from '../../utils/format/money'
 
 export interface FancyNumberProps extends TypographyProps {
   number: number
-  label?: string | JSX.Element
+  label?: string | React.ReactNode
   money?: boolean
 }
 

@@ -3,13 +3,13 @@ import React from 'react'
 import { addDecorator, configure } from '@storybook/react'
 import { ThemeProvider } from '@material-ui/core/styles'
 import theme from '../src/theme';
+import { CssBaseline } from '@material-ui/core';
 
 const StylesDecorator = storyFn => (
-  // <StylesProvider injectFirst>
   <ThemeProvider theme={theme}>
+    <CssBaseline />
     {storyFn()}
   </ThemeProvider>
-  // </StylesProvider>
 )
 
 addDecorator(StylesDecorator)

@@ -190,8 +190,10 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
               <div className={classes.characterLimitText}>
                 <Typography
                   variant="body2"
-                  color="textSecondary"
-                >{`${counter} / ${maxLength} characters`}</Typography>
+                  color={errors[field] ? 'error' : 'textSecondary'}
+                >
+                  {`${counter} / ${maxLength} characters`}
+                </Typography>
               </div>
             )}
             <Component
@@ -221,13 +223,14 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
               }
               onBlur={onBlur(name)}
               label={
-                <span>
+                <span style={{ display: 'flex', alignItems: 'center' }}>
                   {label}
                   {!initialRequired && !required && !disabled && (
                     <Typography
                       variant="body2"
                       color="textSecondary"
                       component="span"
+                      style={{ lineHeight: 1, fontSize: 12 }}
                     >
                       {' '}
                       (optional)
@@ -237,7 +240,10 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   {tooltip && (
                     <Tooltip title={<span>{tooltip}</span>}>
                       <span>
-                        <StudentsLine color="textSecondary" fontSize="small" />
+                        <StudentsLine
+                          color="textSecondary"
+                          fontSize="inherit"
+                        />
                         {/* <Icon icon="help" color="textSecondary" /> */}
                       </span>
                     </Tooltip>

@@ -6,6 +6,7 @@ import ValidatedNumberInput from '../ValidatedNumberInput'
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
 import { StudentsLine } from '../../Icons'
+import ValidatedTextInput from '../ValidatedTextInput'
 
 export default {
   title: 'Validated Input',
@@ -17,6 +18,7 @@ export const Base = () => (
   <Formik
     initialValues={{
       foo: '',
+      boo: '',
       bar: '',
       baz: undefined
     }}
@@ -34,6 +36,17 @@ export const Base = () => (
         hasCounter
       />
 
+      <ValidatedTextInput
+        field="boo"
+        label="Text"
+        required={boolean('Required', false)}
+        helperText="Helper text goes here"
+        tooltip={text('Tooltip', 'Tooltip text goes here')}
+        icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
+        maxLength={number('Max Length', 100)}
+        hasCounter
+      />
+
       <ValidatedSelect
         field="bar"
         label="Select"
@@ -42,6 +55,7 @@ export const Base = () => (
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
         icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
+        isLoading
       />
 
       <ValidatedNumberInput

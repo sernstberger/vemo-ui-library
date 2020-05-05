@@ -5,7 +5,7 @@ import ValidatedSelect from '../ValidatedSelect'
 import ValidatedNumberInput from '../ValidatedNumberInput'
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
-import { StudentsLine } from '../../Icons'
+import Icon from '../../Icon'
 import ValidatedTextInput from '../ValidatedTextInput'
 import ValidatedTextArea from '../ValidatedTextArea'
 import Errors from '../Errors'
@@ -36,7 +36,7 @@ export const Base = () => (
         required={boolean('Required', false)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
-        icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
+        icon={{ name: 'students-line', position: 'start', color: '#FF0000' }}
         maxLength={number('Max Length', 100)}
         hasCounter
       />
@@ -47,7 +47,7 @@ export const Base = () => (
         required={boolean('Required', false)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
-        icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
+        icon={{ name: 'students-line', position: 'start', color: '#FF0000' }}
         maxLength={number('Max Length', 100)}
         hasCounter
       />
@@ -69,7 +69,7 @@ export const Base = () => (
         required={boolean('Required', false)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
-        icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
+        icon={{ name: 'students-line', position: 'start', color: '#FF0000' }}
         isLoading
       />
 
@@ -79,7 +79,7 @@ export const Base = () => (
         required={boolean('Required', false)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
-        icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
+        icon={{ name: 'students-line', position: 'start', color: '#FF0000' }}
         minValue={0}
         maxValue={1000}
         stepValue={100}

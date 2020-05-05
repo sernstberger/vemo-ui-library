@@ -12,13 +12,12 @@ import { useTheme } from '@material-ui/core/styles'
 // import statusColors from '../../utils/statusColors'
 
 import styles from './styles'
-import ArrowRight from '../Icons/ArrowRight'
-import { StudentsLine } from '../Icons'
+import Icon from '../Icon'
 
 interface SnackbarProps extends MuiSnackbarProps {
   // status: Status.propTypes.status
   // link?: PropTypes.func
-  status: any
+  status: 'success'
   link?: any
 }
 
@@ -66,14 +65,15 @@ const Snackbar = (props: SnackbarProps) => {
                   color: iconColor
                 }}
               >
-                <StudentsLine color="inherit" />
+                <Icon icon="students-line" color="inherit" />
               </div>
               <div className={classes.SnackbarContentMessageTextWrapper}>
                 {message || children}
               </div>
             </div>
             {link && (
-              <ArrowRight
+              <Icon
+                icon="arrow-right"
                 className={classes.SnackbarContentLinkIcon}
                 color="inherit"
               />

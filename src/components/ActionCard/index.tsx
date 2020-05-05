@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Card, CardActionArea, CardProps } from '@material-ui/core'
+import { Card, CardActionArea, CardProps, Icon } from '@material-ui/core'
 import clsx from 'clsx'
 // import Icon from '~/app/components/Icon'
 import styles from './styles'
@@ -76,8 +76,7 @@ const ActionCard = (props: ActionCardProps) => {
           {hasIcon && !secondaryAction && (
             <div className={classes.iconContainer}>
               <div className={iconClasses}>
-                {/* {<Icon icon={primaryActionIcon} />} */}
-                {primaryActionIcon}
+                <Icon icon={primaryActionIcon} />
               </div>
             </div>
           )}

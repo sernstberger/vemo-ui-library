@@ -11,7 +11,7 @@ import {
 import NumberFormat from 'react-number-format'
 // import Icon from '../Icon'
 import styles from '../styles'
-import { StudentsLine } from '../../Icons'
+import Icon from '../../Icon'
 
 export interface CustomValidationProps {
   schema: any // not sure what the right type is here
@@ -237,11 +237,11 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   {tooltip && (
                     <Tooltip title={<span>{tooltip}</span>}>
                       <span>
-                        <StudentsLine
+                        {/* <StudentsLine
                           color="textSecondary"
                           fontSize="inherit"
-                        />
-                        {/* <Icon icon="help" color="textSecondary" /> */}
+                        /> */}
+                        <Icon icon="help" color="textSecondary" />
                       </span>
                     </Tooltip>
                   )}

@@ -34,12 +34,6 @@ const styles = makeStyles(theme => {
       alignItems: 'stretch',
       width: '100%'
     },
-    SnackbarContentMessageTextWrapper: {
-      padding: theme.spacing(0, 1.75),
-      display: 'flex',
-      alignItems: 'center',
-      width: '100%'
-    },
     SnackbarContentLinkIcon: { marginRight: '10px' },
     SnackbarActionCard: {
       borderRadius: 0,

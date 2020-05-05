@@ -67,10 +67,9 @@ const Snackbar = (props: SnackbarProps) => {
               >
                 <Icon icon="students-line" color="black" />
               </div>
-              <ActionCard className={classes.SnackbarActionCard}>fooooooo</ActionCard>
-              {/* <div className={classes.SnackbarContentMessageTextWrapper}>
+              <ActionCard className={classes.SnackbarActionCard}>
                 {message || children}
-              </div> */}
+              </ActionCard>
             </div>
             {/* {link && (
               <Icon

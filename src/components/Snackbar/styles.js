@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/styles'
 
-const styles = makeStyles((theme) => {
+const styles = makeStyles(theme => {
   const borderRadius = 30
   const minHeight = theme.spacing(7.5)
 
@@ -8,6 +8,7 @@ const styles = makeStyles((theme) => {
     SnackbarContent: {
       backgroundColor: theme.palette.background.paper,
       borderRadius,
+      overflow: 'hidden',
       padding: 0,
       [theme.breakpoints.up('md')]: {
         width: '100%',
@@ -28,14 +29,23 @@ const styles = makeStyles((theme) => {
       minHeight,
       padding: theme.spacing(0, 1.5, 0, 2.25)
     },
-    SnackbarContentWrapper: { display: 'flex', alignItems: 'stretch', width: '100%' },
+    SnackbarContentWrapper: {
+      display: 'flex',
+      alignItems: 'stretch',
+      width: '100%'
+    },
     SnackbarContentMessageTextWrapper: {
       padding: theme.spacing(0, 1.75),
       display: 'flex',
       alignItems: 'center',
       width: '100%'
     },
-    SnackbarContentLinkIcon: { marginRight: '10px' }
+    SnackbarContentLinkIcon: { marginRight: '10px' },
+    SnackbarActionCard: {
+      borderRadius: 0,
+      border: 'none',
+      flex: '1 0 auto'
+    }
   }
 })
 

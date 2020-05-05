@@ -13,6 +13,7 @@ import { useTheme } from '@material-ui/core/styles'
 
 import styles from './styles'
 import Icon from '../Icon'
+import ActionCard from '../ActionCard'
 
 interface SnackbarProps extends MuiSnackbarProps {
   // status: Status.propTypes.status
@@ -55,7 +56,6 @@ const Snackbar = (props: SnackbarProps) => {
           <div
             className={classes.SnackbarContentMessage}
             style={{ color: textColor }}
-            // style={{ color: 'green' }}
           >
             <div className={classes.SnackbarContentWrapper}>
               <div
@@ -65,19 +65,20 @@ const Snackbar = (props: SnackbarProps) => {
                   color: iconColor
                 }}
               >
-                <Icon icon="students-line" color="inherit" />
+                <Icon icon="students-line" color="black" />
               </div>
-              <div className={classes.SnackbarContentMessageTextWrapper}>
+              <ActionCard className={classes.SnackbarActionCard}>fooooooo</ActionCard>
+              {/* <div className={classes.SnackbarContentMessageTextWrapper}>
                 {message || children}
-              </div>
+              </div> */}
             </div>
-            {link && (
+            {/* {link && (
               <Icon
                 icon="arrow-right"
                 className={classes.SnackbarContentLinkIcon}
                 color="inherit"
               />
-            )}
+            )} */}
           </div>
         }
       />

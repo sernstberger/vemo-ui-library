@@ -11,7 +11,7 @@ export default {
 }
 
 export const ActionCardStory = () => (
-  <ActionCard>
+  <ActionCard hasIcon to="#">
     <Typography>Some Text</Typography>
   </ActionCard>
 )

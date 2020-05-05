@@ -19,30 +19,22 @@ interface ActionCardProps extends CardProps {
 
 const ActionCard = (props: ActionCardProps) => {
   const {
-    actionAreaClassName,
+    actionAreaClassName = '',
     children,
     className,
-    hasIcon,
+    hasIcon = true,
     iconClassName,
-    isMasked,
+    isMasked = false,
     onClick,
-    primaryActionIcon,
+    primaryActionIcon = 'arrow-right',
     secondaryAction,
     style,
     to,
     zeroState,
     disabled
 
-    //   actionAreaClassName: '',
-    //   className: '',
-    //   hasIcon: true,
     //   iconClassName: '',
-    //   isMasked: false,
-    //   onClick: () => {},
-    //   primaryActionIcon: 'arrow-right',
     //   secondaryAction: null,
-    //   style: undefined,
-    //   to: undefined,
     //   zeroState: false,
     //   disabled: false
   } = props
@@ -70,12 +62,9 @@ const ActionCard = (props: ActionCardProps) => {
   return (
     <Card className={cardClasses}>
       <CardActionArea
+        {...{ to, style, disabled, onClick }}
         className={actionAreaClasses}
         component={to && AdapterLink}
-        to={to && to}
-        onClick={onClick && onClick}
-        style={style}
-        disabled={disabled}
       >
         <div
           className={clsx(
@@ -84,13 +73,14 @@ const ActionCard = (props: ActionCardProps) => {
           )}
         >
           <div className={classes.actionContainer}>{children}</div>
-          {/* {hasIcon && !secondaryAction && (
+          {hasIcon && !secondaryAction && (
             <div className={classes.iconContainer}>
               <div className={iconClasses}>
-                {<Icon icon={primaryActionIcon} />}
+                {/* {<Icon icon={primaryActionIcon} />} */}
+                {primaryActionIcon}
               </div>
             </div>
-          )} */}
+          )}
         </div>
       </CardActionArea>
       {secondaryAction && (

@@ -40,7 +40,6 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
     | 'url'
   isLoading?: boolean
   maxLength?: number
-  minHeight?: number
   minLength?: number
   // size?: 'small' | 'medium' | 'large' | undefined
   tooltip?: any
@@ -69,8 +68,6 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     minLength = 0,
     decimalScale,
     exactLength = undefined,
-    // these should NOT be used, just here so they don't get added with ...rest
-    minHeight = undefined,
     ...rest
   } = props
 
@@ -230,7 +227,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                       variant="body2"
                       color="textSecondary"
                       component="span"
-                      style={{ lineHeight: 1, fontSize: 12 }}
+                      style={{ lineHeight: 1, fontSize: 12, margin: '0 8px 0 4px' }}
                     >
                       {' '}
                       (optional)

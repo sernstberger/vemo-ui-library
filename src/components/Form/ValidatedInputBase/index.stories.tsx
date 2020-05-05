@@ -7,6 +7,7 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
 import { StudentsLine } from '../../Icons'
 import ValidatedTextInput from '../ValidatedTextInput'
+import ValidatedTextArea from '../ValidatedTextArea'
 
 export default {
   title: 'Validated Input',
@@ -19,6 +20,7 @@ export const Base = () => (
     initialValues={{
       foo: '',
       boo: '',
+      zoo: '',
       bar: '',
       baz: undefined
     }}
@@ -44,6 +46,16 @@ export const Base = () => (
         tooltip={text('Tooltip', 'Tooltip text goes here')}
         icon={{ name: <StudentsLine />, position: 'start', color: '#FF0000' }}
         maxLength={number('Max Length', 100)}
+        hasCounter
+      />
+
+      <ValidatedTextArea
+        field="zoo"
+        label="Text Area"
+        required={boolean('Required', false)}
+        helperText="Helper text goes here"
+        tooltip={text('Tooltip', 'Tooltip text goes here')}
+        maxLength={1000}
         hasCounter
       />
 

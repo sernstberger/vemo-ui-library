@@ -1,5 +1,5 @@
 import React from 'react'
-import ValidatedInputBase, { ValidatedInputBaseProps } from './ValidatedInputBase'
+import ValidatedInputBase, { ValidatedInputBaseProps } from '../ValidatedInputBase'
 
 const ValidatedTextInput = (props: ValidatedInputBaseProps) => {
   return <ValidatedInputBase {...props} />

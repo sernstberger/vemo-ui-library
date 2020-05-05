@@ -8,6 +8,7 @@ import { Formik } from 'formik'
 import { StudentsLine } from '../../Icons'
 import ValidatedTextInput from '../ValidatedTextInput'
 import ValidatedTextArea from '../ValidatedTextArea'
+import Errors from '../Errors'
 
 export default {
   title: 'Validated Input',
@@ -27,6 +28,8 @@ export const Base = () => (
     onSubmit={() => {}}
   >
     <div>
+      <Errors name={234} />
+
       <ValidatedInputBase
         field="foo"
         label="Base"

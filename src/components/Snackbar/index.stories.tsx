@@ -1,7 +1,13 @@
 import React from 'react'
 // import { action } from '@storybook/addon-actions'
 import Snackbar from './index'
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
+import {
+  withKnobs,
+  text,
+  boolean,
+  number,
+  select
+} from '@storybook/addon-knobs'
 
 export default {
   title: 'Snackbar',
@@ -13,7 +19,7 @@ export const SnackbarStory = () => (
   <>
     <Snackbar
       open={boolean('Open', true)}
-      status="success"
+      status={select('Status', ['success', 'error'], 'success')}
       messages="yessss it works nicely"
       title="works"
       style={{ position: 'relative' }}
@@ -21,7 +27,7 @@ export const SnackbarStory = () => (
 
     <Snackbar
       open={boolean('Open', true)}
-      status="success"
+      status={select('Status', ['success', 'error'], 'success')}
       messages={[
         { text: 'asdlkfjasf', link: '/' },
         {
@@ -35,7 +41,7 @@ export const SnackbarStory = () => (
 
     <Snackbar
       open={boolean('Open', true)}
-      status="success"
+      status={select('Status', ['success', 'error'], 'success')}
       title="foooo goes here"
       messages={[
         { text: 'asdlkfjasf', link: '/' },
@@ -49,14 +55,14 @@ export const SnackbarStory = () => (
     />
     <Snackbar
       open={boolean('Open', true)}
-      status="success"
+      status={select('Status', ['success', 'error'], 'success')}
       title="message is object"
       messages={{ text: 'asdlkfjasf', link: '/' }}
       style={{ position: 'relative' }}
     />
     <Snackbar
       open={boolean('Open', true)}
-      status="success"
+      status={select('Status', ['success', 'error'], 'success')}
       title="message is array with single object"
       messages={[{ text: 'asdlkfjasf', link: '/' }]}
       style={{ position: 'relative' }}

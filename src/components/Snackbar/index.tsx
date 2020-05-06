@@ -37,6 +37,11 @@ const Snackbar = (props: SnackbarProps) => {
       color: theme.palette.success.main,
       iconColor: theme.palette.success.contrastText,
       icon: 'check'
+    },
+    error: {
+      color: theme.palette.error.main,
+      iconColor: theme.palette.error.contrastText,
+      icon: 'error-line'
     }
   }
 
@@ -46,27 +51,27 @@ const Snackbar = (props: SnackbarProps) => {
   if (messageIsString) {
     console.log('messages', messages)
     content = (
-      <>
+      <div style={{ flex: '1', padding: 12 }}>
         {title && (
-          <Typography color="textPrimary" style={{ margin: '16px 16px 0' }}>
+          <Typography color="textPrimary" gutterBottom>
             {title}
           </Typography>
         )}
         <Typography color="textPrimary">{messages}</Typography>
-      </>
+      </div>
     )
   } else {
     if (messages.length > 1) {
       content = (
         <div style={{ flex: '1' }}>
           {title && (
-            <Typography color="textPrimary" style={{ margin: '16px 16px 0' }}>
+            <Typography color="textPrimary" style={{ margin: '12px 12px 0' }}>
               {title}
             </Typography>
           )}
           {messages.map((message: SnackbarMessage, index: number) => {
             return (
-              <ActionCard key={index} className={classes.SnackbarActionCard}>
+              <ActionCard key={index} className={classes.SnackbarActionCard} actionAreaClassName={classes.SnackbarActionArea}>
                 {message.text}
               </ActionCard>
             )

@@ -44,6 +44,11 @@ const styles = makeStyles((theme: Theme) => {
       '& + &': {
         marginTop: 0
       }
+    },
+    SnackbarActionArea: {
+      '& > div': {
+        padding: theme.spacing(1.5)
+      }
     }
   }
 })

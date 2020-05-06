@@ -11,20 +11,21 @@ export default {
 
 export const SnackbarStory = () => (
   <>
-    <Snackbar
+    {/* <Snackbar
       open={boolean('Open', true)}
       status="success"
-      messages={[{ text: 'asdlkfjasf', link: '/' }]}
-    />
+      messages="yessss it works nicely"
+      title="works"
+    /> */}
 
-    {/* <Snackbar
+    <Snackbar
       open={boolean('Open', true)}
       status="success"
       messages={[
         { text: 'asdlkfjasf', link: '/' },
         { text: 'oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf', link: '/' }
       ]}
-    /> */}
+    />
   </>
 )
 

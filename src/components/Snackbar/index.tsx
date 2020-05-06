@@ -56,14 +56,14 @@ const Snackbar = (props: SnackbarProps) => {
       </>
     )
   } else {
-    content = 'adsfsaf'
-
     if (messages.length > 1) {
       content = (
         <div style={{ flex: '1' }}>
-          <Typography color="textPrimary" style={{ margin: '16px 16px 0' }}>
-            {title}
-          </Typography>
+          {title && (
+            <Typography color="textPrimary" style={{ margin: '16px 16px 0' }}>
+              {title}
+            </Typography>
+          )}
           {messages.map((message: SnackbarMessage, index: number) => {
             return (
               <ActionCard key={index} className={classes.SnackbarActionCard}>
@@ -74,10 +74,11 @@ const Snackbar = (props: SnackbarProps) => {
         </div>
       )
     } else {
+      const blah = Array.isArray(messages) ? messages[0] : messages
       content = (
         <ActionCard className={classes.SnackbarActionCard}>
-          <Typography>{title}</Typography>
-          {messages[0].text}
+          {title && <Typography>{title}</Typography>}
+          {blah.text}
         </ActionCard>
       )
     }

@@ -11,20 +11,55 @@ export default {
 
 export const SnackbarStory = () => (
   <>
-    {/* <Snackbar
+    <Snackbar
       open={boolean('Open', true)}
       status="success"
       messages="yessss it works nicely"
       title="works"
-    /> */}
+      style={{ position: 'relative' }}
+    />
 
     <Snackbar
       open={boolean('Open', true)}
       status="success"
       messages={[
         { text: 'asdlkfjasf', link: '/' },
-        { text: 'oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf', link: '/' }
+        {
+          text:
+            'oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf',
+          link: '/'
+        }
       ]}
+      style={{ position: 'relative' }}
+    />
+
+    <Snackbar
+      open={boolean('Open', true)}
+      status="success"
+      title="foooo goes here"
+      messages={[
+        { text: 'asdlkfjasf', link: '/' },
+        {
+          text:
+            'oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf',
+          link: '/'
+        }
+      ]}
+      style={{ position: 'relative' }}
+    />
+    <Snackbar
+      open={boolean('Open', true)}
+      status="success"
+      title="message is object"
+      messages={{ text: 'asdlkfjasf', link: '/' }}
+      style={{ position: 'relative' }}
+    />
+    <Snackbar
+      open={boolean('Open', true)}
+      status="success"
+      title="message is array with single object"
+      messages={[{ text: 'asdlkfjasf', link: '/' }]}
+      style={{ position: 'relative' }}
     />
   </>
 )

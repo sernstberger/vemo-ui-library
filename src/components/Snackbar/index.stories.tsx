@@ -55,7 +55,7 @@ export const SnackbarStory = () => (
       messages={{
         text:
           'This message is object. Notice that the whole card is a link, icluding the header',
-        link: '/'
+        to: '/'
       }}
       style={{ position: 'relative' }}
     />
@@ -71,7 +71,7 @@ export const SnackbarStory = () => (
         {
           text:
             'This message is in an array, but there is only one object in the array.',
-          link: '/'
+          onClick: () => alert('yeah it works!')
         }
       ]}
       style={{ position: 'relative' }}
@@ -86,11 +86,11 @@ export const SnackbarStory = () => (
       )}
       title="Now for an array of linked messages"
       messages={[
-        { text: 'message 1 goes here', link: '/' },
+        { text: 'message 1 goes here', to: '/' },
         {
           text:
             'Here is a very long message to show that the box will expand as the text gets longer. I am tired of typing but I have to keep going to make this long enough. Wow, not even close. Is it over yet? I could probably shrink the width of this snackbar, but I do not really want to do that.',
-          link: '/'
+          to: '/'
         }
       ]}
       style={{ position: 'relative' }}
@@ -104,11 +104,11 @@ export const SnackbarStory = () => (
         'success'
       )}
       messages={[
-        { text: 'Still an an array, but no title here', link: '/' },
+        { text: 'Still an an array, but no title here', to: '/' },
         {
           text:
             'This is nonsense. Oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf',
-          link: '/'
+          to: '/'
         }
       ]}
       style={{ position: 'relative' }}

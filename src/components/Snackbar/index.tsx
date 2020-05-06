@@ -74,13 +74,17 @@ const Snackbar = (props: SnackbarProps) => {
             </Typography>
           )}
           {messages.map((message: SnackbarMessage, index: number) => {
+            const { text, onClick, ...messageRest } = message
+            console.log('!!!!', messages, messageRest)
             return (
               <ActionCard
+                {...messageRest}
+                onClick={onClick}
                 key={index}
                 className={classes.SnackbarActionCard}
                 actionAreaClassName={classes.SnackbarActionArea}
               >
-                <Typography>{message.text}</Typography>
+                <Typography>{text}</Typography>
               </ActionCard>
             )
           })}
@@ -88,10 +92,16 @@ const Snackbar = (props: SnackbarProps) => {
       )
     } else {
       const blah = Array.isArray(messages) ? messages[0] : messages
+      const { text, ...messageRest } = blah
+      console.log('!!!!', messages, messageRest)
       content = (
-        <ActionCard className={classes.SnackbarActionCard}>
+        <ActionCard
+          {...messageRest}
+          className={classes.SnackbarActionCard}
+          actionAreaClassName={classes.SnackbarActionArea}
+        >
           {title && <Typography variant="h3">{title}</Typography>}
-          <Typography>{blah.text}</Typography>
+          <Typography>{text}</Typography>
         </ActionCard>
       )
     }

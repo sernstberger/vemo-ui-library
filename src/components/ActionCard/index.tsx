@@ -59,12 +59,15 @@ const ActionCard = (props: ActionCardProps) => {
     <Link innerRef={ref} {...linkProps} />
   ))
 
+  console.log('see it', props)
+
   return (
     <Card className={cardClasses}>
       <CardActionArea
-        {...{ to, style, disabled, onClick }}
+        {...{ to, style, disabled }}
+        onClick={onClick}
         className={actionAreaClasses}
-        component={to ? AdapterLink : 'div'}
+        component={to ? AdapterLink : 'button'}
       >
         <div
           className={clsx(

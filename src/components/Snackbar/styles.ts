@@ -49,6 +49,12 @@ const styles = makeStyles((theme: Theme) => {
       '& > div': {
         padding: theme.spacing(1.5)
       }
+    },
+    MessageIsStringLayout: {
+      padding: theme.spacing(1.5),
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column'
     }
   }
 })

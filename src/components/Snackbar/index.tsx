@@ -21,7 +21,7 @@ interface SnackbarMessage extends ActionCardProps {
 interface SnackbarProps extends MuiSnackbarProps {
   messages: SnackbarMessage | SnackbarMessage[] | string
   // status: Status.propTypes.status
-  status: 'success' | 'warning' | 'error'
+  status: 'success' | 'warning' | 'error' | 'pending'
   title?: string
 }
 
@@ -51,9 +51,9 @@ const Snackbar = (props: SnackbarProps) => {
   if (messageIsString) {
     console.log('messages', messages)
     content = (
-      <div style={{ flex: '1', padding: 12 }}>
+      <div className={classes.MessageIsStringLayout}>
         {title && (
-          <Typography color="textPrimary" gutterBottom>
+          <Typography variant="h3" color="textPrimary" gutterBottom>
             {title}
           </Typography>
         )}
@@ -65,14 +65,22 @@ const Snackbar = (props: SnackbarProps) => {
       content = (
         <div style={{ flex: '1' }}>
           {title && (
-            <Typography color="textPrimary" style={{ margin: '12px 12px 0' }}>
+            <Typography
+              variant="h3"
+              color="textPrimary"
+              style={{ margin: '12px 12px 0' }}
+            >
               {title}
             </Typography>
           )}
           {messages.map((message: SnackbarMessage, index: number) => {
             return (
-              <ActionCard key={index} className={classes.SnackbarActionCard} actionAreaClassName={classes.SnackbarActionArea}>
-                {message.text}
+              <ActionCard
+                key={index}
+                className={classes.SnackbarActionCard}
+                actionAreaClassName={classes.SnackbarActionArea}
+              >
+                <Typography>{message.text}</Typography>
               </ActionCard>
             )
           })}
@@ -82,8 +90,8 @@ const Snackbar = (props: SnackbarProps) => {
       const blah = Array.isArray(messages) ? messages[0] : messages
       content = (
         <ActionCard className={classes.SnackbarActionCard}>
-          {title && <Typography>{title}</Typography>}
-          {blah.text}
+          {title && <Typography variant="h3">{title}</Typography>}
+          <Typography>{blah.text}</Typography>
         </ActionCard>
       )
     }

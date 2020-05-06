@@ -15,24 +15,62 @@ export default {
   decorators: [withKnobs]
 }
 
+//         bank: 'bank',
+//         bankUpdate: 'bank-update',
+//         pending: 'pending'
+
 export const SnackbarStory = () => (
   <>
     <Snackbar
       open={boolean('Open', true)}
-      status={select('Status', ['success', 'error'], 'success')}
-      messages="yessss it works nicely"
-      title="works"
+      status={select(
+        'Status',
+        ['success', 'error', 'warning', 'pending'],
+        'success'
+      )}
+      title="With a title"
+      messages="With a message. There's no link here."
       style={{ position: 'relative' }}
     />
 
     <Snackbar
       open={boolean('Open', true)}
-      status={select('Status', ['success', 'error'], 'success')}
+      status={select(
+        'Status',
+        ['success', 'error', 'warning', 'pending'],
+        'success'
+      )}
+      messages="Just a message. There's no link or title here."
+      style={{ position: 'relative' }}
+    />
+
+    <Snackbar
+      open={boolean('Open', true)}
+      status={select(
+        'Status',
+        ['success', 'error', 'warning', 'pending'],
+        'success'
+      )}
+      title="Now for a linked message with a title"
+      messages={{
+        text:
+          'This message is object. Notice that the whole card is a link, icluding the header',
+        link: '/'
+      }}
+      style={{ position: 'relative' }}
+    />
+    <Snackbar
+      open={boolean('Open', true)}
+      status={select(
+        'Status',
+        ['success', 'error', 'warning', 'pending'],
+        'success'
+      )}
+      title="Title"
       messages={[
-        { text: 'asdlkfjasf', link: '/' },
         {
           text:
-            'oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf',
+            'This message is in an array, but there is only one object in the array.',
           link: '/'
         }
       ]}
@@ -41,41 +79,42 @@ export const SnackbarStory = () => (
 
     <Snackbar
       open={boolean('Open', true)}
-      status={select('Status', ['success', 'error'], 'success')}
-      title="foooo goes here"
+      status={select(
+        'Status',
+        ['success', 'error', 'warning', 'pending'],
+        'success'
+      )}
+      title="Now for an array of linked messages"
       messages={[
-        { text: 'asdlkfjasf', link: '/' },
+        { text: 'message 1 goes here', link: '/' },
         {
           text:
-            'oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf',
+            'Here is a very long message to show that the box will expand as the text gets longer. I am tired of typing but I have to keep going to make this long enough. Wow, not even close. Is it over yet? I could probably shrink the width of this snackbar, but I do not really want to do that.',
           link: '/'
         }
       ]}
       style={{ position: 'relative' }}
     />
+
     <Snackbar
       open={boolean('Open', true)}
-      status={select('Status', ['success', 'error'], 'success')}
-      title="message is object"
-      messages={{ text: 'asdlkfjasf', link: '/' }}
-      style={{ position: 'relative' }}
-    />
-    <Snackbar
-      open={boolean('Open', true)}
-      status={select('Status', ['success', 'error'], 'success')}
-      title="message is array with single object"
-      messages={[{ text: 'asdlkfjasf', link: '/' }]}
+      status={select(
+        'Status',
+        ['success', 'error', 'warning', 'pending'],
+        'success'
+      )}
+      messages={[
+        { text: 'Still an an array, but no title here', link: '/' },
+        {
+          text:
+            'This is nonsense. Oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf',
+          link: '/'
+        }
+      ]}
       style={{ position: 'relative' }}
     />
   </>
 )
-
-// import React from 'react'
-// import { storiesOf } from '@storybook/react'
-// import { text, boolean, select } from '@storybook/addon-knobs'
-// import Snackbar from './index'
-// import RequestErrorMessage from './RequestErrorMessage'
-// import ErrorMessageWithVemoSupport from './ErrorMessageWithVemoSupport'
 
 // storiesOf('Snackbar', module)
 //   .add('basic', () => {

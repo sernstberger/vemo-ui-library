@@ -14,12 +14,12 @@ import styles from './styles'
 import Icon from '../Icon'
 import ActionCard, { ActionCardProps } from '../ActionCard'
 
-interface SnackbarMessage extends ActionCardProps {
+export interface SnackbarMessageProps extends ActionCardProps {
   text: string
 }
 
 interface SnackbarProps extends MuiSnackbarProps {
-  messages: SnackbarMessage | SnackbarMessage[] | string
+  messages: SnackbarMessageProps | SnackbarMessageProps[] | string
   // status: Status.propTypes.status
   status: 'success' | 'warning' | 'error' | 'pending'
   title?: string

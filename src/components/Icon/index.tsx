@@ -377,7 +377,7 @@ const Icon = (props: any) => {
   const { color, icon, className, size } = props
 
   // const iconColor = statusColors(color).color
-  const iconColor = '#000'
+  const iconColor = color || '#000'
   const iconClasses = clsx(classes.Icon, className)
   const { path } = icons.find(iconObject => iconObject.name === icon)
 

@@ -10,12 +10,22 @@ export default {
 }
 
 export const SnackbarStory = () => (
-  <Snackbar
-    open={boolean('Open', true)}
-    status="success"
-    message="asdfasfdsfad"
-    link="#"
-  />
+  <>
+    <Snackbar
+      open={boolean('Open', true)}
+      status="success"
+      messages={[{ text: 'asdlkfjasf', link: '/' }]}
+    />
+
+    {/* <Snackbar
+      open={boolean('Open', true)}
+      status="success"
+      messages={[
+        { text: 'asdlkfjasf', link: '/' },
+        { text: 'oierioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasrioe aklsjdf lkasj falksdjflasdkjf aslkjf aslkjfasdlkfj aslkfjasdlk fjasf lkjasdfadkflkaf', link: '/' }
+      ]}
+    /> */}
+  </>
 )
 
 // import React from 'react'

@@ -31,7 +31,8 @@ let theme = createMuiTheme({
     },
 
     success: {
-      main: success_green
+      main: success_green,
+      contrastText: '#FFF'
     },
 
     warning: {

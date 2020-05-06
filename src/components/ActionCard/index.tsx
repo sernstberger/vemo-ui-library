@@ -64,7 +64,7 @@ const ActionCard = (props: ActionCardProps) => {
       <CardActionArea
         {...{ to, style, disabled, onClick }}
         className={actionAreaClasses}
-        component={to && AdapterLink}
+        component={to ? AdapterLink : 'div'}
       >
         <div
           className={clsx(

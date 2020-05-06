@@ -2,12 +2,12 @@ import React from 'react'
 import {
   Snackbar as MuiSnackbar,
   SnackbarContent,
-  SnackbarProps as MuiSnackbarProps
+  SnackbarProps as MuiSnackbarProps,
+  Typography
 } from '@material-ui/core'
 
 import { useTheme } from '@material-ui/core/styles'
 
-// import Icon from '../Icon'
 // import Status from '../Status'
 // import statusColors from '../../utils/statusColors'
 
@@ -15,69 +15,75 @@ import styles from './styles'
 import Icon from '../Icon'
 import ActionCard from '../ActionCard'
 
-interface SnackbarProps extends MuiSnackbarProps {
-  // status: Status.propTypes.status
-  // link?: PropTypes.func
-  status: 'success'
+interface SnackbarMessage {
+  text: string
   link?: any
 }
 
-const Snackbar = (props: SnackbarProps) => {
-  const {
-    status,
-    message,
-    link,
-    children,
-    ...rest
+interface SnackbarProps extends MuiSnackbarProps {
+  messages: SnackbarMessage | SnackbarMessage[] | string
+  // status: Status.propTypes.status
+  status: 'success' | 'warning' | 'error'
+  title?: string
+}
 
-    // link: null,
-    // message: null,
-    // children: null,
-  } = props
+const Snackbar = (props: SnackbarProps) => {
+  const { status, messages, children, ...rest } = props
   const theme = useTheme()
   const classes = styles()
 
   // const statusObject = statusColors(status)
 
-  const backgroundColor = '#FFF'
-  const textColor = '#000'
-  const color = theme.palette.primary.main
-  const iconColor = '#FFF'
+  const statuses = {
+    success: {
+      color: theme.palette.success.main,
+      iconColor: theme.palette.success.contrastText,
+      icon: 'check'
+    }
+  }
 
-  // const Icon = statusObject.icon
   return (
-    <MuiSnackbar {...rest} onClick={link}>
+    <MuiSnackbar {...rest}>
       <SnackbarContent
         className={classes.SnackbarContent}
-        style={{
-          backgroundColor: backgroundColor
-        }}
         message={
-          <div
-            className={classes.SnackbarContentMessage}
-            style={{ color: textColor }}
-          >
+          <div className={classes.SnackbarContentMessage}>
             <div className={classes.SnackbarContentWrapper}>
               <div
                 className={classes.SnackbarContentMessageIconWrapper}
                 style={{
-                  backgroundColor: color,
-                  color: iconColor
+                  backgroundColor: statuses[status].color,
+                  color: statuses[status].iconColor
                 }}
               >
-                <Icon icon="students-line" color="black" />
+                <Icon icon={statuses[status].icon} />
               </div>
-              <ActionCard className={classes.SnackbarActionCard}>
-                {message || children}
-              </ActionCard>
+              {messages.length > 1 ? (
+                <div style={{ flex: '1' }}>
+                  <Typography
+                    color="textPrimary"
+                    style={{ margin: '16px 16px 0' }}
+                  >
+                    Titlegoeshere
+                  </Typography>
+                  {messages.map((message: SnackbarMessage, index: number) => {
+                    return (
+                      <ActionCard
+                        key={index}
+                        className={classes.SnackbarActionCard}
+                      >
+                        {message.text}
+                      </ActionCard>
+                    )
+                  })}
+                </div>
+              ) : (
+                <ActionCard className={classes.SnackbarActionCard}>
+                  <Typography>Titlegoeshere</Typography>
+                  {messages[0].text}
+                </ActionCard>
+              )}
             </div>
-            {/* {link && (
-              <Icon
-                icon="arrow-right"
-                className={classes.SnackbarContentLinkIcon}
-                color="inherit"
-              />
-            )} */}
           </div>
         }
       />

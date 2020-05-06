@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/styles'
+import { Theme } from '@material-ui/core'
 
-const styles = makeStyles(theme => {
+const styles = makeStyles((theme: Theme) => {
   const borderRadius = 30
   const minHeight = theme.spacing(7.5)
 
@@ -38,7 +39,11 @@ const styles = makeStyles(theme => {
     SnackbarActionCard: {
       borderRadius: 0,
       border: 'none',
-      flex: '1 0 auto'
+      flex: '1 0 auto',
+
+      '& + &': {
+        marginTop: 0
+      }
     }
   }
 })

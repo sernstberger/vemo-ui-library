@@ -170,12 +170,11 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
               {isLoading ? (
                 <CircularProgress size={20} />
               ) : (
-                // <Icon
-                //   color={icon.color}
-                //   icon={icon.name}
-                //   size={isLarge ? 'inherit' : undefined}
-                // />
-                icon.name
+                <Icon
+                  color={icon!.color}
+                  icon={icon.name}
+                  size={isLarge ? 'inherit' : undefined}
+                />
               )}
             </InputAdornment>
           )
@@ -227,7 +226,11 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                       variant="body2"
                       color="textSecondary"
                       component="span"
-                      style={{ lineHeight: 1, fontSize: 12, margin: '0 8px 0 4px' }}
+                      style={{
+                        lineHeight: 1,
+                        fontSize: 12,
+                        margin: '0 8px 0 4px'
+                      }}
                     >
                       {' '}
                       (optional)

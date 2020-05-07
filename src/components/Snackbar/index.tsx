@@ -49,7 +49,6 @@ const Snackbar = (props: SnackbarProps) => {
 
   let content
   if (messageIsString) {
-    console.log('messages', messages)
     content = (
       <div className={classes.MessageIsStringLayout}>
         {title && (
@@ -75,7 +74,6 @@ const Snackbar = (props: SnackbarProps) => {
           )}
           {messages.map((message: SnackbarMessageProps, index: number) => {
             const { text, onClick, ...messageRest } = message
-            console.log('!!!!', messages, messageRest)
             return (
               <ActionCard
                 {...messageRest}
@@ -93,7 +91,6 @@ const Snackbar = (props: SnackbarProps) => {
     } else {
       const blah = Array.isArray(messages) ? messages[0] : messages
       const { text, ...messageRest } = blah
-      console.log('!!!!', messages, messageRest)
       content = (
         <ActionCard
           {...messageRest}

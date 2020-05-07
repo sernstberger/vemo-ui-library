@@ -59,8 +59,6 @@ const ActionCard = (props: ActionCardProps) => {
     <Link innerRef={ref} {...linkProps} />
   ))
 
-  console.log('see it', props)
-
   return (
     <Card className={cardClasses}>
       <CardActionArea

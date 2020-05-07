@@ -1,13 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { SvgIcon } from '@material-ui/core'
+import { SvgIcon, SvgIconProps } from '@material-ui/core'
 import clsx from 'clsx'
 
 // import statusColors from '~/app/helpers/statusColors'
 
 import styles from './styles'
 
-const icons = [
+interface IconsProps {
+  name: string
+  path: string
+}
+
+const icons: IconsProps[] = [
   // Primary
   {
     name: 'students-line',
@@ -372,42 +376,36 @@ const icons = [
   }
 ]
 
-const Icon = (props: any) => {
+interface IconProps extends SvgIconProps {
+  color?:
+    | 'inherit'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'success'
+    | 'disabled'
+    | 'textSecondary'
+    | 'warning'
+
+  icon: string
+}
+
+const Icon = (props: IconProps) => {
   const classes = styles()
-  const { color, icon, className, size } = props
+  const { color = 'inherit', icon, className, fontSize = 'default' } = props
 
   // const iconColor = statusColors(color).color
   const iconColor = color || '#000'
   const iconClasses = clsx(classes.Icon, className)
-  const { path } = icons.find(iconObject => iconObject.name === icon)
+  const { path } = icons.find(
+    (iconObject: IconsProps) => iconObject.name === icon
+  ) as IconsProps
 
   return (
-    <SvgIcon className={iconClasses} htmlColor={iconColor} fontSize={size}>
+    <SvgIcon className={iconClasses} htmlColor={iconColor} {...{fontSize}}>
       <path d={path} />
     </SvgIcon>
   )
-}
-
-Icon.propTypes = {
-  color: PropTypes.oneOf([
-    'inherit',
-    'primary',
-    'secondary',
-    'error',
-    'success',
-    'disabled',
-    'textSecondary',
-    'warning'
-  ]),
-  icon: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  size: PropTypes.oneOf(['inherit', 'default', 'small', 'large'])
-}
-
-Icon.defaultProps = {
-  color: 'inherit',
-  className: '',
-  size: 'default'
 }
 
 export default Icon

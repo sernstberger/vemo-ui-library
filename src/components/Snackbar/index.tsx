@@ -73,7 +73,7 @@ const Snackbar = (props: SnackbarProps) => {
               {title}
             </Typography>
           )}
-          {messages.map((message: SnackbarMessage, index: number) => {
+          {messages.map((message: SnackbarMessageProps, index: number) => {
             const { text, onClick, ...messageRest } = message
             console.log('!!!!', messages, messageRest)
             return (

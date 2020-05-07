@@ -1,56 +1,36 @@
 import React from 'react'
 import Snackbar, { SnackbarMessageProps } from '../../Snackbar'
 
-interface ErrorsProps extends SnackbarMessageProps {}
-
-const foo = {
-  employer: 'Employer name is required',
-  employmentStartDate: 'Employment start date is required',
-  files: 'At least one file is required',
-  hourlyRate: 'Hourly rate is required',
-  hoursPerWeek: 'Average hours per week is required',
-  jobLocationCity: 'City is required',
-  jobLocationState: 'State is required',
-  jobTitle: 'Job title is required'
-}
-
-const errorArray = Object.keys(foo).map(function(key) {
-  return { field: key, message: foo[key] }
-})
-
-const bar = errorArray.map(baz => {
-  return {
-    text: baz.message,
-    onClick: () => {
-      alert(baz.field)
-    }
-  }
-})
-
-// const errorItem = (error) => {
-//   return (
-//     <div key={error.field}>
-//       {/* <ActionCard className={classes.SnackbarActionCard} onClick={() => scrolly(error.field)}> */}
-//       <div className={classes.SnackbarActionCard} onClick={() => scrolly(error.field)}>
-//         {error.message}
-//       </div>
-//       {/* </ActionCard> */}
-//     </div>
-//   )
-// }
-
-const scrolly = (elementId: any) => {
-  const formFieldElement = document.getElementById(elementId)
-  formFieldElement!.focus()
+interface ErrorsProps {
+  errors: any
 }
 
 const Errors = (props: ErrorsProps) => {
+  const { errors } = props
+
+  const errorArray = Object.keys(errors).map(function(key) {
+    return { field: key, message: errors[key] }
+  })
+
+  const formattedMessages = errorArray.map((message: SnackbarMessageProps) => {
+    return {
+      text: message.message,
+      onClick: () => {
+        alert(message.field)
+      }
+    }
+  })
+
+  const scrolly = (elementId: any) => {
+    const formFieldElement = document.getElementById(elementId)
+    formFieldElement!.focus()
+  }
   return (
     <Snackbar
       open
       status="error"
       title="Something is not right..."
-      messages={bar}
+      messages={formattedMessages}
     />
   )
 }

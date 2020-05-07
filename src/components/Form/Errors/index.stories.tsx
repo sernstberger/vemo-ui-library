@@ -11,4 +11,17 @@ export default {
   decorators: [withKnobs]
 }
 
-export const Base = () => <Errors />
+export const Base = () => (
+  <Errors
+    errors={{
+      employer: 'Employer name is required',
+      employmentStartDate: 'Employment start date is required',
+      files: 'At least one file is required',
+      hourlyRate: 'Hourly rate is required',
+      hoursPerWeek: 'Average hours per week is required',
+      jobLocationCity: 'City is required',
+      jobLocationState: 'State is required',
+      jobTitle: 'Job title is required'
+    }}
+  />
+)

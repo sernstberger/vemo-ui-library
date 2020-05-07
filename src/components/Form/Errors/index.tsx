@@ -39,6 +39,8 @@ const Errors = (props: ErrorsProps) => {
     
   })
 
+  console.log('errorArray', errorArray)
+
   const formattedMessages = errorArray.map((message: ErrorProps) => {
     return {
       text: message.message,

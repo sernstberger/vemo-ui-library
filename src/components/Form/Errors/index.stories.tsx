@@ -23,12 +23,25 @@ export const Base = () => (
     //   jobLocationState: 'State is required',
     //   jobTitle: 'Job title is required'
     // }}
+    // errors={{
+    //   fundingAmount: "Funding amount can't be less than $2,000.00",
+    //   loans: [
+    //     { rate: 'Interest Rate is required', term: "Term can't be less than 0" }
+    //   ]
+    // }}
+
     errors={{
-      fundingAmount: "Funding amount can't be less than $2,000.00",
+      fundingAmount: 'Funding amount is required',
+
       loans: [
-        { rate: 'Interest Rate is required' },
-        { term: 'Term is required' }
-      ]
+        {
+          rate: "Interest Rate can't be less than 0",
+          term: 'Term is required'
+        },
+
+        { rate: 'Interest Rate is required', term: "Term can't be less than 0" }
+      ],
+      startingSalary: 'Starting salary is required'
     }}
   />
 )

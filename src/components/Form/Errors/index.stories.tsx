@@ -13,15 +13,22 @@ export default {
 
 export const Base = () => (
   <Errors
+    // errors={{
+    //   employer: 'Employer name is required',
+    //   employmentStartDate: 'Employment start date is required',
+    //   files: 'At least one file is required',
+    //   hourlyRate: 'Hourly rate is required',
+    //   hoursPerWeek: 'Average hours per week is required',
+    //   jobLocationCity: 'City is required',
+    //   jobLocationState: 'State is required',
+    //   jobTitle: 'Job title is required'
+    // }}
     errors={{
-      employer: 'Employer name is required',
-      employmentStartDate: 'Employment start date is required',
-      files: 'At least one file is required',
-      hourlyRate: 'Hourly rate is required',
-      hoursPerWeek: 'Average hours per week is required',
-      jobLocationCity: 'City is required',
-      jobLocationState: 'State is required',
-      jobTitle: 'Job title is required'
+      fundingAmount: "Funding amount can't be less than $2,000.00",
+      loans: [
+        { rate: 'Interest Rate is required' },
+        { term: 'Term is required' }
+      ]
     }}
   />
 )

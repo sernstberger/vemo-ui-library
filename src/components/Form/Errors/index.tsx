@@ -4,6 +4,7 @@ import { FormikErrors, FormikValues } from 'formik'
 
 interface ErrorsProps {
   errors: FormikErrors<FormikValues>
+  title?: string
 }
 
 interface ErrorProps {
@@ -12,7 +13,7 @@ interface ErrorProps {
 }
 
 const Errors = (props: ErrorsProps) => {
-  const { errors } = props
+  const { errors, title = 'Something is not right...' } = props
 
   // let errorArray: any[] = []
 
@@ -52,9 +53,10 @@ const Errors = (props: ErrorsProps) => {
         const jeeze = Object.entries(barf)
         console.log('!!!!', jeeze)
         jeeze.forEach(([_key, _value]) => {
-          obj = { field: _key, message: _value}
+          obj = { field: _key, message: _value }
+          errorArray = [...errorArray, obj]
+          obj = {}
         })
-        errorArray = [...errorArray, obj]
       })
     }
     errorArray = [...errorArray, obj]
@@ -80,12 +82,7 @@ const Errors = (props: ErrorsProps) => {
   // }
 
   return (
-    <Snackbar
-      open
-      status="error"
-      title="Something is not right..."
-      messages={formattedMessages}
-    />
+    <Snackbar open status="error" title={title} messages={formattedMessages} />
   )
 }
 

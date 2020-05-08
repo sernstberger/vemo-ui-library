@@ -22,9 +22,9 @@ export const Base = () => (
 
       const bleh = {
         loans: [
-          { rate: 'Interest Rate is required', term: "Term can't be less than 0" },
-          { rate: 'Interest Rate is required', term: "Term can't be less than 0" },
-          { rate: 'Interest Rate is required', term: "Term can't be less than 0" }
+          { rate: 'Interest Rate is required 111111', term: "Term can't be less than 0 111111" },
+          { rate: 'Interest Rate is required 222222', term: "Term can't be less than 0 222222" },
+          { rate: 'Interest Rate is required 333333', term: "Term can't be less than 0 333333" }
         ],
         field1: 'field1 is required',
         field2: 'field2 is required'
@@ -58,12 +58,12 @@ export const Base = () => (
                 {props.values.loans.map((loan, index) => (
                   <div key={index}>
                     <ValidatedTextInput
-                      label="what"
+                      label="rate"
                       field={`loans[${index}].rate`}
                       required
                     />
                     <ValidatedTextInput
-                      label="what"
+                      label="term"
                       field={`loans.${index}.term`}
                       required
                     />

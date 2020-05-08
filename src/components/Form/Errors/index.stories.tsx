@@ -32,7 +32,7 @@ export const Base = () => (
 
       return (
         <>
-          {/* {foo && ( */}
+          {foo && (
             <Errors
               // errors={{
               //   employer: 'Employer name is required',
@@ -44,10 +44,10 @@ export const Base = () => (
               //   jobLocationState: 'State is required',
               //   jobTitle: 'Job title is required'
               // }}
-              // errors={props.errors}
-              errors={bleh}
+              errors={props.errors}
+              // errors={bleh}
             />
-          {/* )} */}
+          )}
           <ValidatedTextInput field="nope" label="asdfsdaf" required />
           <ValidatedTextInput field="meh" label="test" required />
 

@@ -14,32 +14,56 @@ interface ErrorProps {
 const Errors = (props: ErrorsProps) => {
   const { errors } = props
 
+  // let errorArray: any[] = []
+
+  // Object.keys(errors).map((key: string) => {
+  //   let meh = errors
+
+  //   const foo = errors[key]
+  //   // let bar: any[] = []
+  //   if (Array.isArray(foo)) {
+  //     // bar = [...bar, ...errorArray(foo)]
+  //     // bar = foo
+  //     foo.map((blah: any) => {
+  //       meh = { ...meh, ...blah }
+  //     })
+  //     delete meh['loans']
+  //   }
+
+  //   errorArray = Object.keys(meh).map((_key: string) => {
+  //     return { field: _key, message: meh[_key] } as ErrorProps
+  //   })
+
+  //   return
+
+  // })
+
+  const foo = Object.entries(errors)
   let errorArray: any[] = []
-
-  Object.keys(errors).map((key: string) => {
-    let meh = errors
-
-    const foo = errors[key]
-    // let bar: any[] = []
-    if (Array.isArray(foo)) {
-      console.log('shouldnt see this')
-      // bar = [...bar, ...errorArray(foo)]
-      // bar = foo
-      foo.map((blah: any) => {
-        meh = { ...meh, ...blah }
+  foo.forEach(([key, value]) => {
+    let obj
+    if (!Array.isArray(value)) {
+      obj = { field: key, message: value }
+    } else {
+      // value.forEach(([_key, _value]) => {
+      //   obj = { field: _key, message: _value }
+      // })
+      value.map((barf: any) => {
+        const jeeze = Object.entries(barf)
+        console.log('!!!!', jeeze)
+        jeeze.forEach(([_key, _value]) => {
+          obj = { field: _key, message: _value}
+        })
+        errorArray = [...errorArray, obj]
       })
-      delete meh['loans']
-    } 
-
-    errorArray = Object.keys(meh).map((_key: string) => {
-      return { field: _key, message: meh[_key] } as ErrorProps
-    })
-
-    return
-    
+    }
+    errorArray = [...errorArray, obj]
+    // console.log(key); // 'one'
+    // console.log(value); // 1
   })
+  // const bar = foo.flat()
 
-  console.log('errorArray', errorArray)
+  // console.log('errors', errorArray)
 
   const formattedMessages = errorArray.map((message: ErrorProps) => {
     return {

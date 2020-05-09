@@ -7,8 +7,8 @@ const styles = makeStyles((theme: Theme) => ({
     display: 'flex',
     minHeight: theme.spacing(8),
     [theme.breakpoints.up('md')]: {
-      marginLeft: theme.drawer.width,
-      width: `calc(100% - ${theme.drawer.width}px)`
+      marginLeft: theme.drawerWidth,
+      width: `calc(100% - ${theme.drawerWidth}px)`
     }
   },
 
@@ -20,7 +20,7 @@ const styles = makeStyles((theme: Theme) => ({
     borderTop: '1px solid red',
     overflowX: 'hidden',
     paddingTop: 30,
-    width: theme.drawer.width
+    width: theme.drawerWidth
   }
 }))
 

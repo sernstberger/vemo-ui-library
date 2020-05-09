@@ -57,9 +57,7 @@ let theme = createMuiTheme({
       secondary: mystic_grey
     }
   },
-  drawer: {
-    width: 210
-  },
+  drawerWidth: 210,
   spacing: 8,
   typography: {
     fontFamily: '"Montserrat", "Helvetica", "Arial", sans-serif',
@@ -147,7 +145,7 @@ theme = {
         minWidth: theme.spacing(22)
       },
       outlined: {
-        padding: theme.spacing(1, 3),
+        padding: theme.spacing(1, 3)
         // backgroundColor: catskill_white
       },
       fullWidth: {

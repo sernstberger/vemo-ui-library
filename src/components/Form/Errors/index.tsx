@@ -1,104 +1,89 @@
 import React from 'react'
 import Snackbar, { SnackbarMessageProps } from '../../Snackbar'
+import { FormikErrors, FormikValues } from 'formik'
 
 interface ErrorsProps {
-  errors: any
+  errors: FormikErrors<FormikValues>
+  title?: string
+}
+
+interface ErrorProps {
+  field: string
+  message: string
 }
 
 const Errors = (props: ErrorsProps) => {
-  const { errors } = props
+  const { errors, title = 'Something is not right...' } = props
 
-  const errorArray = Object.keys(errors).map(function(key) {
-    return { field: key, message: errors[key] }
+  // let errorArray: any[] = []
+
+  // Object.keys(errors).map((key: string) => {
+  //   let meh = errors
+
+  //   const foo = errors[key]
+  //   // let bar: any[] = []
+  //   if (Array.isArray(foo)) {
+  //     // bar = [...bar, ...errorArray(foo)]
+  //     // bar = foo
+  //     foo.map((blah: any) => {
+  //       meh = { ...meh, ...blah }
+  //     })
+  //     delete meh['loans']
+  //   }
+
+  //   errorArray = Object.keys(meh).map((_key: string) => {
+  //     return { field: _key, message: meh[_key] } as ErrorProps
+  //   })
+
+  //   return
+
+  // })
+
+  const foo = Object.entries(errors)
+  let errorArray: any[] = []
+  foo.forEach(([key, value]) => {
+    let obj
+    if (!Array.isArray(value)) {
+      obj = { field: key, message: value }
+    } else {
+      // value.forEach(([_key, _value]) => {
+      //   obj = { field: _key, message: _value }
+      // })
+      value.map((barf: any) => {
+        const jeeze = Object.entries(barf)
+        console.log('!!!!', jeeze)
+        jeeze.forEach(([_key, _value]) => {
+          obj = { field: _key, message: _value }
+          errorArray = [...errorArray, obj]
+          obj = {}
+        })
+      })
+    }
+    errorArray = [...errorArray, obj]
+    // console.log(key); // 'one'
+    // console.log(value); // 1
   })
+  // const bar = foo.flat()
 
-  const formattedMessages = errorArray.map((message: SnackbarMessageProps) => {
+  // console.log('errors', errorArray)
+
+  const formattedMessages = errorArray.map((message: ErrorProps) => {
     return {
       text: message.message,
       onClick: () => {
         alert(message.field)
       }
-    }
+    } as SnackbarMessageProps
   })
 
-  const scrolly = (elementId: any) => {
-    const formFieldElement = document.getElementById(elementId)
-    formFieldElement!.focus()
-  }
+  // const scrolly = (elementId: any) => {
+  //   const formFieldElement = document.getElementById(elementId)
+  //   formFieldElement!.focus()
+  // }
+
   return (
-    <Snackbar
-      open
-      status="error"
-      title="Something is not right..."
-      messages={formattedMessages}
-    />
+    <Snackbar open status="error" title={title} messages={formattedMessages} />
   )
 }
 
 export default Errors
-
-// import { useFormikContext } from 'formik'
-// import { Grid, Typography } from '@material-ui/core'
-// import PropTypes from 'prop-types'
-
-// // import ActionCard from '../ActionCard'
-// import Snackbar from '../../Snackbar'
-// import styles from '../styles'
-
-// const Errors = props => {
-//   const { errors } = useFormikContext()
-//   const classes = styles()
-
-//   const errorArray = Object.keys(errors).map(function(key) {
-//     return { field: key, message: errors[key] }
-//   })
-
-//   // const errorItem = (error) => {
-//   //   return (
-//   //     <div key={error.field}>
-//   //       {/* <ActionCard className={classes.SnackbarActionCard} onClick={() => scrolly(error.field)}> */}
-//   //       <div className={classes.SnackbarActionCard} onClick={() => scrolly(error.field)}>
-//   //         {error.message}
-//   //       </div>
-//   //       {/* </ActionCard> */}
-//   //     </div>
-//   //   )
-//   // }
-
-//   return (
-//     <>
-//       {errorArray.length > 0 && (
-//         <Snackbar
-//           open
-//           className={classes.errorSnackbar}
-//           status="error"
-//           message={
-//             <div className={classes.errorSnackbarMessage}>
-//               <Typography
-//                 className={classes.errorSnackbarTitle}
-//                 style={{ margin: 0 }}
-//               >
-//                 Please fix invalid fields to see accurate data
-//               </Typography>
-//               {/* {errorArray.map((error, index) => {
-//                     if (error.message.length > 0) {
-//                       error.message.map((_error) => {
-//                         const foo = { field: 'rate', message: _error.rate }
-//                         // _error.rate
-//                         return errorItem(foo)
-//                       })
-//                     }
-
-//                     return errorItem(error)
-//                   })} */}
-//             </div>
-//           }
-//         />
-//       )}
-//     </>
-//   )
-// }
-
-// Errors.propTypes = {
-//   name: PropTypes.number.isRequired
-// }

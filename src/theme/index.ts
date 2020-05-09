@@ -110,10 +110,10 @@ let theme = createMuiTheme({
     overline: {
       // fontSize: '1.4rem',
     },
-    footnote: {
-      fontSize: '0.8125rem',
-      fontWeight: 'normal'
-    }
+    // footnote: {
+    //   fontSize: '0.8125rem',
+    //   fontWeight: 'normal'
+    // }
   }
 })
 

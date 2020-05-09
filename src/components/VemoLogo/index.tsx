@@ -1,14 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const VemoLogo = (props) => {
-  const { className, width } = props
+const VemoLogo = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       viewBox="14.5 14.5 90 31"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      {...{ xmlnsXlink: 'http://www.w3.org/1999/xlink', width, className }}
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      {...props}
     >
       <defs>
         <polygon
@@ -20,8 +19,17 @@ const VemoLogo = (props) => {
           points="0.00294599018 0.00998416074 12.6325041 0.00998416074 12.6325041 11.829329 0.00294599018 11.829329"
         />
       </defs>
-      <g id="Logo-/-Color" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-        <g id="Vemo-Logo-Final-Large" transform="translate(15.000000, 15.000000)">
+      <g
+        id="Logo-/-Color"
+        stroke="none"
+        strokeWidth="1"
+        fill="none"
+        fillRule="evenodd"
+      >
+        <g
+          id="Vemo-Logo-Final-Large"
+          transform="translate(15.000000, 15.000000)"
+        >
           <path
             d="M48.7607529,27.1710147 C48.5236007,26.2392962 47.8544681,25.8243535 47.0752537,25.8243535 C46.2707529,25.8243535 45.6693781,26.2562848 45.406743,27.1710147 L48.7607529,27.1710147 Z M45.3474304,27.6792471 C45.3728642,28.7126023 46.0758756,29.466383 47.0413257,29.466383 C47.9815385,29.466383 48.4303601,28.9327169 48.7607529,28.3907038 L49.2436989,28.6448445 C48.7861866,29.5425859 48.0831751,29.9914566 47.1006874,29.9914566 C45.6100164,29.9914566 44.754599,28.8481178 44.754599,27.6453191 C44.754599,26.4172831 45.6609329,25.265401 47.0668085,25.265401 C48.3458101,25.265401 49.3792144,26.188527 49.3959083,27.6792471 L45.3474304,27.6792471 L45.3474304,27.6792471 Z"
             id="Fill-1"
@@ -144,16 +152,6 @@ const VemoLogo = (props) => {
       </g>
     </svg>
   )
-}
-
-VemoLogo.defaultProps = {
-  className: null,
-  width: null
-}
-
-VemoLogo.propTypes = {
-  className: PropTypes.string,
-  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default VemoLogo

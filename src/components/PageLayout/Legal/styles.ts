@@ -11,7 +11,7 @@ const styles = makeStyles((theme: Theme) => ({
     justifyContent: 'center'
   },
   legalLink: {
-    ...theme.typography.footnote,
+    // ...theme.typography.footnote,
     textDecoration: 'none',
     border: '1px solid transparent',
     '&:hover': {

@@ -58,6 +58,7 @@ let theme = createMuiTheme({
       secondary: mystic_grey
     }
   },
+  drawerWidth: 210,
   spacing: 8,
   typography: {
     fontFamily: '"proxima-nova", "Montserrat", "Helvetica", "Arial", sans-serif',
@@ -110,10 +111,10 @@ let theme = createMuiTheme({
     overline: {
       // fontSize: '1.4rem',
     },
-    footnote: {
-      fontSize: '0.8125rem',
-      fontWeight: 'normal'
-    }
+    // footnote: {
+    //   fontSize: '0.8125rem',
+    //   fontWeight: 'normal'
+    // }
   }
 })
 
@@ -145,7 +146,7 @@ theme = {
         minWidth: theme.spacing(22)
       },
       outlined: {
-        padding: theme.spacing(1, 3),
+        padding: theme.spacing(1, 3)
         // backgroundColor: catskill_white
       },
       fullWidth: {

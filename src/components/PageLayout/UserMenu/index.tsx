@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Button, Menu } from '@material-ui/core'
-// import Icon from '../../Icons'
+import Icon from '../../Icon'
 import UserMenuItem from './UserMenuItem'
 
 const UserMenu = () => {
@@ -22,7 +22,7 @@ const UserMenu = () => {
         onClick={handleClick}
       >
         Name goes here
-        {/* <Icon icon="arrow-down" /> */}
+        <Icon icon="arrow-down" />
         <Avatar>SE</Avatar>
       </Button>
       <Menu
@@ -33,7 +33,8 @@ const UserMenu = () => {
         open
         onClose={handleClose}
       >
-        <UserMenuItem
+        ladsfjlkadsjf
+        {/* <UserMenuItem
           to="/settings"
           onClick={handleClose}
           text="My account"
@@ -41,8 +42,8 @@ const UserMenu = () => {
             showDetails ? 'View & edit your account and personal details' : ''
           }
           icon="student"
-          highlight={false}
-        />
+          selected={false}
+        /> */}
       </Menu>
     </div>
   )

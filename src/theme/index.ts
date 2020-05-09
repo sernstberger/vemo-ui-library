@@ -31,7 +31,8 @@ let theme = createMuiTheme({
     },
 
     success: {
-      main: success_green
+      main: success_green,
+      contrastText: '#FFF'
     },
 
     warning: {
@@ -59,7 +60,7 @@ let theme = createMuiTheme({
   },
   spacing: 8,
   typography: {
-    fontFamily: '"Montserrat", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"proxima-nova", "Montserrat", "Helvetica", "Arial", sans-serif',
 
     h1: {
       fontSize: '1.625rem',
@@ -97,11 +98,11 @@ let theme = createMuiTheme({
     },
     body1: {
       fontSize: '1rem',
-      fontWeight: 600
+      fontWeight: 500
     },
     body2: {
       fontSize: '0.875rem',
-      fontWeight: 500
+      fontWeight: 400
     },
     caption: {
       // fontSize: '1.6rem',

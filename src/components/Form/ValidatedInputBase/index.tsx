@@ -11,7 +11,7 @@ import {
 import NumberFormat from 'react-number-format'
 // import Icon from '../Icon'
 import styles from '../styles'
-import { StudentsLine } from '../../Icons'
+import Icon from '../../Icon'
 
 export interface CustomValidationProps {
   schema: any // not sure what the right type is here
@@ -170,12 +170,11 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
               {isLoading ? (
                 <CircularProgress size={20} />
               ) : (
-                // <Icon
-                //   color={icon.color}
-                //   icon={icon.name}
-                //   size={isLarge ? 'inherit' : undefined}
-                // />
-                icon.name
+                <Icon
+                  color={icon!.color}
+                  icon={icon.name}
+                  size={isLarge ? 'inherit' : undefined}
+                />
               )}
             </InputAdornment>
           )
@@ -227,7 +226,11 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                       variant="body2"
                       color="textSecondary"
                       component="span"
-                      style={{ lineHeight: 1, fontSize: 12, margin: '0 8px 0 4px' }}
+                      style={{
+                        lineHeight: 1,
+                        fontSize: 12,
+                        margin: '0 8px 0 4px'
+                      }}
                     >
                       {' '}
                       (optional)
@@ -237,11 +240,11 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   {tooltip && (
                     <Tooltip title={<span>{tooltip}</span>}>
                       <span>
-                        <StudentsLine
+                        {/* <StudentsLine
                           color="textSecondary"
                           fontSize="inherit"
-                        />
-                        {/* <Icon icon="help" color="textSecondary" /> */}
+                        /> */}
+                        <Icon icon="help" color="textSecondary" />
                       </span>
                     </Tooltip>
                   )}

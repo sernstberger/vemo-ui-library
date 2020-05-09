@@ -3,12 +3,16 @@ import { Theme } from '@material-ui/core'
 
 const styles = makeStyles((theme: Theme) => ({
   appBar: {
-    backgroundColor: 'transparent',
+    alignItems: 'center',
+    backgroundColor: theme.palette.common.white,
+    color: theme.palette.text.primary,
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     minHeight: theme.spacing(8),
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.drawerWidth,
-      width: `calc(100% - ${theme.drawerWidth}px)`
+    padding: theme.spacing(0, 4),
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: `calc(${theme.drawerWidth}px + ${theme.spacing(4)}px)`,
     }
   },
 
@@ -26,7 +30,7 @@ const styles = makeStyles((theme: Theme) => ({
   LayoutContent: {
     backgroundColor: 'white',
     padding: theme.spacing(4),
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       paddingLeft: `calc(${theme.drawerWidth}px + ${theme.spacing(4)}px)`
     }
   }

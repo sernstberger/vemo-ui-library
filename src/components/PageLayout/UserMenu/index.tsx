@@ -1,9 +1,7 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import { Avatar } from '@material-ui/core'
+import { Avatar, Button, Menu } from '@material-ui/core'
 // import Icon from '../../Icons'
+import UserMenuItem from './UserMenuItem'
 
 const UserMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
@@ -31,12 +29,20 @@ const UserMenu = () => {
         id="user-menu"
         anchorEl={anchorEl}
         keepMounted
-        open={Boolean(anchorEl)}
+        // open={Boolean(anchorEl)}
+        open
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <UserMenuItem
+          to="/settings"
+          onClick={handleClose}
+          text="My account"
+          secondary={
+            showDetails ? 'View & edit your account and personal details' : ''
+          }
+          icon="student"
+          highlight={false}
+        />
       </Menu>
     </div>
   )

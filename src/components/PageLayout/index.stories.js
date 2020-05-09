@@ -5,7 +5,6 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 
 export default {
   title: 'Page Layout',
-  component: PageLayout,
   decorators: [withKnobs]
 }
 

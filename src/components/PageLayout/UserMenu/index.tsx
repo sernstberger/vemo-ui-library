@@ -29,11 +29,14 @@ const UserMenu = () => {
         id="user-menu"
         anchorEl={anchorEl}
         keepMounted
-        // open={Boolean(anchorEl)}
-        open
+        open={Boolean(anchorEl)}
+        // open
         onClose={handleClose}
+        style={{minWidth: 300}}
       >
-        ladsfjlkadsjf
+        <UserMenuItem icon="students" text="fooooo" to="/" />
+        <UserMenuItem icon="students" text="fooooo" secondary="laksjd flaksj flkasjfl kasjd" to="/" />
+        <UserMenuItem icon="students" text="fooooo" to="/" />
         {/* <UserMenuItem
           to="/settings"
           onClick={handleClose}

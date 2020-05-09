@@ -11,10 +11,10 @@ import Icon from '../../Icon'
 import styles from './styles'
 
 interface UserMenuItemProps extends MenuItemProps {
-  to?: string
   icon: string
-  text: string
   secondary?: string
+  text: string
+  to?: string
 }
 
 const UserMenuItem = (props: UserMenuItemProps) => {

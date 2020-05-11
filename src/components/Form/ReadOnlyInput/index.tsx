@@ -39,14 +39,24 @@ const ReadOnlyInput = (props: ReadOnlyInputProps) => {
         />
       </Grid>
       <Grid item>
-        <Fab onClick={() => setEditing(false)} color="primary" size="small">
-          <Icon icon="check" />
-        </Fab>
-      </Grid>
-      <Grid item>
-        <Fab onClick={() => setEditing(false)} size="small">
-          <Icon icon="close" />
-        </Fab>
+        <div style={{ marginTop: 38 }}>
+          <Fab
+            onClick={() => setEditing(false)}
+            color="primary"
+            size="small"
+            style={{ marginLeft: 8 }}
+          >
+            <Icon icon="check" />
+          </Fab>
+
+          <Fab
+            onClick={() => setEditing(false)}
+            size="small"
+            style={{ marginLeft: 8 }}
+          >
+            <Icon icon="close" />
+          </Fab>
+        </div>
       </Grid>
     </Grid>
   ) : (
@@ -54,7 +64,12 @@ const ReadOnlyInput = (props: ReadOnlyInputProps) => {
       <div>
         <Typography
           color="textSecondary"
-          style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, lineHeight: 1 }}
+          style={{
+            fontSize: 14,
+            fontWeight: 500,
+            marginBottom: 4,
+            lineHeight: 1
+          }}
         >
           {label}
         </Typography>

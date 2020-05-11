@@ -240,10 +240,6 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   {tooltip && (
                     <Tooltip title={<span>{tooltip}</span>}>
                       <span>
-                        {/* <StudentsLine
-                          color="textSecondary"
-                          fontSize="inherit"
-                        /> */}
                         <Icon icon="help" color="textSecondary" />
                       </span>
                     </Tooltip>

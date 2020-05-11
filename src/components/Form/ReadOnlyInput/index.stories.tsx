@@ -15,7 +15,7 @@ export const ReadOnlyInputStory = () => (
       label={text('Label', 'fooooo')}
       value="alksjfalkfjasf"
       editable
-      fsMasked
+      // fsMasked
     />
   </Formik>
 )

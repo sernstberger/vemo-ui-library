@@ -23,7 +23,7 @@ export default {{ name }}
 
 `
 
-const array = [
+const iconsArray = [
   {
     name: 'NoEmployment',
     path:
@@ -43,8 +43,8 @@ const array = [
 
 const BUILD_PATH = path.join(__dirname, '..', 'foo')
 
-array.map(yep => {
-  const OUTPUT_FILE = path.join(BUILD_PATH, `finished/${yep.name}.tsx`)
-  const rendered = Mustache.render(template, { name: yep.name, path: yep.path })
+iconsArray.map(icon => {
+  const OUTPUT_FILE = path.join(BUILD_PATH, `finished/${icon.name}.tsx`)
+  const rendered = Mustache.render(template, { name: icon.name, path: icon.path })
   fs.outputFile(OUTPUT_FILE, rendered)
 })

@@ -4,7 +4,7 @@
 // ************************************************************ //
 
 import React from 'react'
-import Icon, { IconProps } from './Icon'
+import Icon, { IconProps } from '../Icon'
 
 const EmailFill = (props: IconProps) => (
   <Icon

@@ -1,11 +1,11 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import Icon from './index'
-import Cancel from './Cancel'
+// import Icon from './index'
+import Cancel from './src/Cancel'
 
 export default {
   title: 'Icons',
-  component: Icon
+  // component: Icon
 }
 
 export const IconsStory = () => (

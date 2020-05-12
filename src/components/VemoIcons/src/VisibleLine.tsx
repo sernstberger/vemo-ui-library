@@ -4,7 +4,7 @@
 // ************************************************************ //
 
 import React from 'react'
-import Icon, { IconProps } from './Icon'
+import Icon, { IconProps } from '../Icon'
 
 const VisibleLine = (props: IconProps) => (
   <Icon

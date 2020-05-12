@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Button, Menu } from '@material-ui/core'
-import Icon from '../../VemoIcons'
+import Icon from '../../Icon'
 import UserMenuItem from './UserMenuItem'
 
 const UserMenu = () => {

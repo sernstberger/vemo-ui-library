@@ -11,7 +11,7 @@ import { useTheme } from '@material-ui/core/styles'
 // import statusColors from '../../utils/statusColors'
 
 import styles from './styles'
-import Icon from '../VemoIcons'
+import Icon from '../Icon'
 import ActionCard, { ActionCardProps } from '../ActionCard'
 
 export interface SnackbarMessageProps extends ActionCardProps {

@@ -8,7 +8,7 @@ import {
   StandardTextFieldProps
 } from '@material-ui/core'
 import NumberFormat from 'react-number-format'
-import Icon from '../../VemoIcons'
+import Icon from '../../Icon'
 import styles from '../styles'
 import Label from './Label'
 

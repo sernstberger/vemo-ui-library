@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, CardActionArea, CardActionAreaProps } from '@material-ui/core'
 import clsx from 'clsx'
-import Icon from '../VemoIcons'
+import Icon from '../Icon'
 import styles from './styles'
 
 export interface ActionCardProps extends CardActionAreaProps {

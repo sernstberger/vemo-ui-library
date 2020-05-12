@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import FSMask from './index'
-import Icon from '../VemoIcons'
+import Icon from '../Icon'
 
 storiesOf('Components', module).add('Fullstory Mask', () => (
   <>

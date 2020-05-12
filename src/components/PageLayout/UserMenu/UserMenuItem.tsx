@@ -7,7 +7,7 @@ import {
   ListItemText
 } from '@material-ui/core'
 
-import Icon from '../../VemoIcons'
+import Icon from '../../Icon'
 import styles from './styles'
 
 interface UserMenuItemProps extends MenuItemProps {

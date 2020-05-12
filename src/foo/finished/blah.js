@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Component = () => {
+const blah = () => {
   return (
-    <div>alksjflaksjf</div>
+    <div>alksjflaksjf blah</div>
   )
 }
 
-export default Component
+export default blah

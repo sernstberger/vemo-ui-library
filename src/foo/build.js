@@ -10,14 +10,13 @@ const Mustache = require('mustache')
 
 var template = `import React from 'react'
 
-const Component = () => {
+const {{ name }} = () => {
   return (
-    <div>alksjflaksjf</div>
+    <div>alksjflaksjf {{ name }}</div>
   )
 }
 
-export default Component`
-var rendered = Mustache.render(template, { name: 'Luke' })
+export default {{ name }}`
 
 const array = ['thing', 'blah']
 
@@ -25,5 +24,6 @@ const BUILD_PATH = path.join(__dirname, '..', 'foo')
 
 array.map(yep => {
   const OUTPUT_FILE = path.join(BUILD_PATH, `finished/${yep}.js`)
+  const rendered = Mustache.render(template, { name: yep })
   fs.outputFile(OUTPUT_FILE, rendered)
 })

@@ -2,7 +2,7 @@
 
 const Component = () => {
   return (
-    <div>alksjflaksjf</div>
+    <div>alksjflaksjf {{ name }}</div>
   )
 }
 

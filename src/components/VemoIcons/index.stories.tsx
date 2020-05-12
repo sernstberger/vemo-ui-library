@@ -1,7 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 import Icon from './index'
-import ArrowRight from './ArrowRight'
+import Cancel from './Cancel'
 
 export default {
   title: 'Icons',
@@ -10,6 +10,6 @@ export default {
 
 export const IconsStory = () => (
   <div style={{ backgroundColor: 'red', display: 'flex' }}>
-    <ArrowRight />
+    <Cancel />
   </div>
 )

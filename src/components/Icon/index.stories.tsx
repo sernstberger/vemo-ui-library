@@ -1,6 +1,7 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
 import Icon from './index'
+import Cancel from '../VemoIcons/Cancel'
 
 export default {
   title: 'Icons',
@@ -9,6 +10,6 @@ export default {
 
 export const IconsStory = () => (
   <div style={{ backgroundColor: 'red', display: 'flex' }}>
-    <Icon icon="students=line" />
+    <Cancel />
   </div>
 )

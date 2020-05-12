@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import FSMask from './index'
-import Icon from '../Icon'
+import Icon from '../VemoIcons'
 
 storiesOf('Components', module).add('Fullstory Mask', () => (
   <>
@@ -20,7 +20,7 @@ storiesOf('Components', module).add('Fullstory Mask', () => (
       <button type="button">Test</button>
     </FSMask>
     <FSMask>
-      <Icon icon="close" />
+      <Icon name="Close" />
     </FSMask>
   </>
 ))

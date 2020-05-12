@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Button, Menu } from '@material-ui/core'
-import Icon from '../../Icon'
+import Icon from '../../VemoIcons'
 import UserMenuItem from './UserMenuItem'
 
 const UserMenu = () => {
@@ -22,7 +22,7 @@ const UserMenu = () => {
         onClick={handleClick}
       >
         Name goes here
-        <Icon icon="arrow-down" />
+        <Icon name="ArrowDown" />
         <Avatar>SE</Avatar>
       </Button>
       <Menu
@@ -34,9 +34,9 @@ const UserMenu = () => {
         onClose={handleClose}
         style={{minWidth: 300}}
       >
-        <UserMenuItem icon="students" text="fooooo" to="/" />
-        <UserMenuItem icon="students" text="fooooo" secondary="laksjd flaksj flkasjfl kasjd" to="/" />
-        <UserMenuItem icon="students" text="fooooo" to="/" />
+        <UserMenuItem icon="Students" text="fooooo" to="/" />
+        <UserMenuItem icon="Students" text="fooooo" secondary="laksjd flaksj flkasjfl kasjd" to="/" />
+        <UserMenuItem icon="Students" text="fooooo" to="/" />
         {/* <UserMenuItem
           to="/settings"
           onClick={handleClose}

@@ -46,7 +46,7 @@ const ReadOnlyInput = (props: ReadOnlyInputProps) => {
             size="small"
             style={{ marginLeft: 8 }}
           >
-            <Icon icon="check" />
+            <Icon name="check" />
           </Fab>
 
           <Fab
@@ -54,7 +54,7 @@ const ReadOnlyInput = (props: ReadOnlyInputProps) => {
             size="small"
             style={{ marginLeft: 8 }}
           >
-            <Icon icon="close" />
+            <Icon name="close" />
           </Fab>
         </div>
       </Grid>
@@ -85,7 +85,7 @@ const ReadOnlyInput = (props: ReadOnlyInputProps) => {
           size="small"
           color="primary"
         >
-          <Icon icon="edit" />
+          <Icon name="edit" />
         </IconButton>
       )}
     </div>

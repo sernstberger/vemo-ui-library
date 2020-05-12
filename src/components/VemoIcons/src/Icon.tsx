@@ -1,7 +1,7 @@
 import React from 'react'
 import { SvgIcon, SvgIconProps } from '@material-ui/core'
 import clsx from 'clsx'
-import styles from './styles'
+import styles from '../styles'
 
 export interface IconProps extends SvgIconProps {
   // color?: 'inherit' | 'primary' | 'secondary' | 'error' | 'success'

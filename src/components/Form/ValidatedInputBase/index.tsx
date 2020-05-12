@@ -8,9 +8,8 @@ import {
   StandardTextFieldProps
 } from '@material-ui/core'
 import NumberFormat from 'react-number-format'
-// import Icon from '../Icon'
+import Icon from '../../VemoIcons'
 import styles from '../styles'
-import Icon from '../../Icon'
 import Label from './Label'
 
 export interface CustomValidationProps {
@@ -26,7 +25,7 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   field: string
   hasCounter?: boolean
   icon?: {
-    name: React.ReactNode
+    name: React.ReactNode | string
     position?: 'start' | 'end'
     color?: string
   }
@@ -172,7 +171,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
               ) : (
                 <Icon
                   color={icon!.color}
-                  icon={icon.name}
+                  name={icon!.name}
                   size={isLarge ? 'inherit' : undefined}
                 />
               )}

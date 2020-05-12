@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tooltip as MuiTooltip } from '@material-ui/core'
-import Icon from '../../Icon'
+import Icon from '../../VemoIcons'
 
 interface TooltipProps {
   content: any
@@ -11,7 +11,7 @@ const Tooltip = (props: TooltipProps) => {
   return (
     <MuiTooltip title={<span>{content}</span>}>
       <span>
-        <Icon icon="help" color="textSecondary" />
+        <Icon name="Help" color="textSecondary" />
       </span>
     </MuiTooltip>
   )

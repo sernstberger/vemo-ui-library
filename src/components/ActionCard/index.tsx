@@ -26,7 +26,7 @@ const ActionCard = (props: ActionCardProps) => {
     iconClassName,
     isMasked = false,
     onClick,
-    primaryActionIcon = 'arrow-right',
+    primaryActionIcon = 'ArrowRight',
     secondaryAction,
     style,
     to,
@@ -77,7 +77,7 @@ const ActionCard = (props: ActionCardProps) => {
           {hasIcon && !secondaryAction && (
             <div className={classes.iconContainer}>
               <div className={iconClasses}>
-                <Icon icon={primaryActionIcon} />
+                <Icon name={primaryActionIcon} />
               </div>
             </div>
           )}

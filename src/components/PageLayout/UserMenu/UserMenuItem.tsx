@@ -22,7 +22,7 @@ const UserMenuItem = (props: UserMenuItemProps) => {
   const { icon, text, to, onClick, secondary, selected } = props
   const path = useLocation().pathname
   const isCurrentPage = to === path
-  const iconName = isCurrentPage ? `${icon}-fill` : `${icon}-line`
+  const iconName = isCurrentPage ? `${icon}Fill` : `${icon}Line`
 
   const renderLink = React.forwardRef((itemProps, ref) => (
     <NavLink
@@ -41,7 +41,7 @@ const UserMenuItem = (props: UserMenuItemProps) => {
       onClick={onClick}
     >
       <ListItemIcon className={classes.ListItemIcon}>
-        <Icon icon={iconName} className={classes.Icon} />
+        <Icon name={iconName} className={classes.Icon} />
       </ListItemIcon>
       <ListItemText
         primary={text}

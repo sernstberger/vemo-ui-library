@@ -36,12 +36,12 @@ const Snackbar = (props: SnackbarProps) => {
     success: {
       color: theme.palette.success.main,
       iconColor: theme.palette.success.contrastText,
-      icon: 'check'
+      icon: 'Check'
     },
     error: {
       color: theme.palette.error.main,
       iconColor: theme.palette.error.contrastText,
-      icon: 'error-line'
+      icon: 'ErrorLine'
     }
   }
 
@@ -118,7 +118,7 @@ const Snackbar = (props: SnackbarProps) => {
                   color: statuses[status].iconColor
                 }}
               >
-                <Icon icon={statuses[status].icon} />
+                <Icon name={statuses[status].icon} />
               </div>
               {content}
             </div>

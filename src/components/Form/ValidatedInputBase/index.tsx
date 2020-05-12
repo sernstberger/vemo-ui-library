@@ -4,7 +4,6 @@ import {
   TextField,
   InputAdornment,
   Typography,
-  Tooltip,
   CircularProgress,
   StandardTextFieldProps
 } from '@material-ui/core'
@@ -12,6 +11,7 @@ import NumberFormat from 'react-number-format'
 // import Icon from '../Icon'
 import styles from '../styles'
 import Icon from '../../Icon'
+import Label from './Label'
 
 export interface CustomValidationProps {
   schema: any // not sure what the right type is here
@@ -43,6 +43,7 @@ export interface ValidatedInputBaseProps extends StandardTextFieldProps {
   minLength?: number
   // size?: 'small' | 'medium' | 'large' | undefined
   tooltip?: any
+  readOnly?: boolean
 }
 
 // This is meant to be a common component for several input types. It shouldn't be used on its own.
@@ -55,8 +56,6 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     helperText = undefined,
     icon,
     inputMode = 'none',
-    inputProps,
-    InputProps,
     isLoading = false,
     label,
     placeholder = undefined,
@@ -68,6 +67,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
     minLength = 0,
     decimalScale,
     exactLength = undefined,
+    readOnly = false,
     ...rest
   } = props
 
@@ -219,42 +219,26 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
               }
               onBlur={onBlur(name)}
               label={
-                <span style={{ display: 'flex', alignItems: 'center' }}>
-                  {label}
-                  {!initialRequired && !required && !disabled && (
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="span"
-                      style={{
-                        lineHeight: 1,
-                        fontSize: 12,
-                        margin: '0 8px 0 4px'
-                      }}
-                    >
-                      {' '}
-                      (optional)
-                    </Typography>
-                  )}
-                  {/* show the tooltip if provided */}
-                  {tooltip && (
-                    <Tooltip title={<span>{tooltip}</span>}>
-                      <span>
-                        <Icon icon="help" color="textSecondary" />
-                      </span>
-                    </Tooltip>
-                  )}
-                </span>
+                <Label
+                  {...{ label, tooltip }}
+                  required={!initialRequired && !required && !disabled}
+                />
               }
               InputLabelProps={{ required: false }}
               disabled={isLoading || isSubmitting || disabled}
               InputProps={{
-                ...InputProps,
                 ...adornment,
-                className: isLarge ? classes.largeInputProps : undefined
+                className: isLarge ? classes.largeInputProps : undefined,
+                style: readOnly
+                  ? {
+                      backgroundColor: 'transparent',
+                      borderColor: 'transparent',
+                      fontSize: 20,
+                      transition: '250ms all'
+                    }
+                  : {}
               }}
               inputProps={{
-                ...inputProps,
                 className: isLarge ? classes.largeHtmlInputProps : undefined
               }}
               {...rest}

@@ -1,6 +1,5 @@
 const fs = require('fs-extra')
 const path = require('path')
-const component = require('./component')
 const Mustache = require('mustache')
 
 var template = `
@@ -36,10 +35,10 @@ const iconsArray = [
   }
 ]
 
-const BUILD_PATH = path.join(__dirname, '..', 'foo')
+const BUILD_PATH = path.join(__dirname, '..', './')
 
 iconsArray.map(icon => {
-  const OUTPUT_FILE = path.join(BUILD_PATH, `finished/${icon.name}.tsx`)
+  const OUTPUT_FILE = path.join(BUILD_PATH, `${icon.name}.tsx`)
   const rendered = Mustache.render(template, { name: icon.name, path: icon.path })
   fs.outputFile(OUTPUT_FILE, rendered)
 })

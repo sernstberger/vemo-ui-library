@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Icon, { IconProps } from './Icon'
 
@@ -9,3 +10,4 @@ const Cancel = (props: IconProps) => (
 )
 
 export default Cancel
+

@@ -31,7 +31,13 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
-    "yup": "^0.28.5"
+    "yup": "^0.28.5",
+
+
+
+
+    "fs-extra": "^5.0.0",
+    "mustache": "^4.0.0"
   },
   "peerDependencies": {
     "react": ">= 16.8.0 < 2",

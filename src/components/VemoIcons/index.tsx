@@ -1,3 +1,5 @@
+import Icon from './Foo'
+
 export { default as StudentsLine } from './dist/StudentsLine'
 export { default as StudentsFill } from './dist/StudentsFill'
 export { default as StudentLine } from './dist/StudentLine'
@@ -68,3 +70,5 @@ export { default as SliderThumb } from './dist/SliderThumb'
 export { default as NoEmployment } from './dist/NoEmployment'
 export { default as Cancel } from './dist/Cancel'
 export { default as StartApplicationsFill } from './dist/StartApplicationsFill'
+
+export default Icon

@@ -24,7 +24,7 @@ export default {{ name }}
 const BUILD_PATH = path.join(__dirname, '..', './')
 
 iconsArray.map(icon => {
-  const OUTPUT_FILE = path.join(BUILD_PATH, `${icon.name}.tsx`)
+  const OUTPUT_FILE = path.join(BUILD_PATH, `src/${icon.name}.tsx`)
   const rendered = Mustache.render(template, { name: icon.name, path: icon.path })
   fs.outputFile(OUTPUT_FILE, rendered)
 })

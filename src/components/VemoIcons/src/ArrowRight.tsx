@@ -1,3 +1,8 @@
+
+// ************************************************************ //
+// ** DO NOT directly edit this file - it is auto-generated! ** //
+// ************************************************************ //
+
 import React from 'react'
 import Icon, { IconProps } from './Icon'
 

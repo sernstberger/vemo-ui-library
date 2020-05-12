@@ -11,7 +11,7 @@ import { useTheme } from '@material-ui/core/styles'
 // import statusColors from '../../utils/statusColors'
 
 import styles from './styles'
-import Foo from '../VemoIcons/Foo'
+import Icon from '../VemoIcons'
 import ActionCard, { ActionCardProps } from '../ActionCard'
 
 export interface SnackbarMessageProps extends ActionCardProps {
@@ -36,12 +36,12 @@ const Snackbar = (props: SnackbarProps) => {
     success: {
       color: theme.palette.success.main,
       iconColor: theme.palette.success.contrastText,
-      icon: 'check'
+      icon: 'Check'
     },
     error: {
       color: theme.palette.error.main,
       iconColor: theme.palette.error.contrastText,
-      icon: 'error-line'
+      icon: 'ErrorLine'
     }
   }
 
@@ -118,8 +118,7 @@ const Snackbar = (props: SnackbarProps) => {
                   color: statuses[status].iconColor
                 }}
               >
-                {/* <Icon icon={statuses[status].icon} /> */}
-                <Foo name="Help" />
+                <Icon name={statuses[status].icon} />
               </div>
               {content}
             </div>

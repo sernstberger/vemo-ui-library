@@ -10,7 +10,7 @@ export interface IconProps extends SvgIconProps {
   // | 'warning'
 }
 
-const Icon = (props: IconProps) => {
+const BuildIcon = (props: IconProps) => {
   const classes = styles()
   const { color = 'inherit', path, className, fontSize = 'default' } = props
 
@@ -25,4 +25,4 @@ const Icon = (props: IconProps) => {
   )
 }
 
-export default Icon
+export default BuildIcon

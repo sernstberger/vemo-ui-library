@@ -1,6 +1,6 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import Foo from './Foo'
+import Icon from './Icon'
 import iconsArray from './src/iconsArray'
 import { Grid } from '@material-ui/core'
 
@@ -15,7 +15,7 @@ export const IconsStory = () => (
       return (
         <Grid item xs={3} key={icon.name}>
           <div style={{ backgroundColor: 'red' }}>
-            <Foo name={icon.name} />
+            <Icon name={icon.name} />
             {icon.name}
           </div>
         </Grid>

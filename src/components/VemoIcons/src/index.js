@@ -9,10 +9,10 @@ var template = `
 // ************************************************************ //
 
 import React from 'react'
-import Icon, { IconProps } from '../src/Icon'
+import BuildIcon, { IconProps } from '../src/BuildIcon'
 
 const {{ name }} = (props: IconProps) => (
-  <Icon
+  <BuildIcon
     {...props}
     path="{{ path }}"
   />

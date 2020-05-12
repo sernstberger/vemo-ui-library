@@ -1,4 +1,4 @@
-import Icon from './Foo'
+import Icon from './Icon'
 
 export { default as StudentsLine } from './dist/StudentsLine'
 export { default as StudentsFill } from './dist/StudentsFill'

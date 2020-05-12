@@ -1,10 +1,10 @@
 import React from 'react'
-import * as Something from './index'
+import * as IconList from './index'
 
 const Icon = (props: any) => {
   const { name } = props
-  const Bar = Something[name]
-  return <Bar />
+  const SelectedIcon = IconList[name]
+  return <SelectedIcon />
 }
 
 export default Icon

@@ -17,6 +17,7 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
+    "build-icons": "node src/components/VemoIcons/src/build.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -27,17 +28,13 @@
     "@types/styled-components": "^5.1.0",
     "@types/yup": "^0.28.0",
     "formik": "^2.1.4",
+    "fs-extra": "^5.0.0",
+    "mustache": "^4.0.0",
     "react-number-format": "^4.4.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
-    "yup": "^0.28.5",
-
-
-
-
-    "fs-extra": "^5.0.0",
-    "mustache": "^4.0.0"
+    "yup": "^0.28.5"
   },
   "peerDependencies": {
     "react": ">= 16.8.0 < 2",

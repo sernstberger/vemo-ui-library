@@ -1,4 +1,8 @@
 
+// *********************************************************** //
+// ** Don't directly edit this file - it is auto-generated! ** //
+// *********************************************************** //
+
 import React from 'react'
 import Icon, { IconProps } from './Icon'
 
@@ -10,4 +14,3 @@ const StartApplicationsFill = (props: IconProps) => (
 )
 
 export default StartApplicationsFill
-

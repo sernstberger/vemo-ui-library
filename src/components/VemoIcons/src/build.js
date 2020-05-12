@@ -3,6 +3,10 @@ const path = require('path')
 const Mustache = require('mustache')
 
 var template = `
+// *********************************************************** //
+// ** Don't directly edit this file - it is auto-generated! ** //
+// *********************************************************** //
+
 import React from 'react'
 import Icon, { IconProps } from './Icon'
 
@@ -14,7 +18,6 @@ const {{ name }} = (props: IconProps) => (
 )
 
 export default {{ name }}
-
 `
 
 const iconsArray = [

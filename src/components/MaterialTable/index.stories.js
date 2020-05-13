@@ -7,7 +7,24 @@ import MaterialTable from './index'
 
 storiesOf('Components/MUI', module)
   // .addDecorator(Provider)
-  .add('Table', () => <MaterialTable />)
-  // .add('DashboardPanel--ZeroState', () => <DashboardPanel />, {
-  //   options: { store: zeroState }
-  // })
+  .add('Table', () => (
+    <MaterialTable
+      columns={[
+        {
+          title: 'ISA Program Name',
+          field: 'programName'
+        },
+        {
+          title: 'Nope',
+          field: 'nope'
+        }
+      ]}
+      data={[
+        { programName: 'thing', nope: 'huh' },
+        { programName: 'what', nope: 'idunno' }
+      ]}
+    />
+  ))
+// .add('DashboardPanel--ZeroState', () => <DashboardPanel />, {
+//   options: { store: zeroState }
+// })

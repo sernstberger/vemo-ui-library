@@ -29,6 +29,7 @@
     "@types/yup": "^0.28.0",
     "formik": "^2.1.4",
     "fs-extra": "^5.0.0",
+    "material-table": "^1.57.2",
     "mustache": "^4.0.0",
     "react-number-format": "^4.4.1",
     "react-router-dom": "^5.1.2",

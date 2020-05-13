@@ -2,6 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 // import Provider from '~/.storybook/Provider'
 import MaterialTable from './index'
+import Icon from '../Icon'
 
 // import mockStore from '~/.storybook/store.mocks'
 
@@ -9,6 +10,16 @@ storiesOf('Components/MUI', module)
   // .addDecorator(Provider)
   .add('Table', () => (
     <MaterialTable
+      // title={`Agreements (${numberOfResults})`}
+      title={`Agreements`}
+      icon={
+        <Icon
+          name="IsaFill"
+          size="small"
+          // iconColor={palette.icons.agreements}
+        />
+      }
+      options={{}}
       columns={[
         {
           title: 'ISA Program Name',

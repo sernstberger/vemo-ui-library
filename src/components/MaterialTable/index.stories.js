@@ -10,8 +10,7 @@ storiesOf('Components/MUI', module)
   // .addDecorator(Provider)
   .add('Table', () => (
     <MaterialTable
-      // title={`Agreements (${numberOfResults})`}
-      title={`Agreements`}
+      title="Agreements"
       icon={
         <Icon
           name="IsaFill"
@@ -34,6 +33,9 @@ storiesOf('Components/MUI', module)
         { programName: 'thing', nope: 'huh' },
         { programName: 'what', nope: 'idunno' }
       ]}
+      // onRowClick={(event, { agreementID }) => {
+      //   history.push(`/agreements/agreement/${agreementID}/info`)
+      // }}
     />
   ))
 // .add('DashboardPanel--ZeroState', () => <DashboardPanel />, {

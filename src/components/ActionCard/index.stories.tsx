@@ -1,7 +1,7 @@
 import React from 'react'
 // import { action } from '@storybook/addon-actions'
 import ActionCard from './index'
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
+import { withKnobs } from '@storybook/addon-knobs'
 import { Typography } from '@material-ui/core'
 
 export default {

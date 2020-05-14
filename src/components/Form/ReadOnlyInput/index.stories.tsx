@@ -1,7 +1,7 @@
 import React from 'react'
 // import { action } from '@storybook/addon-actions'
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
-import ReadOnlyInput from './index'
+import { withKnobs, boolean } from '@storybook/addon-knobs'
+// import ReadOnlyInput from './index'
 import { Formik } from 'formik'
 import ValidatedTextInput from '../ValidatedTextInput'
 

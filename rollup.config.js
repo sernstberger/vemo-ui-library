@@ -57,5 +57,5 @@ export default {
     sass({ insert: true }),
     typescript(),
   ],
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'formik'],
 }

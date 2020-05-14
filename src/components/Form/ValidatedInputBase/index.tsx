@@ -138,12 +138,14 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
 
   const isNumber = type === 'number'
   const onlyAcceptsNumbers = inputMode === 'numeric' || isNumber // some fields like phone numbers need numbers, but SF expects their value as a string
-  const Component = onlyAcceptsNumbers ? NumberFormat : TextField
+  const Component: any = onlyAcceptsNumbers ? NumberFormat : TextField
 
   return (
     <Field name={field} validate={validate}>
       {({
+        // @ts-ignore
         field: { value, onBlur, name, onChange },
+        // @ts-ignore
         form: { touched, errors, setFieldValue, isSubmitting }
       }) => {
         const adornmentPosition = icon
@@ -154,17 +156,17 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
           setFieldValue(name, '')
         }
 
-        const onValueChange = values => {
+        const onValueChange = (values: any) => {
           setFieldValue(name, values.floatValue)
         }
 
-        const isLarge = size === 'large'
+        // const isLarge = size === 'large'
 
         const adornment = (isLoading || icon) && {
           [adornmentPosition]: (
             <InputAdornment
               position={(icon && icon.position) || 'start'}
-              className={isLarge ? classes.largeInput : ''}
+              // className={isLarge ? classes.largeInput : ''}
             >
               {isLoading ? (
                 <CircularProgress size={20} />
@@ -172,7 +174,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                 <Icon
                   color={icon!.color}
                   name={icon!.name}
-                  size={isLarge ? 'inherit' : undefined}
+                  // size={isLarge ? 'inherit' : undefined}
                 />
               )}
             </InputAdornment>
@@ -227,7 +229,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
               disabled={isLoading || isSubmitting || disabled}
               InputProps={{
                 ...adornment,
-                className: isLarge ? classes.largeInputProps : undefined,
+                // className: isLarge ? classes.largeInputProps : undefined,
                 style: readOnly
                   ? {
                       backgroundColor: 'transparent',
@@ -238,7 +240,7 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   : {}
               }}
               inputProps={{
-                className: isLarge ? classes.largeHtmlInputProps : undefined
+                // className: isLarge ? classes.largeHtmlInputProps : undefined
               }}
               {...rest}
             >

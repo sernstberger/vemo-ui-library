@@ -1,5 +1,4 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
 import Icon from './Icon'
 import iconsArray from './src/iconsArray'
 import { Grid } from '@material-ui/core'

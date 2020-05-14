@@ -1,14 +1,14 @@
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
+// import { Theme } from '@material-ui/core'
 
-const styles = makeStyles((theme: Theme) => ({
-  SubmitLoadingSpinner: {
-    marginRight: theme.spacing(1),
+const styles = makeStyles(() => ({
+  // SubmitLoadingSpinner: {
+  //   marginRight: theme.spacing(1),
 
-    '& svg': {
-      margin: 0
-    }
-  },
+  //   '& svg': {
+  //     margin: 0
+  //   }
+  // },
 
   textWrapper: {
     position: 'relative'

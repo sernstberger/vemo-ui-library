@@ -1,5 +1,7 @@
 import React from 'react'
-import ValidatedInputBase, { ValidatedInputBaseProps } from '../ValidatedInputBase'
+import ValidatedInputBase, {
+  ValidatedInputBaseProps
+} from '../ValidatedInputBase'
 
 interface OptionProps {
   label: string
@@ -7,18 +9,22 @@ interface OptionProps {
 }
 
 interface ValidatedSelectProps extends ValidatedInputBaseProps {
-  options: OptionProps[] | string[]
+  options: OptionProps[] | string[] | any
 }
 
 const ValidatedSelect = (props: ValidatedSelectProps) => {
   const { options, ...rest } = props
 
   return (
-    <ValidatedInputBase {...rest} select>
-      <option value="">
-        Select {props.label}
-      </option>
-      {options.map((option: OptionProps | string, index: number) => {
+    <ValidatedInputBase
+      {...rest}
+      select
+      SelectProps={{
+        native: true
+      }}
+    >
+      <option value="">Select {props.label}</option>
+      {options.map((option: OptionProps | string | any, index: number) => {
         const isObject = typeof option === 'object' && option !== null
         const _value = isObject ? option.value : option
         const _label = isObject ? option.label : option

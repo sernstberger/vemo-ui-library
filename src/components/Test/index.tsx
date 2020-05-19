@@ -1,0 +1,6 @@
+export { default as Foo } from './Foo'
+export { default as Bar } from './Bar'
+export { default as Baz } from './Baz'
+export { default as Bax } from './Bax'
+export { default as Bat } from './Bat'
+export { default as Man } from './Man'

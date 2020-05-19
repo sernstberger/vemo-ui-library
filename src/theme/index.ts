@@ -120,7 +120,7 @@ let theme = createMuiTheme({
 
 // A custom theme for this app
 
-theme = {
+theme = createMuiTheme({
   ...theme,
   overrides: {
     MuiButton: {
@@ -516,6 +516,6 @@ theme = {
       disableTouchListener: true
     }
   }
-}
+})
 
 export default theme

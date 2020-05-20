@@ -6,13 +6,13 @@ const mystic_grey = 'rgb(218, 224, 230)'
 const raven_grey = 'rgb(109, 115, 120)'
 // const dark_grey = 'rgb(102, 102, 102)'
 const success_green = '#009F74'
-const green_haze = 'rgb(0, 159, 116)'
+// const green_haze = 'rgb(0, 159, 116)'
 const error_red = '#D92D27'
 // const caution_yellow = 'rgb(247, 220, 62)'
 // const dark_yellow = 'rgb(245, 187, 61)'
 const midnight = 'rgb(0, 28, 51)'
 const vemo_blue = '#0073D1'
-const vemo_dark_blue = 'rgb(3, 65, 111)'
+// const vemo_dark_blue = 'rgb(3, 65, 111)'
 
 // const highlight_blue = 'rgb(0, 146, 255)'
 // const horizon_blue = 'rgb(92, 125, 153)'
@@ -23,8 +23,8 @@ let theme = createMuiTheme({
   palette: {
     primary: {
       main: vemo_blue,
-      darker: vemo_dark_blue,
-      darkest: midnight
+      // darker: vemo_dark_blue,
+      // darkest: midnight
     },
     secondary: {
       main: bismark_blue
@@ -46,16 +46,16 @@ let theme = createMuiTheme({
     text: {
       primary: midnight,
       secondary: raven_grey,
-      success: green_haze,
+      // success: green_haze,
 
-      error: error_red
+      // error: error_red
     },
     divider: mystic_grey,
-    border: mystic_grey,
-    mask: mystic_grey,
+    // border: mystic_grey,
+    // mask: mystic_grey,
     background: {
       default: catskill_white,
-      secondary: mystic_grey
+      // secondary: mystic_grey
     }
   },
   drawerWidth: 210,
@@ -120,7 +120,7 @@ let theme = createMuiTheme({
 
 // A custom theme for this app
 
-theme = {
+theme = createMuiTheme({
   ...theme,
   overrides: {
     MuiButton: {
@@ -193,7 +193,7 @@ theme = {
     },
     MuiFab: {
       root: {
-        backgroundColor: theme.palette.background.secondary,
+        // backgroundColor: theme.palette.background.secondary,
         boxShadow: 'none',
         color: theme.palette.text.secondary
       }
@@ -203,7 +203,7 @@ theme = {
         color: theme.palette.text.primary,
 
         '&$error': {
-          color: theme.palette.text.error,
+          // color: theme.palette.text.error,
           fontWeight: 700
         },
         '&$focused': {
@@ -217,7 +217,7 @@ theme = {
     MuiFormHelperText: {
       root: {
         '&$error': {
-          color: theme.palette.text.error,
+          // color: theme.palette.text.error,
           fontWeight: 600
         }
       }
@@ -369,7 +369,7 @@ theme = {
           backgroundColor: 'currentColor'
         }
       },
-      active: {},
+      // active: {},
       valueLabel: {
         left: 'calc(-50% + 4px)'
       },
@@ -417,22 +417,22 @@ theme = {
         borderRadius: 50
       }
     },
-    MuiTab: {
-      root: {
-        textTransform: 'none',
-        minHeight: theme.spacing(4.5),
+    // MuiTab: {
+    //   root: {
+    //     textTransform: 'none',
+    //     minHeight: theme.spacing(4.5),
 
-        [theme.breakpoints.up('sm')]: {
-          fontWeight: 600,
-          minWidth: theme.spacing(10)
-        }
-      },
-      selected: {
-        backgroundColor: theme.palette.primary.main,
-        borderRadius: 50,
-        color: theme.palette.primary.contrastText
-      }
-    },
+    //     [theme.breakpoints.up('sm')]: {
+    //       fontWeight: 600,
+    //       minWidth: theme.spacing(10)
+    //     }
+    //   },
+    //   selected: {
+    //     backgroundColor: theme.palette.primary.main,
+    //     borderRadius: 50,
+    //     color: theme.palette.primary.contrastText
+    //   }
+    // },
 
     MuiTooltip: {
       tooltip: {
@@ -475,27 +475,27 @@ theme = {
     MuiLink: {
       underline: 'always'
     },
-    MuiSelect: {
-      native: true
-      // IconComponent: () => (
-      //   <div
-      //     style={{
-      //       borderLeft: `1px solid #CCC`,
-      //       pointerEvents: 'none',
-      //       display: 'flex',
-      //       alignItems: 'center',
-      //       position: 'absolute',
-      //       paddingLeft: theme.spacing(1.5),
-      //       marginLeft: theme.spacing(1.5),
-      //       right: theme.spacing(1.5),
-      //       height: '75%',
-      //       width: theme.spacing(4.5)
-      //     }}
-      //   >
-      //     <Icon icon="arrow-down" />
-      //   </div>
-      // )
-    },
+    // MuiSelect: {
+    //   native: true
+    //   // IconComponent: () => (
+    //   //   <div
+    //   //     style={{
+    //   //       borderLeft: `1px solid #CCC`,
+    //   //       pointerEvents: 'none',
+    //   //       display: 'flex',
+    //   //       alignItems: 'center',
+    //   //       position: 'absolute',
+    //   //       paddingLeft: theme.spacing(1.5),
+    //   //       marginLeft: theme.spacing(1.5),
+    //   //       right: theme.spacing(1.5),
+    //   //       height: '75%',
+    //   //       width: theme.spacing(4.5)
+    //   //     }}
+    //   //   >
+    //   //     <Icon icon="arrow-down" />
+    //   //   </div>
+    //   // )
+    // },
     MuiSlider: {
       color: 'primary'
       // ThumbComponent: (props) => (
@@ -516,6 +516,6 @@ theme = {
       disableTouchListener: true
     }
   }
-}
+})
 
 export default theme

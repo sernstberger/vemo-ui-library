@@ -1,10 +1,14 @@
-import sass from 'rollup-plugin-sass'
 import typescript from 'rollup-plugin-typescript2'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
+
+// import nodeResolve from 'rollup-plugin-node-resolve'
+// import replace from '@rollup/plugin-replace';
+import nodeGlobals from 'rollup-plugin-node-globals'
+import { terser } from 'rollup-plugin-terser'
+// import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
 
 import pkg from './package.json'
 
@@ -16,8 +20,8 @@ export default {
       format: 'cjs',
       exports: 'named',
       sourcemap: true,
-      strict: false,
-    },
+      strict: false
+    }
     // {
     //   file: pkg.module,
     //   format: 'es',
@@ -25,13 +29,15 @@ export default {
   ],
   plugins: [
     external(['react', 'react-dom']),
-    postcss({
-      modules: true,
-    }),
     babel({
-      exclude: 'node_modules/**',
+      exclude: 'node_modules/**'
     }),
     resolve(),
+    nodeGlobals(), // Wait for https://github.com/cssinjs/jss/pull/893
+    // replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+    // sizeSnapshot({ snapshotPath: 'size-snapshot.json' }),
+    terser(),
+
     commonjs({
       include: 'node_modules/**',
       // left-hand side can be an absolute path, a path
@@ -44,6 +50,10 @@ export default {
           'Component',
           'createElement'
         ],
+        'node_modules/formik/node_modules/scheduler/index.js': [
+          'unstable_runWithPriority',
+          'LowPriority'
+        ],
         'node_modules/react-dom/index.js': ['render', 'hydrate'],
         'node_modules/react-is/index.js': [
           'isElement',
@@ -54,8 +64,7 @@ export default {
         ]
       }
     }),
-    sass({ insert: true }),
-    typescript(),
+    typescript()
   ],
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'formik', 'prop-types', 'react-is', 'gud']
 }

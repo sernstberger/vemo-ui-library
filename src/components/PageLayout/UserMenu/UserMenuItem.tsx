@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useLocation, useRouteMatch } from 'react-router-dom'
+import { NavLink, useLocation, NavLinkProps } from 'react-router-dom'
 import {
   MenuItem,
   MenuItemProps,
@@ -14,7 +14,7 @@ interface UserMenuItemProps extends MenuItemProps {
   icon: string
   secondary?: string
   text: string
-  to?: string
+  to?: any
 }
 
 const UserMenuItem = (props: UserMenuItemProps) => {
@@ -24,24 +24,26 @@ const UserMenuItem = (props: UserMenuItemProps) => {
   const isCurrentPage = to === path
   const iconName = isCurrentPage ? `${icon}Fill` : `${icon}Line`
 
-  const renderLink = React.forwardRef((itemProps, ref) => (
-    <NavLink
-      activeClassName={selected ? 'is-active' : ''}
-      to={to}
-      {...itemProps}
-      innerRef={ref}
-    />
-  ))
+  const renderLink = React.forwardRef<any, Omit<NavLinkProps, 'to'>>(
+    (props, ref) => (
+      <NavLink
+        activeClassName={selected ? 'is-active' : ''}
+        ref={ref}
+        to={to}
+        {...props}
+      />
+    )
+  )
 
   return (
     <MenuItem
       button
-      component={to && renderLink}
-      className={classes.NavLink}
+      component={to ? renderLink : 'li'}
+      // className={classes.NavLink}
       onClick={onClick}
     >
-      <ListItemIcon className={classes.ListItemIcon}>
-        <Icon name={iconName} className={classes.Icon} />
+      <ListItemIcon>
+        <Icon name={iconName} />
       </ListItemIcon>
       <ListItemText
         primary={text}

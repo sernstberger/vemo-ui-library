@@ -16,7 +16,7 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/code-frame@7.8.3", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
+"@babel/code-frame@7.8.3", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
   integrity sha512-a9gxpmdXtZEInkCSHUJDLHZVBgb1QS0jhss4cPP93EW7s+uC5bikET2twEF3KV+7rDblJcmNvTR7VJejqd2C2g==
@@ -1483,16 +1483,15 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@material-ui/core@^4.9.12":
-  version "4.9.12"
-  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.9.12.tgz#0156d87c8b5db5a8aad992d6883a081a32684e2e"
-  integrity sha512-JtRm1iNw3PRg+bzULS1uRKhdIJ2jhKO3/5ptO6kTADARsv5KmhzMbM+PYmVS09qm9Yu3ilwka4dYrtjqea53Lw==
+"@material-ui/core@^4.9.14":
+  version "4.9.14"
+  resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.9.14.tgz#4388f82cf94554cd3a935774fc12820f3c607a8a"
+  integrity sha512-71oYrOpInx5honJ9GzZlygPjmsFhn7Bui61/SWLJsPTkMnfvuZfU3qVqlEHjXyDsnZ+uKmLAIdsrOYnphJxxXw==
   dependencies:
     "@babel/runtime" "^7.4.4"
-    "@material-ui/react-transition-group" "^4.3.0"
-    "@material-ui/styles" "^4.9.10"
-    "@material-ui/system" "^4.9.10"
-    "@material-ui/types" "^5.0.1"
+    "@material-ui/styles" "^4.9.14"
+    "@material-ui/system" "^4.9.14"
+    "@material-ui/types" "^5.1.0"
     "@material-ui/utils" "^4.9.12"
     "@types/react-transition-group" "^4.2.0"
     clsx "^1.0.4"
@@ -1500,7 +1499,7 @@
     popper.js "^1.16.1-lts"
     prop-types "^15.7.2"
     react-is "^16.8.0"
-    react-transition-group "^4.3.0"
+    react-transition-group "^4.4.0"
 
 "@material-ui/pickers@^3.2.2":
   version "3.2.10"
@@ -1514,26 +1513,16 @@
     react-transition-group "^4.0.0"
     rifm "^0.7.0"
 
-"@material-ui/react-transition-group@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@material-ui/react-transition-group/-/react-transition-group-4.3.0.tgz#92529142addb5cc179dbf42d246c7e3fe4d6104b"
-  integrity sha512-CwQ0aXrlUynUTY6sh3UvKuvye1o92en20VGAs6TORnSxUYeRmkX8YeTUN3lAkGiBX1z222FxLFO36WWh6q73rQ==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    dom-helpers "^5.0.1"
-    loose-envify "^1.4.0"
-    prop-types "^15.6.2"
-
-"@material-ui/styles@^4.9.10":
-  version "4.9.10"
-  resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.9.10.tgz#182ccdd0bc8525a459486499bbaebcd92b0db3ab"
-  integrity sha512-EXIXlqVyFDnjXF6tj72y6ZxiSy+mHtrsCo3Srkm3XUeu3Z01aftDBy7ZSr3TQ02gXHTvDSBvegp3Le6p/tl7eA==
+"@material-ui/styles@^4.9.14":
+  version "4.9.14"
+  resolved "https://registry.yarnpkg.com/@material-ui/styles/-/styles-4.9.14.tgz#0a9e93a2bf24e8daa0811411a6f3dabdafbe9a07"
+  integrity sha512-zecwWKgRU2VzdmutNovPB4s5LKI0TWyZKc/AHfPu9iY8tg4UoLjpa4Rn9roYrRfuTbBZHI6b0BXcQ8zkis0nzQ==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@emotion/hash" "^0.8.0"
-    "@material-ui/types" "^5.0.1"
+    "@material-ui/types" "^5.1.0"
     "@material-ui/utils" "^4.9.6"
-    clsx "^1.0.2"
+    clsx "^1.0.4"
     csstype "^2.5.2"
     hoist-non-react-statics "^3.3.2"
     jss "^10.0.3"
@@ -1546,19 +1535,20 @@
     jss-plugin-vendor-prefixer "^10.0.3"
     prop-types "^15.7.2"
 
-"@material-ui/system@^4.9.10":
-  version "4.9.10"
-  resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.9.10.tgz#5de6ec7bea0f222b10b45e5bd5bb8b9a7b938926"
-  integrity sha512-E+t0baX2TBZk6ALm8twG6objpsxLdMM4MDm1++LMt2m7CetCAEc3aIAfDaprk4+tm5hFT1Cah5dRWk8EeIFQYw==
+"@material-ui/system@^4.9.14":
+  version "4.9.14"
+  resolved "https://registry.yarnpkg.com/@material-ui/system/-/system-4.9.14.tgz#4b00c48b569340cefb2036d0596b93ac6c587a5f"
+  integrity sha512-oQbaqfSnNlEkXEziDcJDDIy8pbvwUmZXWNqlmIwDqr/ZdCK8FuV3f4nxikUh7hvClKV2gnQ9djh5CZFTHkZj3w==
   dependencies:
     "@babel/runtime" "^7.4.4"
     "@material-ui/utils" "^4.9.6"
+    csstype "^2.5.2"
     prop-types "^15.7.2"
 
-"@material-ui/types@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@material-ui/types/-/types-5.0.1.tgz#c4954063cdc196eb327ee62c041368b1aebb6d61"
-  integrity sha512-wURPSY7/3+MAtng3i26g+WKwwNE3HEeqa/trDBR5+zWKmcjO+u9t7Npu/J1r+3dmIa/OeziN9D/18IrBKvKffw==
+"@material-ui/types@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@material-ui/types/-/types-5.1.0.tgz#efa1c7a0b0eaa4c7c87ac0390445f0f88b0d88f2"
+  integrity sha512-7cqRjrY50b8QzRSYyhSpx4WRw2YuO0KKIGQEVk5J8uoz2BanawykgZGoWEqKm7pVIbzFDN0SpPcVV4IhOFkl8A==
 
 "@material-ui/utils@^4.9.12", "@material-ui/utils@^4.9.6":
   version "4.9.12"
@@ -2915,7 +2905,7 @@ acorn@^4.0.4, acorn@~4.0.2:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
   integrity sha1-EFSVrlNh1pe9GVyCUZLhrX8lN4c=
 
-acorn@^5.5.3:
+acorn@^5.5.3, acorn@^5.7.3:
   version "5.7.4"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
   integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
@@ -4790,6 +4780,11 @@ bser@2.1.1:
   integrity sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==
   dependencies:
     node-int64 "^0.4.0"
+
+buffer-es6@^4.9.3:
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/buffer-es6/-/buffer-es6-4.9.3.tgz#f26347b82df76fd37e18bcb5288c4970cfd5c404"
+  integrity sha1-8mNHuC33b9N+GLy1KIxJcM/VxAQ=
 
 buffer-from@^1.0.0:
   version "1.1.1"
@@ -6820,6 +6815,11 @@ estraverse@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-5.1.0.tgz#374309d39fd935ae500e7b92e8a6b4c720e59642"
   integrity sha512-FyohXK+R0vE+y1nHLoBM7ZTyqRpqAlhdZHCWIWEviFLiGB8b04H6bQs8G+XTthacvT8VuwvteiP7RJSxMs8UEw==
+
+estree-walker@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.5.2.tgz#d3850be7529c9580d815600b53126515e146dd39"
+  integrity sha512-XpCnW/AE10ws/kDAs37cngSkvgIR8aN3G0MS85m7dUpuK2EREo9VJ00uvw6Dg/hXEpfsE1I1TvJOJr+Z+TL+ig==
 
 estree-walker@^0.6.1:
   version "0.6.1"
@@ -9922,6 +9922,13 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+magic-string@^0.22.5:
+  version "0.22.5"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.22.5.tgz#8e9cf5afddf44385c1da5bc2a6a0dbd10b03657e"
+  integrity sha512-oreip9rJZkzvA8Qzk9HFs8fZGF/u7H/gtrE8EN6RjKJ9kh2HlC+yQ2QezifqTZfGyiuAV0dRv5a+y/8gBb1m9w==
+  dependencies:
+    vlq "^0.2.2"
+
 magic-string@^0.25.2:
   version "0.25.7"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.7.tgz#3f497d6fd34c669c6798dcb821f2ef31f5445051"
@@ -12093,6 +12100,11 @@ private@^0.1.6, private@^0.1.8, private@~0.1.5:
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
   integrity sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==
 
+process-es6@^0.11.6:
+  version "0.11.6"
+  resolved "https://registry.yarnpkg.com/process-es6/-/process-es6-0.11.6.tgz#c6bb389f9a951f82bd4eb169600105bd2ff9c778"
+  integrity sha1-xrs4n5qVH4K9TrFpYAEFvS/5x3g=
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
@@ -12852,7 +12864,7 @@ react-textarea-autosize@^7.1.0:
     "@babel/runtime" "^7.1.2"
     prop-types "^15.6.0"
 
-react-transition-group@^4.0.0:
+react-transition-group@^4.0.0, react-transition-group@^4.4.0:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
   integrity sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw==
@@ -13499,6 +13511,18 @@ rollup-plugin-commonjs@^10.1.0:
     resolve "^1.11.0"
     rollup-pluginutils "^2.8.1"
 
+rollup-plugin-node-globals@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-globals/-/rollup-plugin-node-globals-1.4.0.tgz#5e1f24a9bb97c0ef51249f625e16c7e61b7c020b"
+  integrity sha512-xRkB+W/m1KLIzPUmG0ofvR+CPNcvuCuNdjVBVS7ALKSxr3EDhnzNceGkGi1m8MToSli13AzKFYH4ie9w3I5L3g==
+  dependencies:
+    acorn "^5.7.3"
+    buffer-es6 "^4.9.3"
+    estree-walker "^0.5.2"
+    magic-string "^0.22.5"
+    process-es6 "^0.11.6"
+    rollup-pluginutils "^2.3.1"
+
 rollup-plugin-node-resolve@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.2.0.tgz#730f93d10ed202473b1fb54a5997a7db8c6d8523"
@@ -13547,6 +13571,17 @@ rollup-plugin-sass@^1.2.2:
     rollup-pluginutils ">= 1.3.1"
     sass "1.7.2"
 
+rollup-plugin-terser@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-5.3.0.tgz#9c0dd33d5771df9630cd027d6a2559187f65885e"
+  integrity sha512-XGMJihTIO3eIBsVGq7jiNYOdDMb3pVxuzY0uhOE/FM4x/u9nQgr3+McsjzqBn3QfHIpNSZmFnpoKAwHBEcsT7g==
+  dependencies:
+    "@babel/code-frame" "^7.5.5"
+    jest-worker "^24.9.0"
+    rollup-pluginutils "^2.8.2"
+    serialize-javascript "^2.1.2"
+    terser "^4.6.2"
+
 rollup-plugin-typescript2@^0.25.3:
   version "0.25.3"
   resolved "https://registry.yarnpkg.com/rollup-plugin-typescript2/-/rollup-plugin-typescript2-0.25.3.tgz#a5fb2f0f85488789334ce540abe6c7011cbdf40f"
@@ -13565,7 +13600,7 @@ rollup-pluginutils@2.8.1:
   dependencies:
     estree-walker "^0.6.1"
 
-"rollup-pluginutils@>= 1.3.1", rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
+"rollup-pluginutils@>= 1.3.1", rollup-pluginutils@^2.3.1, rollup-pluginutils@^2.8.1, rollup-pluginutils@^2.8.2:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
   integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
@@ -14699,7 +14734,7 @@ terser-webpack-plugin@^2.1.2:
     terser "^4.6.12"
     webpack-sources "^1.4.3"
 
-terser@^4.1.2, terser@^4.4.3, terser@^4.6.12, terser@^4.6.3:
+terser@^4.1.2, terser@^4.4.3, terser@^4.6.12, terser@^4.6.2, terser@^4.6.3:
   version "4.6.13"
   resolved "https://registry.yarnpkg.com/terser/-/terser-4.6.13.tgz#e879a7364a5e0db52ba4891ecde007422c56a916"
   integrity sha512-wMvqukYgVpQlymbnNbabVZbtM6PN63AzqexpwJL8tbh/mRT9LE5o+ruVduAGL7D6Fpjl+Q+06U5I9Ul82odAhw==
@@ -15380,6 +15415,11 @@ vfile@^4.0.0:
     replace-ext "1.0.0"
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
+
+vlq@^0.2.2:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
+  integrity sha512-DRibZL6DsNhIgYQ+wNdWDL2SL3bKPlVrRiBqV5yuMm++op8W4kGFtaQfCs4KEJn0wBZcHVHJ3eoywX8983k1ow==
 
 vm-browserify@^1.0.1:
   version "1.1.2"

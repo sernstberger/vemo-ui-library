@@ -1,7 +1,6 @@
 import { makeStyles } from '@material-ui/styles'
-import { Theme } from '@material-ui/core'
 
-const styles = makeStyles((theme: Theme) => ({
+const styles = makeStyles(() => ({
   Icon: {
     verticalAlign: 'middle'
   }

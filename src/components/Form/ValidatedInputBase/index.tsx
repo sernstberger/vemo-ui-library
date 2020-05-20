@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react'
-import { Field, Formik, Form } from 'formik'
+import { withTheme, ThemeProvider } from '@material-ui/core/styles'
+import { Field } from 'formik'
 import {
   TextField,
   InputAdornment,
@@ -11,6 +12,7 @@ import NumberFormat from 'react-number-format'
 import Icon from '../../Icon'
 import styles from '../styles'
 import Label from './Label'
+import theme from '../../../theme'
 
 export interface CustomValidationProps {
   schema: any // not sure what the right type is here
@@ -141,128 +143,126 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
   const Component: any = onlyAcceptsNumbers ? NumberFormat : TextField
 
   return (
-    <Formik initialValues={{ foo: '' }} onSubmit={() => {}}>
-      <Form>
-        <Field name={field} validate={validate}>
-          {({
-            // @ts-ignore
-            field: { value, onBlur, name, onChange },
-            // @ts-ignore
-            form: { touched, errors, setFieldValue, isSubmitting }
-          }) => {
-            const adornmentPosition = icon
-              ? `${icon.position}Adornment`
-              : 'startAdornment'
+    <ThemeProvider theme={theme}>
+      <Field name={field} validate={validate}>
+        {({
+          // @ts-ignore
+          field: { value, onBlur, name, onChange },
+          // @ts-ignore
+          form: { touched, errors, setFieldValue, isSubmitting }
+        }) => {
+          const adornmentPosition = icon
+            ? `${icon.position}Adornment`
+            : 'startAdornment'
 
-            if (value === 'blank') {
-              setFieldValue(name, '')
-            }
+          if (value === 'blank') {
+            setFieldValue(name, '')
+          }
 
-            const onValueChange = (values: any) => {
-              setFieldValue(name, values.floatValue)
-            }
+          const onValueChange = (values: any) => {
+            setFieldValue(name, values.floatValue)
+          }
 
-            // const isLarge = size === 'large'
+          // const isLarge = size === 'large'
 
-            const adornment = (isLoading || icon) && {
-              [adornmentPosition]: (
-                <InputAdornment
-                  position={(icon && icon.position) || 'start'}
-                  // className={isLarge ? classes.largeInput : ''}
-                >
-                  {isLoading ? (
-                    <CircularProgress size={20} />
-                  ) : (
-                    <Icon
-                      color={icon!.color}
-                      name={icon!.name}
-                      // size={isLarge ? 'inherit' : undefined}
-                    />
-                  )}
-                </InputAdornment>
-              )
-            }
-
-            return (
-              <div className={classes.textWrapper}>
-                {hasCounter && (
-                  <div className={classes.characterLimitText}>
-                    <Typography
-                      variant="body2"
-                      color={errors[field] ? 'error' : 'textSecondary'}
-                    >
-                      {`${counter} / ${maxLength} characters`}
-                    </Typography>
-                  </div>
+          const adornment = (isLoading || icon) && {
+            [adornmentPosition]: (
+              <InputAdornment
+                position={(icon && icon.position) || 'start'}
+                // className={isLarge ? classes.largeInput : ''}
+              >
+                {isLoading ? (
+                  <CircularProgress size={20} />
+                ) : (
+                  <Icon
+                    color={icon!.color}
+                    name={icon!.name}
+                    // size={isLarge ? 'inherit' : undefined}
+                  />
                 )}
-                <Component
-                  id={name}
-                  placeholder={placeholder || `Enter ${label}`}
-                  {...{
-                    required,
-                    // name,
-                    inputMode,
-                    value
-                    // type
-                  }}
-                  // NumberFormat props
-                  {...(isNumber
-                    ? {
-                        thousandSeparator: true,
-                        decimalScale,
-                        onValueChange
-                      }
-                    : undefined)}
-                  onChange={isNumber ? undefined : onChange}
-                  {...(onlyAcceptsNumbers
-                    ? { customInput: TextField }
-                    : undefined)}
-                  // //////////////////////////////////////
-                  error={errors[field] && touched[field]}
-                  helperText={
-                    (errors[field] && touched[field] && errors[field]) ||
-                    helperText
-                  }
-                  onBlur={onBlur(name)}
-                  label={
-                    <Label
-                      {...{ label, tooltip }}
-                      required={!initialRequired && !required && !disabled}
-                    />
-                  }
-                  InputLabelProps={{ shrink: true, required: false }}
-                  disabled={isLoading || isSubmitting || disabled}
-                  InputProps={{
-                    ...adornment,
-                    disableUnderline: true,
-                    className: classes.root,
-                    // className: isLarge ? classes.largeInputProps : undefined,
-                    style: readOnly
-                      ? {
-                          backgroundColor: 'transparent',
-                          borderColor: 'transparent',
-                          fontSize: 20,
-                          transition: '250ms all'
-                        }
-                      : {}
-                  }}
-                  inputProps={
-                    {
-                      // className: isLarge ? classes.largeHtmlInputProps : undefined
-                    }
-                  }
-                  fullWidth
-                  {...rest}
-                >
-                  {props.children}
-                </Component>
-              </div>
+              </InputAdornment>
             )
-          }}
-        </Field>
-      </Form>
-    </Formik>
+          }
+
+          return (
+            <div className={classes.textWrapper}>
+              {hasCounter && (
+                <div className={classes.characterLimitText}>
+                  <Typography
+                    variant="body2"
+                    color={errors[field] ? 'error' : 'textSecondary'}
+                  >
+                    {`${counter} / ${maxLength} characters`}
+                  </Typography>
+                </div>
+              )}
+              <Component
+                id={name}
+                placeholder={placeholder || `Enter ${label}`}
+                {...{
+                  required,
+                  // name,
+                  inputMode,
+                  value
+                  // type
+                }}
+                // NumberFormat props
+                {...(isNumber
+                  ? {
+                      thousandSeparator: true,
+                      decimalScale,
+                      onValueChange
+                    }
+                  : undefined)}
+                onChange={isNumber ? undefined : onChange}
+                {...(onlyAcceptsNumbers
+                  ? { customInput: TextField }
+                  : undefined)}
+                // //////////////////////////////////////
+                error={errors[field] && touched[field]}
+                helperText={
+                  (errors[field] && touched[field] && errors[field]) ||
+                  helperText
+                }
+                onBlur={onBlur(name)}
+                label={
+                  <Label
+                    {...{ label, tooltip }}
+                    required={!initialRequired && !required && !disabled}
+                  />
+                }
+                InputLabelProps={{ shrink: true, required: false }}
+                disabled={isLoading || isSubmitting || disabled}
+                InputProps={{
+                  ...adornment,
+
+                  // className: isLarge ? classes.largeInputProps : undefined,
+
+                  style: readOnly
+                    ? {
+                        backgroundColor: 'transparent',
+                        borderColor: 'transparent',
+                        fontSize: 20,
+                        transition: '250ms all'
+                      }
+                    : {}
+                }}
+                inputProps={
+                  {
+                    // className: isLarge ? classes.largeHtmlInputProps : undefined
+                  }
+                }
+                // fullWidth
+                {...rest}
+              >
+                {props.children}
+              </Component>
+            </div>
+          )
+        }}
+      </Field>
+    </ThemeProvider>
   )
 }
 
-export default ValidatedInputBase
+export default withTheme(ValidatedInputBase)

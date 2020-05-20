@@ -417,22 +417,22 @@ theme = createMuiTheme({
         borderRadius: 50
       }
     },
-    MuiTab: {
-      root: {
-        textTransform: 'none',
-        minHeight: theme.spacing(4.5),
+    // MuiTab: {
+    //   root: {
+    //     textTransform: 'none',
+    //     minHeight: theme.spacing(4.5),
 
-        [theme.breakpoints.up('sm')]: {
-          fontWeight: 600,
-          minWidth: theme.spacing(10)
-        }
-      },
-      selected: {
-        backgroundColor: theme.palette.primary.main,
-        borderRadius: 50,
-        color: theme.palette.primary.contrastText
-      }
-    },
+    //     [theme.breakpoints.up('sm')]: {
+    //       fontWeight: 600,
+    //       minWidth: theme.spacing(10)
+    //     }
+    //   },
+    //   selected: {
+    //     backgroundColor: theme.palette.primary.main,
+    //     borderRadius: 50,
+    //     color: theme.palette.primary.contrastText
+    //   }
+    // },
 
     MuiTooltip: {
       tooltip: {
@@ -475,27 +475,27 @@ theme = createMuiTheme({
     MuiLink: {
       underline: 'always'
     },
-    MuiSelect: {
-      native: true
-      // IconComponent: () => (
-      //   <div
-      //     style={{
-      //       borderLeft: `1px solid #CCC`,
-      //       pointerEvents: 'none',
-      //       display: 'flex',
-      //       alignItems: 'center',
-      //       position: 'absolute',
-      //       paddingLeft: theme.spacing(1.5),
-      //       marginLeft: theme.spacing(1.5),
-      //       right: theme.spacing(1.5),
-      //       height: '75%',
-      //       width: theme.spacing(4.5)
-      //     }}
-      //   >
-      //     <Icon icon="arrow-down" />
-      //   </div>
-      // )
-    },
+    // MuiSelect: {
+    //   native: true
+    //   // IconComponent: () => (
+    //   //   <div
+    //   //     style={{
+    //   //       borderLeft: `1px solid #CCC`,
+    //   //       pointerEvents: 'none',
+    //   //       display: 'flex',
+    //   //       alignItems: 'center',
+    //   //       position: 'absolute',
+    //   //       paddingLeft: theme.spacing(1.5),
+    //   //       marginLeft: theme.spacing(1.5),
+    //   //       right: theme.spacing(1.5),
+    //   //       height: '75%',
+    //   //       width: theme.spacing(4.5)
+    //   //     }}
+    //   //   >
+    //   //     <Icon icon="arrow-down" />
+    //   //   </div>
+    //   // )
+    // },
     MuiSlider: {
       color: 'primary'
       // ThumbComponent: (props) => (

@@ -2,6 +2,8 @@ import React from 'react'
 import ValidatedInputBase, {
   ValidatedInputBaseProps
 } from '../ValidatedInputBase'
+// import {ArrowDown} from '../../Icon'
+import Icon from '../../Icon'
 
 interface OptionProps {
   label: string
@@ -20,7 +22,26 @@ const ValidatedSelect = (props: ValidatedSelectProps) => {
       {...rest}
       select
       SelectProps={{
-        native: true
+        native: true,
+        IconComponent: () => (
+        <div
+          style={{
+            borderLeft: `1px solid #CCC`,
+            pointerEvents: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            position: 'absolute',
+            // paddingLeft: theme.spacing(1.5),
+            // marginLeft: theme.spacing(1.5),
+            // right: theme.spacing(1.5),
+            right: 0,
+            height: '75%',
+            // width: theme.spacing(4.5)
+          }}
+        >
+          <Icon name="ArrowDown" />
+        </div>
+      )
       }}
     >
       <option value="">Select {props.label}</option>

@@ -23,14 +23,18 @@ const Errors = (props: ErrorsProps) => {
   let finalArray: ErrorProps[] = []
 
   const foo = Object.entries(errors)
-  console.log('!!!!!', foo)
 
   foo.map((baz: any) => {
-    // console.log(thing, typeof baz[1] === 'object')
     
     if (typeof baz[1] === 'object') {
-      const thing = baz[1].map((bat: any) => {
-        console.log('*****', bat)
+      baz[1].map((bat: any) => {
+        const hit = Object.entries(bat)
+        hit.map((ball: any) => {
+          const ugh = {field: ball[0], message: ball[1]}
+          finalArray = [...finalArray, ugh]
+        })
+
+        // console.log('*****', hit)
       })
     } else {
       const thing = {field: baz[0], message: baz[1]}
@@ -39,7 +43,7 @@ const Errors = (props: ErrorsProps) => {
   })
 
 
-console.log('^^^^^^^', finalArray)
+// console.log('^^^^^^^', finalArray)
 
 
 

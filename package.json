@@ -1,6 +1,6 @@
 {
   "name": "vemo-ui-library",
-  "version": "0.0.56",
+  "version": "0.0.63",
   "private": false,
   "description": "A template for publishing a React + TypeScript package to npm",
   "author": "Steve Ernstberger / Vemo Education",

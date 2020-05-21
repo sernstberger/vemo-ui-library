@@ -5,7 +5,7 @@ import { StylesProvider } from '@material-ui/core/styles'
 const Button = (props: any) => {
   return (
     <StylesProvider injectFirst>
-      <MuiButton {...props} variant="contained" color="primary">
+      <MuiButton {...props}>
         Gooooooo
       </MuiButton>
     </StylesProvider>

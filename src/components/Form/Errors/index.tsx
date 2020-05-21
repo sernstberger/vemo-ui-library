@@ -1,9 +1,9 @@
 import React from 'react'
 import Snackbar, { SnackbarMessageProps } from '../../Snackbar'
-import { FormikErrors, FormikValues } from 'formik'
+import { FormikErrors, FormikValues, useFormikContext } from 'formik'
 
 interface ErrorsProps {
-  errors: FormikErrors<FormikValues>
+  // errors: FormikErrors<FormikValues>
   title?: string
 }
 
@@ -13,76 +13,56 @@ interface ErrorProps {
 }
 
 const Errors = (props: ErrorsProps) => {
-  const { errors, title = 'Something is not right...' } = props
+  const {  title = 'Something is not right...' } = props
+  const {errors} = useFormikContext()
 
-  // let errorArray: any[] = []
 
-  // Object.keys(errors).map((key: string) => {
-  //   let meh = errors
 
-  //   const foo = errors[key]
-  //   // let bar: any[] = []
-  //   if (Array.isArray(foo)) {
-  //     // bar = [...bar, ...errorArray(foo)]
-  //     // bar = foo
-  //     foo.map((blah: any) => {
-  //       meh = { ...meh, ...blah }
-  //     })
-  //     delete meh['loans']
-  //   }
 
-  //   errorArray = Object.keys(meh).map((_key: string) => {
-  //     return { field: _key, message: meh[_key] } as ErrorProps
-  //   })
 
-  //   return
-
-  // })
+  let finalArray: ErrorProps[] = []
 
   const foo = Object.entries(errors)
-  let errorArray: any[] = []
-  foo.forEach(([key, value]) => {
-    let obj
-    if (!Array.isArray(value)) {
-      obj = { field: key, message: value }
-    } else {
-      // value.forEach(([_key, _value]) => {
-      //   obj = { field: _key, message: _value }
-      // })
-      value.map((barf: any) => {
-        const jeeze = Object.entries(barf)
-        console.log('!!!!', jeeze)
-        jeeze.forEach(([_key, _value]) => {
-          obj = { field: _key, message: _value }
-          errorArray = [...errorArray, obj]
-          obj = {}
-        })
+  console.log('!!!!!', foo)
+
+  foo.map((baz: any) => {
+    // console.log(thing, typeof baz[1] === 'object')
+    
+    if (typeof baz[1] === 'object') {
+      const thing = baz[1].map((bat: any) => {
+        console.log('*****', bat)
       })
+    } else {
+      const thing = {field: baz[0], message: baz[1]}
+      finalArray = [...finalArray, thing]
     }
-    errorArray = [...errorArray, obj]
-    // console.log(key); // 'one'
-    // console.log(value); // 1
   })
-  // const bar = foo.flat()
 
-  // console.log('errors', errorArray)
 
-  const formattedMessages = errorArray.map((message: ErrorProps) => {
+console.log('^^^^^^^', finalArray)
+
+
+
+
+
+
+  const formattedMessages = finalArray.map((error: ErrorProps) => {
     return {
-      text: message.message,
+      text: error.message,
       onClick: () => {
-        alert(message.field)
+        alert(error.field)
       }
     } as SnackbarMessageProps
   })
 
-  // const scrolly = (elementId: any) => {
-  //   const formFieldElement = document.getElementById(elementId)
-  //   formFieldElement!.focus()
-  // }
+
+
+
+
 
   return (
     <Snackbar open status="error" title={title} messages={formattedMessages} />
+    // <Snackbar open status="success" messages="yeah!" />
   )
 }
 

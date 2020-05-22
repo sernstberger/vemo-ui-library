@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { withTheme, ThemeProvider } from '@material-ui/core/styles'
-import { Field } from 'formik'
+import { Field, getIn } from 'formik'
 import {
   TextField,
   InputAdornment,
@@ -219,9 +219,17 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   ? { customInput: TextField }
                   : undefined)}
                 // //////////////////////////////////////
-                error={errors[field] && touched[field]}
+                error={
+                  (errors[field] && touched[field]) ||
+                  (getIn(touched, field) && getIn(errors, field)
+                    ? getIn(errors, field)
+                    : null)
+                }
                 helperText={
                   (errors[field] && touched[field] && errors[field]) ||
+                  (getIn(touched, field) &&
+                    getIn(errors, field) &&
+                    getIn(errors, field)) ||
                   helperText
                 }
                 onBlur={onBlur(name)}

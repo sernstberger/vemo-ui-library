@@ -41,17 +41,32 @@ const Errors = (props: ErrorsProps) => {
 
   console.log('!!!!!!!', finalArray, 'get', getIn(errors, 'loans[0].rate'))
 
+
+  const formattedMessages = finalArray.map((obj: any) => {
+    const error = getIn(errors, obj);
+    const touch = getIn(touched, obj);
+    const foo = touch && error ? error : null;
+
+    // return <div>{foo}
+    
+    
+    // </div>
+
+    return {
+      text: foo,
+      // onClick: () => {
+      //   document.getElementById(error.field)!.focus()
+      // }
+      onClick: () => alert('woot')
+    } as SnackbarMessageProps
+  })
+
   return (
     <div style={{ backgroundColor: 'yellow' }}>
-      errors will go here
-      <br />
-      {finalArray.map((obj: any) => {
-        const error = getIn(errors, obj);
-        const touch = getIn(touched, obj);
-        const foo = touch && error ? error : null;
 
-        return <div>{foo}</div>
-      })}
+      
+      
+      <Snackbar open status="success" messages={formattedMessages} />
     </div>
   )
 }

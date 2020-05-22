@@ -13,62 +13,27 @@ interface ErrorProps {
 }
 
 const Errors = (props: ErrorsProps) => {
-  const {  title = 'Something is not right...' } = props
-  const {errors} = useFormikContext()
-
-
-
-
+  const { title = 'Something is not right...' } = props
+  const { errors } = useFormikContext()
 
   let finalArray: ErrorProps[] = []
 
-  // const foo = Object.entries(errors)
-
-  // foo.map((baz: any) => {
-    
-  //   if (typeof baz[1] === 'object') {
-  //     baz[1].map((bat: any) => {
-  //       const hit = Object.entries(bat)
-  //       hit.map((ball: any) => {
-  //         const ugh = {field: ball[0], message: ball[1]}
-  //         finalArray = [...finalArray, ugh]
-  //       })
-  //     })
-  //   } else {
-  //     const thing = {field: baz[0], message: baz[1]}
-  //     finalArray = [...finalArray, thing]
-  //   }
-  // })
-
-
-
-
-  const createErrorArray = (array: any) => {
-
-
-    Object.entries(array).map((baz: any) => {
-    
-      // if (typeof baz[1] === 'object') {
-      if (Array.isArray(baz[1])) {
-        baz[1].map((bat: any) => {
-          createErrorArray(bat)
+  const createErrorArray = (obj: any) => {
+    Object.entries(obj).map((errorObj: any) => {
+      if (Array.isArray(errorObj[1])) {
+        errorObj[1].map((ErrorObjObj: any) => {
+          createErrorArray(ErrorObjObj)
         })
       } else {
-        const thing = {field: baz[0], message: baz[1]}
-        finalArray = [...finalArray, thing]
+        finalArray = [
+          ...finalArray,
+          { field: errorObj[0], message: errorObj[1] }
+        ]
       }
     })
   }
 
   createErrorArray(errors)
-
-
-// console.log('^^^^^^^', finalArray)
-
-
-
-
-
 
   const formattedMessages = finalArray.map((error: ErrorProps) => {
     return {
@@ -79,15 +44,18 @@ const Errors = (props: ErrorsProps) => {
     } as SnackbarMessageProps
   })
 
+  if (formattedMessages.length) {
+    return (
+      <Snackbar
+        open
+        status="error"
+        title={title}
+        messages={formattedMessages}
+      />
+    )
+  }
 
-
-
-
-
-  return (
-    <Snackbar open status="error" title={title} messages={formattedMessages} />
-    // <Snackbar open status="success" messages="yeah!" />
-  )
+  return null
 }
 
 export default Errors

@@ -1,61 +1,59 @@
 import React from 'react'
 import Snackbar, { SnackbarMessageProps } from '../../Snackbar'
-import { FormikErrors, FormikValues, useFormikContext } from 'formik'
-
-interface ErrorsProps {
-  // errors: FormikErrors<FormikValues>
-  title?: string
-}
-
-interface ErrorProps {
-  field: string
-  message: string
-}
+import {
+  FormikErrors,
+  FormikValues,
+  useFormikContext,
+  ErrorMessage,
+  getIn
+} from 'formik'
 
 const Errors = (props: ErrorsProps) => {
-  const { title = 'Something is not right...' } = props
-  const { errors } = useFormikContext()
+  const { errors, values, touched } = useFormikContext()
+  // const foo = Object.entries(values)
 
-  let finalArray: ErrorProps[] = []
+  let finalArray: any = []
 
   const createErrorArray = (obj: any) => {
     Object.entries(obj).map((errorObj: any) => {
       if (Array.isArray(errorObj[1])) {
-        errorObj[1].map((ErrorObjObj: any) => {
-          createErrorArray(ErrorObjObj)
+        errorObj[1].map((ErrorObjObj: any, index: number) => {
+
+          Object.entries(ErrorObjObj).map((blah: any) => {
+
+            // console.log('things!!!', blah)
+            const foo = errorObj[0]
+            finalArray = [...finalArray, `${foo}[${index}].${blah[0]}`]
+          })
         })
       } else {
         finalArray = [
           ...finalArray,
-          { field: errorObj[0], message: errorObj[1] }
+          errorObj[0]
         ]
       }
     })
   }
 
-  createErrorArray(errors)
+  createErrorArray(values)
 
-  const formattedMessages = finalArray.map((error: ErrorProps) => {
-    return {
-      text: error.message,
-      onClick: () => {
-        alert(error.field)
-      }
-    } as SnackbarMessageProps
-  })
+  // finalArray = ['firstName', 'lastName', 'loans[0].rate']
 
-  if (formattedMessages.length) {
-    return (
-      <Snackbar
-        open
-        status="error"
-        title={title}
-        messages={formattedMessages}
-      />
-    )
-  }
+  console.log('!!!!!!!', finalArray, 'get', getIn(errors, 'loans[0].rate'))
 
-  return null
+  return (
+    <div style={{ backgroundColor: 'yellow' }}>
+      errors will go here
+      <br />
+      {finalArray.map((obj: any) => {
+        const error = getIn(errors, obj);
+        const touch = getIn(touched, obj);
+        const foo = touch && error ? error : null;
+
+        return <div>{foo}</div>
+      })}
+    </div>
+  )
 }
 
 export default Errors

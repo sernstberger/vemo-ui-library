@@ -5,6 +5,7 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { Formik, FieldArray, Field, ErrorMessage } from 'formik'
 import Errors from '../Errors'
 import ValidatedTextInput from '../ValidatedTextInput'
+import { Button } from '@material-ui/core'
 
 export default {
   title: 'Errors',
@@ -18,37 +19,16 @@ export const Base = () => (
       firstName: '',
       lastName: '',
       loans: [
-        { name: 'Student loan', rate: 0, term: 0 },
-        { name: 'Parent loan', rate: 0, term: 0 }
+        { name: 'Student loan', rate: undefined, term: undefined },
+        { name: 'Parent loan', rate: undefined, term: undefined }
       ]
     }}
     onSubmit={() => {}}
   >
     {props => {
-      const foo = Object.keys(props.errors).length !== 0
-
-      // const bleh = {
-      //   loans: [
-      //     {
-      //       rate: 'Interest Rate is required 111111',
-      //       term: "Term can't be less than 0 111111"
-      //     }
-      //     // {
-      //     //   rate: 'Interest Rate is required 222222',
-      //     //   term: "Term can't be less than 0 222222"
-      //     // },
-      //     // {
-      //     //   rate: 'Interest Rate is required 333333',
-      //     //   term: "Term can't be less than 0 333333"
-      //     // }
-      //   ],
-      //   field1: 'field1 is required',
-      //   field2: 'field2 is required'
-      // }
-
       return (
         <>
-          {foo && <Errors />}
+          <Errors />
           <ValidatedTextInput field="firstName" label="First name" required />
           <ValidatedTextInput field="lastName" label="Last name" required />
 
@@ -73,6 +53,7 @@ export const Base = () => (
               </div>
             )}
           />
+          <Button type="submit" variant="contained">Submit</Button>
         </>
       )
     }}

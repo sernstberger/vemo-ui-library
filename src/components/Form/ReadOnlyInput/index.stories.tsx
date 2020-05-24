@@ -1,9 +1,9 @@
 import React from 'react'
 // import { action } from '@storybook/addon-actions'
-import { withKnobs, boolean } from '@storybook/addon-knobs'
-// import ReadOnlyInput from './index'
+import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
-import ValidatedTextInput from '../ValidatedTextInput'
+import ReadOnlyInput from './index'
+import ValidatedInputBase from '../ValidatedInputBase'
 
 export default {
   title: 'Read Only Input',
@@ -12,12 +12,12 @@ export default {
 
 export const ReadOnlyInputStory = () => (
   <Formik initialValues={{ foo: '' }} onSubmit={() => {}}>
-    {/* <ReadOnlyInput
+    <ReadOnlyInput
       label={text('Label', 'fooooo')}
-      value="alksjfalkfjasf"
+      content="alksjfalkfjasf"
       editable
+      input={<ValidatedInputBase required field="foo" label="Foo"  />}
       // fsMasked
-    /> */}
-    <ValidatedTextInput field="foo" label="Read Only" readOnly={boolean('Read Only', false)} />
+    />
   </Formik>
 )

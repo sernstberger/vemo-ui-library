@@ -1,100 +1,90 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
-import { Typography, Grid, Fab, IconButton } from '@material-ui/core'
+import { Typography, IconButton, Grid, Fab } from '@material-ui/core'
+
 import FSMask from '../../FSMask'
 import styles from './styles'
-import ValidatedTextInput from '../ValidatedTextInput'
 import Icon from '../../Icon'
 
 interface ReadOnlyInputProps {
   label: string
   // value: oneOfType([string, node])
-  value?: string
+  content?: string
+  // content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   editable?: boolean
   valuePlaceholder?: string
   className?: string
   fsMasked?: boolean
+  input?: any
 }
 
 const ReadOnlyInput = (props: ReadOnlyInputProps) => {
-  const {
-    label,
-    value,
-    className,
-    fsMasked = false,
-    valuePlaceholder = 'N/A',
-    editable = false
-  } = props
+  const { className, label, content, fsMasked, editable, input } = props
   const classes = styles()
   const [editing, setEditing] = useState(false)
   const containerClasses = clsx(classes.container, className)
-  return editing ? (
-    <Grid container>
-      <Grid item xs>
-        <ValidatedTextInput
-          field="fooooo"
-          label={label}
-          required
-          //  autoFocus
-        />
-      </Grid>
-      <Grid item>
-        <div style={{ marginTop: 38 }}>
-          <Fab
-            onClick={() => setEditing(false)}
-            color="primary"
-            size="small"
-            style={{ marginLeft: 8 }}
-          >
-            <Icon name="check" />
-          </Fab>
-
-          <Fab
-            onClick={() => setEditing(false)}
-            size="small"
-            style={{ marginLeft: 8 }}
-          >
-            <Icon name="close" />
-          </Fab>
-        </div>
-      </Grid>
-    </Grid>
-  ) : (
+  return (
     <div className={containerClasses}>
-      <div>
-        <Typography
-          color="textSecondary"
-          style={{
-            fontSize: 14,
-            fontWeight: 500,
-            marginBottom: 4,
-            lineHeight: 1
-          }}
-        >
-          {label}
-        </Typography>
-        {value && (
-          <Typography variant="h4" className={classes.ReadOnlyInputContent}>
-            {fsMasked ? <FSMask>{value}</FSMask> : value}
-          </Typography>
-        )}
-      </div>
-      {editable && (
-        <IconButton
-          onClick={() => setEditing(true)}
-          size="small"
-          color="primary"
-        >
-          <Icon name="edit" />
-        </IconButton>
+      {editing ? (
+        <Grid container spacing={2}>
+          <Grid item xs>
+            {input}
+          </Grid>
+
+          <Grid item>
+            <div style={{ marginTop: 38 }}>
+              <Fab
+                onClick={() => setEditing(false)}
+                color="primary"
+                size="small"
+              >
+                <Icon name="Check" />
+              </Fab>
+            </div>
+          </Grid>
+
+          <Grid item>
+            <div style={{ marginTop: 38 }}>
+              <Fab onClick={() => setEditing(false)} size="small">
+                <Icon name="Close" />
+              </Fab>
+            </div>
+          </Grid>
+        </Grid>
+      ) : (
+        <Grid container>
+          <Grid item>
+            <Typography variant="h6" color="textSecondary">
+              {label}
+            </Typography>
+            {content && (
+              <Typography variant="h4" className={classes.ReadOnlyInputContent}>
+                {fsMasked ? <FSMask>{content}</FSMask> : content}
+              </Typography>
+            )}
+          </Grid>
+
+          {editable && (
+            <Grid item>
+              <IconButton
+                onClick={() => setEditing(true)}
+                // size="small"
+                color="primary"
+              >
+                <Icon name="Edit" />
+              </IconButton>
+            </Grid>
+          )}
+        </Grid>
       )}
     </div>
   )
 }
 
-ReadOnlyInput.defaultProps = {
-  value: null,
-  className: ''
-}
+// ReadOnlyInput.defaultProps = {
+//   content: null,
+//   className: '',
+//   fsMasked: false
+// }
 
 export default ReadOnlyInput

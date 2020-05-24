@@ -9,12 +9,12 @@ import ValidatedTextInput from '../ValidatedTextInput'
 import ValidatedTextArea from '../ValidatedTextArea'
 
 export default {
-  title: 'Validated Input',
+  title: 'Forms',
   component: ValidatedInputBase,
   decorators: [withKnobs]
 }
 
-export const Base = () => (
+export const InputBase = () => (
   <Formik
     initialValues={{
       foo: '',

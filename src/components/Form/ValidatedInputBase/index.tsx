@@ -184,6 +184,8 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
             )
           }
 
+          const hasNestedErrors = getIn(touched, field) && getIn(errors, field)
+
           return (
             <div className={classes.textWrapper}>
               {hasCounter && (
@@ -219,17 +221,10 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   ? { customInput: TextField }
                   : undefined)}
                 // //////////////////////////////////////
-                error={
-                  (errors[field] && touched[field]) ||
-                  (getIn(touched, field) && getIn(errors, field)
-                    ? getIn(errors, field)
-                    : null)
-                }
+                error={(errors[field] && touched[field]) || hasNestedErrors}
                 helperText={
                   (errors[field] && touched[field] && errors[field]) ||
-                  (getIn(touched, field) &&
-                    getIn(errors, field) &&
-                    getIn(errors, field)) ||
+                  (hasNestedErrors && getIn(errors, field)) ||
                   helperText
                 }
                 onBlur={onBlur(name)}

@@ -11,13 +11,14 @@ export default {
 }
 
 export const ReadOnlyInputStory = () => (
-  <Formik initialValues={{ foo: '' }} onSubmit={() => {}}>
-    <ReadOnlyInput
-      label={text('Label', 'fooooo')}
-      content="alksjfalkfjasf"
-      editable
-      input={<ValidatedInputBase required field="foo" label="Foo"  />}
-      // fsMasked
-    />
-  </Formik>
+  <div style={{ padding: 40 }}>
+    <Formik initialValues={{ foo: '' }} onSubmit={() => {}}>
+      <ReadOnlyInput
+        label={text('Label', 'Foo')}
+        content="alksjfalkfjasf"
+        editable
+        // fsMasked
+      />
+    </Formik>
+  </div>
 )

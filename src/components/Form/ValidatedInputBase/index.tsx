@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { withTheme, ThemeProvider } from '@material-ui/core/styles'
-import { Field } from 'formik'
+import { Field, getIn } from 'formik'
 import {
   TextField,
   InputAdornment,
@@ -184,6 +184,8 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
             )
           }
 
+          const hasNestedErrors = getIn(touched, field) && getIn(errors, field)
+
           return (
             <div className={classes.textWrapper}>
               {hasCounter && (
@@ -219,9 +221,10 @@ const ValidatedInputBase = (props: ValidatedInputBaseProps) => {
                   ? { customInput: TextField }
                   : undefined)}
                 // //////////////////////////////////////
-                error={errors[field] && touched[field]}
+                error={(errors[field] && touched[field]) || hasNestedErrors}
                 helperText={
                   (errors[field] && touched[field] && errors[field]) ||
+                  (hasNestedErrors && getIn(errors, field)) ||
                   helperText
                 }
                 onBlur={onBlur(name)}

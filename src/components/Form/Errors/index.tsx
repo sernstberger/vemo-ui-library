@@ -1,89 +1,65 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Snackbar, { SnackbarMessageProps } from '../../Snackbar'
-import { FormikErrors, FormikValues } from 'formik'
+import { useFormikContext, getIn } from 'formik'
 
-interface ErrorsProps {
-  errors: FormikErrors<FormikValues>
-  title?: string
-}
+const Errors = (props: any) => {
+  const { errors, values, touched, submitCount } = useFormikContext()
 
-interface ErrorProps {
-  field: string
-  message: string
-}
+  const [snackbarMessages, setSnackbarMessages] = useState([])
 
-const Errors = (props: ErrorsProps) => {
-  const { errors, title = 'Something is not right...' } = props
-
-  // let errorArray: any[] = []
-
-  // Object.keys(errors).map((key: string) => {
-  //   let meh = errors
-
-  //   const foo = errors[key]
-  //   // let bar: any[] = []
-  //   if (Array.isArray(foo)) {
-  //     // bar = [...bar, ...errorArray(foo)]
-  //     // bar = foo
-  //     foo.map((blah: any) => {
-  //       meh = { ...meh, ...blah }
-  //     })
-  //     delete meh['loans']
-  //   }
-
-  //   errorArray = Object.keys(meh).map((_key: string) => {
-  //     return { field: _key, message: meh[_key] } as ErrorProps
-  //   })
-
-  //   return
-
-  // })
-
-  const foo = Object.entries(errors)
-  let errorArray: any[] = []
-  foo.forEach(([key, value]) => {
-    let obj
-    if (!Array.isArray(value)) {
-      obj = { field: key, message: value }
-    } else {
-      // value.forEach(([_key, _value]) => {
-      //   obj = { field: _key, message: _value }
-      // })
-      value.map((barf: any) => {
-        const jeeze = Object.entries(barf)
-        console.log('!!!!', jeeze)
-        jeeze.forEach(([_key, _value]) => {
-          obj = { field: _key, message: _value }
-          errorArray = [...errorArray, obj]
-          obj = {}
-        })
+  useEffect(() => {
+    let messagesArray: any = []
+    const createErrorArray = (obj: any) => {
+      Object.entries(obj).map((errorObj: any) => {
+        if (Array.isArray(errorObj[1])) {
+          errorObj[1].map((ErrorObjObj: any, index: number) => {
+            Object.entries(ErrorObjObj).map((blah: any) => {
+              const foo = errorObj[0]
+              messagesArray = [...messagesArray, `${foo}[${index}].${blah[0]}`]
+            })
+          })
+        } else {
+          messagesArray = [...messagesArray, errorObj[0]]
+        }
       })
     }
-    errorArray = [...errorArray, obj]
-    // console.log(key); // 'one'
-    // console.log(value); // 1
-  })
-  // const bar = foo.flat()
 
-  // console.log('errors', errorArray)
+    createErrorArray(values)
 
-  const formattedMessages = errorArray.map((message: ErrorProps) => {
-    return {
-      text: message.message,
-      onClick: () => {
-        alert(message.field)
+    const formattedMessages = messagesArray.map((obj: any) => {
+      const error = getIn(errors, obj)
+      const touch = getIn(touched, obj)
+      const errorMessageText = touch && error ? error : null
+
+      if (errorMessageText !== null) {
+        return {
+          text: errorMessageText,
+          onClick: () => {
+            document.getElementById(obj)!.focus()
+          }
+        } as SnackbarMessageProps
       }
-    } as SnackbarMessageProps
-  })
+    })
 
-  // const scrolly = (elementId: any) => {
-  //   const formFieldElement = document.getElementById(elementId)
-  //   formFieldElement!.focus()
-  // }
+    const filteredMessages = formattedMessages.filter(
+      (item: any) => item !== undefined
+    )
 
-  return (
-    <Snackbar open status="error" title={title} messages={formattedMessages} />
-  )
+    setSnackbarMessages(filteredMessages)
+  }, [submitCount])
+
+  if (snackbarMessages.length && submitCount > 0) {
+    return (
+      <Snackbar
+        open
+        status="error"
+        title="Something is not right..."
+        messages={snackbarMessages}
+      />
+    )
+  }
+
+  return null
 }
 
 export default Errors

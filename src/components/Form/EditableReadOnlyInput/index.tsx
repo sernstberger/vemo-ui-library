@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
-import { Typography, IconButton, Grid, Fab } from '@material-ui/core'
+import { IconButton, Grid, Fab } from '@material-ui/core'
 
 import styles from './styles'
 import Icon from '../../Icon'
@@ -16,13 +16,15 @@ interface EditableReadOnlyInputProps extends ReadOnlyInputProps {
 
 const EditableReadOnlyInput = (props: EditableReadOnlyInputProps) => {
   const { className, field, input, label, ...readOnlyInputProps } = props
+  const { values, setFieldValue } = useFormikContext()
   const classes = styles()
   const [editing, setEditing] = useState(false)
+  const [initialValue, setInitialValue] = useState(values[field])
   const containerClasses = clsx(classes.container, className)
-  const { values } = useFormikContext()
 
   useEffect(() => {
     document.getElementById(field)?.focus()
+    setInitialValue(values[field])
   }, [editing])
 
   return (
@@ -52,7 +54,13 @@ const EditableReadOnlyInput = (props: EditableReadOnlyInputProps) => {
 
           <Grid item>
             <div style={{ marginTop: 18 }}>
-              <Fab onClick={() => setEditing(false)} size="small">
+              <Fab
+                onClick={() => {
+                  setFieldValue(field, initialValue)
+                  setEditing(false)
+                }}
+                size="small"
+              >
                 <Icon name="Close" />
               </Fab>
             </div>
@@ -73,7 +81,6 @@ const EditableReadOnlyInput = (props: EditableReadOnlyInputProps) => {
               onClick={() => {
                 setEditing(true)
               }}
-              // size="small"
               color="primary"
             >
               <Icon name="Edit" />

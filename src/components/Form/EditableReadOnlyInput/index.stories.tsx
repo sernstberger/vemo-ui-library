@@ -2,20 +2,20 @@ import React from 'react'
 // import { action } from '@storybook/addon-actions'
 import { withKnobs, boolean, text } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
-import ReadOnlyInput from './index'
-import ValidatedInputBase from '../ValidatedInputBase'
+import EditableReadOnlyInput from './index'
 
 export default {
   title: 'Read Only Input',
   decorators: [withKnobs]
 }
 
-export const Base = () => (
+export const WithEdit = () => (
   <div style={{ padding: 40 }}>
-    <Formik initialValues={{ foo: '' }} onSubmit={() => {}}>
-      <ReadOnlyInput
-        label={text('Label', 'Foo')}
-        content="alksjfalkfjasf"
+    <Formik initialValues={{ testing: 'sweet' }} onSubmit={() => {}}>
+      <EditableReadOnlyInput
+        label={text('Label', 'Testing')}
+        field="testing"
+        // content="alksjfalkfjasf"
         // fsMasked
       />
     </Formik>

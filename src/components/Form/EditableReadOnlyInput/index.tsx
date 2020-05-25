@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import clsx from 'clsx'
+import { useFormikContext } from 'formik'
 import { IconButton, Grid, Fab } from '@material-ui/core'
 
 import styles from './styles'
 import Icon from '../../Icon'
 import { ValidatedInputBase } from '..'
 import ReadOnlyInput, { ReadOnlyInputProps } from '../ReadOnlyInput'
-import { useFormikContext } from 'formik'
 
 interface EditableReadOnlyInputProps extends ReadOnlyInputProps {
   field: string
@@ -28,7 +28,7 @@ const EditableReadOnlyInput = (props: EditableReadOnlyInputProps) => {
   }, [editing])
 
   return (
-    <div className={containerClasses} style={{ backgroundColor: '#eaeaea' }}>
+    <div className={containerClasses}>
       {editing ? (
         <Grid container spacing={2}>
           <Grid item xs>

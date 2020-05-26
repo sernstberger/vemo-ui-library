@@ -12,7 +12,7 @@ interface ConfirmationModal extends Partial<ModalProps> {
 const ConfirmationModal = (props: ConfirmationModal) => {
   const {
     open,
-    onClose,
+    // onClose,
     cancelAction = () => {},
     confirmAction = () => {},
     title = 'Are you sure?',
@@ -22,30 +22,26 @@ const ConfirmationModal = (props: ConfirmationModal) => {
 
   const handleConfirm = () => {
     confirmAction()
-    onClose()
+    // onClose()
   }
 
   const handleCancel = () => {
     cancelAction()
-    onClose()
+    // onClose()
   }
 
   return (
-    <Modal
-      {...modalProps}
-      {...{ open, title, onClose }}
-      primaryAction={null}
-    >
+    <Modal {...modalProps} {...{ open, title }} primaryAction={null}>
       <div>
         <Button
           variant="contained"
           color="primary"
-          onClick={handleConfirm}
+          onClick={handleCancel}
           fullWidth
         >
           No
         </Button>
-        <Button variant="contained" onClick={handleCancel} fullWidth>
+        <Button variant="contained" onClick={handleConfirm} fullWidth>
           Yes
         </Button>
       </div>

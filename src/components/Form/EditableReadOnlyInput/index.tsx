@@ -7,6 +7,7 @@ import styles from './styles'
 import Icon from '../../Icon'
 import { ValidatedInputBase } from '..'
 import ReadOnlyInput, { ReadOnlyInputProps } from '../ReadOnlyInput'
+import ConfirmationModal from '../../ConfirmationModal'
 
 interface EditableReadOnlyInputProps extends ReadOnlyInputProps {
   field: string
@@ -19,6 +20,7 @@ const EditableReadOnlyInput = (props: EditableReadOnlyInputProps) => {
   const { values, setFieldValue } = useFormikContext()
   const classes = styles()
   const [editing, setEditing] = useState(false)
+  const [confirmationOpen, setConfirmationOpen] = useState<boolean>(false)
   const [initialValue, setInitialValue] = useState(values[field])
   const containerClasses = clsx(classes.container, className)
 
@@ -27,45 +29,58 @@ const EditableReadOnlyInput = (props: EditableReadOnlyInputProps) => {
     setInitialValue(values[field])
   }, [editing])
 
+  const handleCancelAction = () => {
+    if (initialValue !== values[field]) {
+      setConfirmationOpen(true)
+    }
+  }
+
   return (
     <div className={containerClasses}>
       {editing ? (
-        <Grid container spacing={2}>
-          <Grid item xs>
-            <ValidatedInputBase
-              required
-              field={field}
-              label={label}
-              margin="none"
-            />
-          </Grid>
+        <>
+          <Grid container spacing={2}>
+            <Grid item xs>
+              <ValidatedInputBase
+                required
+                field={field}
+                label={label}
+                margin="none"
+              />
+            </Grid>
 
-          <Grid item>
-            <div style={{ marginTop: 18 }}>
-              <Fab
-                onClick={() => setEditing(false)}
-                color="primary"
-                size="small"
-              >
-                <Icon name="Check" />
-              </Fab>
-            </div>
-          </Grid>
+            <Grid item>
+              <div style={{ marginTop: 18 }}>
+                <Fab
+                  onClick={() => setEditing(false)}
+                  color="primary"
+                  size="small"
+                >
+                  <Icon name="Check" />
+                </Fab>
+              </div>
+            </Grid>
 
-          <Grid item>
-            <div style={{ marginTop: 18 }}>
-              <Fab
-                onClick={() => {
-                  setFieldValue(field, initialValue)
-                  setEditing(false)
-                }}
-                size="small"
-              >
-                <Icon name="Close" />
-              </Fab>
-            </div>
+            <Grid item>
+              <div style={{ marginTop: 18 }}>
+                <Fab onClick={() => handleCancelAction()} size="small">
+                  <Icon name="Close" />
+                </Fab>
+              </div>
+            </Grid>
           </Grid>
-        </Grid>
+          <ConfirmationModal
+            open={confirmationOpen}
+            cancelAction={() => {
+              setConfirmationOpen(false)
+            }}
+            confirmAction={() => {
+              setFieldValue(field, initialValue)
+              setEditing(false)
+              setConfirmationOpen(false)
+            }}
+          />
+        </>
       ) : (
         <Grid container spacing={2}>
           <Grid item>

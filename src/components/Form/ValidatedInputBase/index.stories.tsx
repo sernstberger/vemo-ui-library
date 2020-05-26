@@ -7,6 +7,7 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs'
 import { Formik } from 'formik'
 import ValidatedTextInput from '../ValidatedTextInput'
 import ValidatedTextArea from '../ValidatedTextArea'
+import ValidatedRadios from '../ValidatedRadios'
 
 export default {
   title: 'Forms',
@@ -21,26 +22,38 @@ export const InputBase = () => (
       boo: '',
       zoo: '',
       bar: '',
-      baz: undefined
+      baz: undefined,
+      radio: ''
     }}
     onSubmit={() => {}}
   >
-    <div>
+    <div style={{padding: 40, backgroundColor: '#FFF'}}>
+      <ValidatedRadios
+        field="radio"
+        label="Radio Buttons"
+        options={[
+          { value: 'foo', label: 'Foo', disabled: false },
+          { value: 'bar', label: 'Bar', disabled: false }
+        ]}
+        required={boolean('Required', true)}
+        tooltip={text('Tooltip', 'Tooltip text goes here')}
+      />
       <ValidatedInputBase
         field="foo"
         label="Base"
-        required={boolean('Required', false)}
+        required={boolean('Required', true)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
         icon={{ name: 'StudentsLine', position: 'start', color: '#FF0000' }}
         maxLength={number('Max Length', 100)}
         hasCounter
+        disabled
       />
 
       <ValidatedTextInput
         field="boo"
         label="Text"
-        required={boolean('Required', false)}
+        required={boolean('Required', true)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
         icon={{ name: 'StudentsLine', position: 'start', color: '#FF0000' }}
@@ -51,7 +64,7 @@ export const InputBase = () => (
       <ValidatedTextArea
         field="zoo"
         label="Text Area"
-        required={boolean('Required', false)}
+        required={boolean('Required', true)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
         maxLength={1000}
@@ -62,7 +75,7 @@ export const InputBase = () => (
         field="bar"
         label="Select"
         options={['alkdsj', 'lakdfj']}
-        required={boolean('Required', false)}
+        required={boolean('Required', true)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
         icon={{ name: 'StudentsLine', position: 'start', color: '#FF0000' }}
@@ -72,7 +85,7 @@ export const InputBase = () => (
       <ValidatedNumberInput
         field="baz"
         label="Number"
-        required={boolean('Required', false)}
+        required={boolean('Required', true)}
         helperText="Helper text goes here"
         tooltip={text('Tooltip', 'Tooltip text goes here')}
         icon={{ name: 'StudentsLine', position: 'start', color: '#FF0000' }}

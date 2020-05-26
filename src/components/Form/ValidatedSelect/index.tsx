@@ -8,6 +8,7 @@ import Icon from '../../Icon'
 interface OptionProps {
   label: string
   value: string
+  disabled?: boolean
 }
 
 interface ValidatedSelectProps extends ValidatedInputBaseProps {

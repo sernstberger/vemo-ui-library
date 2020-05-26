@@ -9,7 +9,7 @@ import {
   BaseTextFieldProps
 } from '@material-ui/core'
 import NumberFormat from 'react-number-format'
-import Icon from '../../Icon'
+import Icon, { IconProps } from '../../Icon'
 import styles from '../styles'
 import Label from './Label'
 import theme from '../../../theme'
@@ -19,6 +19,10 @@ export interface CustomValidationProps {
   message: string
 }
 
+interface AdornmentProps extends IconProps {
+  position?: 'start' | 'end'
+}
+
 export interface ValidatedInputBaseProps extends BaseTextFieldProps {
   // This should take a Yup validation or an array of Yup validations
   customValidation?: CustomValidationProps | CustomValidationProps[]
@@ -26,11 +30,7 @@ export interface ValidatedInputBaseProps extends BaseTextFieldProps {
   exactLength?: number
   field: string
   hasCounter?: boolean
-  icon?: {
-    name: React.ReactNode | string
-    position?: 'start' | 'end'
-    color?: string
-  }
+  icon?: AdornmentProps
   inputMode?:
     | 'decimal'
     | 'email'

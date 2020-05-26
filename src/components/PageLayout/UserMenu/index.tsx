@@ -34,8 +34,11 @@ const UserMenu = () => {
         onClose={handleClose}
         style={{minWidth: 300}}
       >
+        // @ts-ignore
         <UserMenuItem icon="Students" text="fooooo" to="/" />
+        // @ts-ignore
         <UserMenuItem icon="Students" text="fooooo" secondary="laksjd flaksj flkasjfl kasjd" to="/" />
+        // @ts-ignore
         <UserMenuItem icon="Students" text="fooooo" to="/" />
         {/* <UserMenuItem
           to="/settings"

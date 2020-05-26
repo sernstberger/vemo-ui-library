@@ -1,6 +1,7 @@
 export * from './Icon'
 export { default as Button } from './Button'
 export { default as FancyNumber } from './FancyNumber'
+export { default as Modal } from './Modal'
 export { default as PageLayout } from './PageLayout'
 export * from './Test'
 export * from './Form'

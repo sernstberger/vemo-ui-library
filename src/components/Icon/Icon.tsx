@@ -1,7 +1,8 @@
 import React from 'react'
 import * as IconList from './index'
+import { SvgIconProps } from '@material-ui/core'
 
-interface IconProps {
+export interface IconProps extends SvgIconProps {
   name:
     | 'StudentsLine'
     | 'StudentsFill'

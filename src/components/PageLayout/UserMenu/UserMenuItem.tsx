@@ -9,9 +9,10 @@ import {
 
 import Icon from '../../Icon'
 import styles from './styles'
+import { IconProps } from '../../Icon'
 
 interface UserMenuItemProps extends MenuItemProps {
-  icon: string
+  icon: IconProps
   secondary?: string
   text: string
   to?: any
@@ -22,7 +23,7 @@ const UserMenuItem = (props: UserMenuItemProps) => {
   const { icon, text, to, onClick, secondary, selected } = props
   const path = useLocation().pathname
   const isCurrentPage = to === path
-  const iconName = isCurrentPage ? `${icon}Fill` : `${icon}Line`
+  const iconName = isCurrentPage ? `${icon}Fill` : `${icon}Line` as any
 
   const renderLink = React.forwardRef<any, Omit<NavLinkProps, 'to'>>(
     (props, ref) => (

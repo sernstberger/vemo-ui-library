@@ -11,7 +11,7 @@ const Tooltip = (props: TooltipProps) => {
   return (
     <MuiTooltip title={<span>{content}</span>}>
       <span>
-        <Icon name="Help" color="textSecondary" />
+        <Icon name="Help" />
       </span>
     </MuiTooltip>
   )

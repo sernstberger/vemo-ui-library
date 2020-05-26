@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   Slide,
   Modal as MuiModal,
@@ -21,12 +21,12 @@ export interface ModalProps extends MuiModalProps {
 const Modal = (props: ModalProps) => {
   const {
     open,
-    onClose,
+    onClose = () => {},
     children,
     title,
     subtitle,
     primaryAction = (
-      <Fab size="small" onClick={onClose}>
+      <Fab size="small" onClick={(e) => onClose(e, 'backdropClick')}>
         <Icon name="Close" />
       </Fab>
     ),

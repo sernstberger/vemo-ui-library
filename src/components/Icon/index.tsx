@@ -1,4 +1,4 @@
-import Icon from './Icon'
+import Icon, { IconProps } from './Icon'
 
 export { default as StudentsLine } from './files/StudentsLine'
 export { default as StudentsFill } from './files/StudentsFill'
@@ -71,4 +71,5 @@ export { default as NoEmployment } from './files/NoEmployment'
 export { default as Cancel } from './files/Cancel'
 export { default as StartApplicationsFill } from './files/StartApplicationsFill'
 
+export { IconProps }
 export default Icon

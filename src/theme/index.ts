@@ -173,24 +173,24 @@ theme = createMuiTheme({
         }
       }
     },
-    MuiDialogContent: {
-      root: {
-        borderTop: `1px solid ${theme.palette.divider}`,
-        padding: theme.spacing(2),
+    // MuiDialogContent: {
+    //   root: {
+    //     borderTop: `1px solid ${theme.palette.divider}`,
+    //     padding: theme.spacing(2),
 
-        [theme.breakpoints.up('sm')]: {
-          padding: theme.spacing(3, 12)
-        },
+    //     [theme.breakpoints.up('sm')]: {
+    //       padding: theme.spacing(3, 12)
+    //     },
 
-        [theme.breakpoints.up('md')]: {
-          padding: theme.spacing(3, 22)
-        },
+    //     [theme.breakpoints.up('md')]: {
+    //       padding: theme.spacing(3, 22)
+    //     },
 
-        '&:nth-child(even)': {
-          backgroundColor: theme.palette.background.default
-        }
-      }
-    },
+    //     '&:nth-child(even)': {
+    //       backgroundColor: theme.palette.background.default
+    //     }
+    //   }
+    // },
     MuiFab: {
       root: {
         // backgroundColor: theme.palette.background.secondary,

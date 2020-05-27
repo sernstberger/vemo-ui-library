@@ -1,5 +1,5 @@
 import React from 'react'
-import { useFormikContext, useField, Field } from 'formik'
+import { useFormikContext, useField, Field, getIn } from 'formik'
 import { TextField, BaseTextFieldProps } from '@material-ui/core'
 
 export interface ValidatedInputBaseProps extends BaseTextFieldProps {
@@ -7,7 +7,7 @@ export interface ValidatedInputBaseProps extends BaseTextFieldProps {
   // customValidation?: CustomValidationProps | CustomValidationProps[]
   // decimalScale?: any
   // exactLength?: number
-  // field: string
+  name: string
   // hasCounter?: boolean
   // icon?: AdornmentProps
   // inputMode?:
@@ -27,28 +27,126 @@ export interface ValidatedInputBaseProps extends BaseTextFieldProps {
 }
 
 const VemoForm = (props: any) => {
-  const { name, label, placeholder = `Enter ${label}` } = props
-  const validation = ''
+  const {
+    name,
+    label,
+    placeholder = `Enter ${label}`,
+    helperText,
+    required
+  } = props
+  
+  
+
+
+
+
+  const validate = async (value: any) => {
+    let error = ''
+
+    if (required && (!value || value.length === 0)) {
+      error = `${label} is required`
+      return error
+    }
+
+    // if (hasCounter) {
+    //   setCounter(value.length)
+    // }
+
+    // if (value) {
+    //   if (value.length > maxLength) {
+    //     error = `${label} can't be more than ${maxLength} characters`
+    //     return error
+    //   }
+    //   if (value.length < minLength) {
+    //     error = `${label} can't be less than ${minLength} characters`
+    //     return error
+    //   }
+    // }
+
+    // // if value is numeric, validate length of digits only (no dashes)
+    // if (value && value.length && exactLength) {
+    //   let strippedValue
+    //   strippedValue = value.replace('+1', '')
+    //   strippedValue = strippedValue.replace(/\D/g, '')
+
+    //   if (strippedValue.length !== exactLength) {
+    //     error = `${label} must be ${exactLength} characters`
+    //     return error
+    //   }
+    // }
+
+    // // handle custom validations
+    // if (value && customValidation) {
+    //   const customValidationArray = Array.isArray(customValidation)
+    //     ? customValidation
+    //     : [customValidation]
+
+    //   await Promise.all(
+    //     customValidationArray.map(async cv => {
+    //       // check to see if the yup schema is valid
+    //       if (typeof cv.schema !== 'object') {
+    //         return
+    //       }
+
+    //       // check to see if the the field's value is valid; returns boolean
+    //       const validateField = await cv.schema.isValid(value)
+
+    //       if (!validateField) {
+    //         error = cv.message
+    //       }
+    //     })
+    //   )
+    // }
+
+    return error
+  }
+
+
+
+
+
+
 
   return (
-    <Field name={name} validate={validation}>
+    <Field name={name} validate={validate}>
       {({
-        field, // { name, value, onChange, onBlur }
-        form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
+        // @ts-ignore
+        field: { value, onBlur, name, onChange },
+        // @ts-ignore
+        form: { touched, errors, setFieldValue, isSubmitting },
+        // @ts-ignore
         meta
-      }) => (
-        <div>
-          <TextField
-            {...field}
-            type="text"
-            label={label}
-            {...{ placeholder }}
-          />
-          {meta.touched && meta.error && (
-            <div className="error">{meta.error}</div>
-          )}
-        </div>
-      )}
+      }) => {
+        const hasErrors = meta.error && meta.touched
+        // const hasErrors = errors[name] && touched[name]
+        const hasNestedErrors = getIn(touched, name) && getIn(errors, name)
+        return (
+          <div>
+            <TextField
+              {...{ value, name, onChange, placeholder, label, required }}
+              type="text"
+              error={hasErrors || hasNestedErrors}
+              // error
+              helperText={
+                (hasErrors && meta.error) ||
+                (hasNestedErrors && getIn(errors, name)) ||
+                helperText
+              }
+              onBlur={onBlur(name)}
+              // disabled={isLoading || isSubmitting || disabled}
+              // label={
+              //   <Label
+              //     {...{ label, tooltip }}
+              //     required={!initialRequired && !required && !disabled}
+              //   />
+              // }
+            />
+            {/* {meta.touched && meta.error && (
+              <div className="error">{meta.error}</div>
+            )} */}
+          </div>
+        )
+      }}
     </Field>
   )
 }

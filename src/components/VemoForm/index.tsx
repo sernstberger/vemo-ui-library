@@ -17,18 +17,31 @@ const VemoForm = (props: any) => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={() => {
-        alert('hi!')
+      onSubmit={async values => {
+        await new Promise(resolve => setTimeout(resolve, 1500))
+        alert(JSON.stringify(values, null, 2))
       }}
     >
-      <Form>
-        <div>
-          {fields.map((field: any, index: number) => {
-            return <FieldBase key={index} name={field.field} label={field.label} />
-          })}
-        </div>
-        <SubmitButton />
-      </Form>
+      {props => {
+        return (
+          <Form>
+            <div>errors</div>
+            <div>
+              {fields.map((field: any, index: number) => {
+                return (
+                  <FieldBase
+                    key={index}
+                    name={field.field}
+                    label={field.label}
+                    required={field.required}
+                  />
+                )
+              })}
+            </div>
+            <SubmitButton />
+          </Form>
+        )
+      }}
     </Formik>
   )
 }

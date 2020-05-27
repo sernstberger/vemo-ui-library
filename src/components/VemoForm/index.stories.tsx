@@ -15,11 +15,11 @@ export const Full = () => (
         {
           field: 'foo',
           label: 'Foo',
-          initialValue: 'hi',
+          initialValue: '',
           required: true,
           disabled: false
         },
-        { field: 'bar', label: 'Bar', initialValue: 'bye', required: true }
+        { field: 'bar', label: 'Bar', initialValue: '', required: false }
       ]}
     />
   </div>

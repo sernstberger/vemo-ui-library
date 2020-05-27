@@ -15,10 +15,8 @@ const SubmitButton = (props: any) => {
       disabled={isSubmitting}
       size="large"
       startIcon={
-        isSubmitting && (
-          // isValidating &&
-          <CircularProgress color="inherit" size={24} />
-        )
+        isSubmitting &&
+        isValidating && <CircularProgress color="inherit" size={24} />
       }
     >
       Submit

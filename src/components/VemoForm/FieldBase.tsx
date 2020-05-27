@@ -28,17 +28,14 @@ export interface ValidatedInputBaseProps extends BaseTextFieldProps {
 
 const VemoForm = (props: any) => {
   const {
-    name,
-    label,
-    placeholder = `Enter ${label}`,
+    disabled,
     helperText,
+    isLoading,
+    label,
+    name,
+    placeholder = `Enter ${label}`,
     required
   } = props
-  
-  
-
-
-
 
   const validate = async (value: any) => {
     let error = ''
@@ -101,12 +98,6 @@ const VemoForm = (props: any) => {
     return error
   }
 
-
-
-
-
-
-
   return (
     <Field name={name} validate={validate}>
       {({
@@ -118,7 +109,6 @@ const VemoForm = (props: any) => {
         meta
       }) => {
         const hasErrors = meta.error && meta.touched
-        // const hasErrors = errors[name] && touched[name]
         const hasNestedErrors = getIn(touched, name) && getIn(errors, name)
         return (
           <div>
@@ -126,14 +116,13 @@ const VemoForm = (props: any) => {
               {...{ value, name, onChange, placeholder, label, required }}
               type="text"
               error={hasErrors || hasNestedErrors}
-              // error
               helperText={
                 (hasErrors && meta.error) ||
                 (hasNestedErrors && getIn(errors, name)) ||
                 helperText
               }
               onBlur={onBlur(name)}
-              // disabled={isLoading || isSubmitting || disabled}
+              disabled={isLoading || isSubmitting || disabled}
               // label={
               //   <Label
               //     {...{ label, tooltip }}
@@ -141,9 +130,6 @@ const VemoForm = (props: any) => {
               //   />
               // }
             />
-            {/* {meta.touched && meta.error && (
-              <div className="error">{meta.error}</div>
-            )} */}
           </div>
         )
       }}

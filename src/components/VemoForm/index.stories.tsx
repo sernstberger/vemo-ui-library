@@ -8,8 +8,19 @@ export default {
   decorators: [withKnobs]
 }
 
-export const InputBase = () => (
+export const Full = () => (
   <div style={{ padding: 40, backgroundColor: '#FFF' }}>
-    <VemoForm fields={['foo', 'bar']} />
+    <VemoForm
+      fields={[
+        {
+          field: 'foo',
+          label: 'Foo',
+          initialValue: 'hi',
+          required: true,
+          disabled: false
+        },
+        { field: 'bar', label: 'Bar', initialValue: 'bye', required: true }
+      ]}
+    />
   </div>
 )

@@ -13,14 +13,14 @@ export const Full = () => (
     <VemoForm
       fields={[
         {
-          field: 'foo',
+          name: 'foo',
           label: 'Foo',
           initialValue: '',
           required: true,
           disabled: false,
           tooltip: 'yessss'
         },
-        { field: 'bar', label: 'Bar', initialValue: '', required: true }
+        { name: 'bar', label: 'Bar', initialValue: '', required: true }
       ]}
       onSubmit={async (values: any) => {
         await new Promise(resolve => setTimeout(resolve, 1500))

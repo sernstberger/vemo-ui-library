@@ -11,29 +11,23 @@ const VemoForm = (props: any) => {
   fields.map((field: any) => {
     initialValues = {
       ...initialValues,
-      ...{ [field.field]: field.initialValue }
+      ...{ [field.name]: field.initialValue }
     }
   })
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={onSubmit}
-    >
+    <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {props => {
         return (
           <Form>
             <Errors />
             <div>
               {fields.map((field: any, index: number) => {
+                const { name, label, required, disabled, tooltip } = field
                 return (
                   <FieldBase
                     key={index}
-                    name={field.field}
-                    label={field.label}
-                    required={field.required}
-                    disabled={field.disabled}
-                    tooltip={field.tooltip}
+                    {...{ name, label, required, disabled, tooltip }}
                   />
                 )
               })}

@@ -2,9 +2,10 @@ import React from 'react'
 import { Formik, Field, Form } from 'formik'
 import SubmitButton from '../Form/SubmitButton'
 import FieldBase from './FieldBase'
+import Errors from './Errors'
 
 const VemoForm = (props: any) => {
-  const { fields } = props
+  const { fields, onSubmit } = props
 
   let initialValues: any[] = []
   fields.map((field: any) => {
@@ -17,15 +18,12 @@ const VemoForm = (props: any) => {
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={async values => {
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        alert(JSON.stringify(values, null, 2))
-      }}
+      onSubmit={onSubmit}
     >
       {props => {
         return (
           <Form>
-            <div>errors</div>
+            <Errors />
             <div>
               {fields.map((field: any, index: number) => {
                 return (

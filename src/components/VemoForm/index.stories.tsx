@@ -19,8 +19,12 @@ export const Full = () => (
           required: true,
           disabled: false
         },
-        { field: 'bar', label: 'Bar', initialValue: '', required: false }
+        { field: 'bar', label: 'Bar', initialValue: '', required: true }
       ]}
+      onSubmit={async (values: any) => {
+        await new Promise(resolve => setTimeout(resolve, 1500))
+        alert(JSON.stringify(values, null, 2))
+      }}
     />
   </div>
 )

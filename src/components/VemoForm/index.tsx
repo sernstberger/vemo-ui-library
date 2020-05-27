@@ -33,6 +33,7 @@ const VemoForm = (props: any) => {
                     label={field.label}
                     required={field.required}
                     disabled={field.disabled}
+                    tooltip={field.tooltip}
                   />
                 )
               })}

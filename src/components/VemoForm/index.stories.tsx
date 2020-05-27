@@ -17,7 +17,8 @@ export const Full = () => (
           label: 'Foo',
           initialValue: '',
           required: true,
-          disabled: false
+          disabled: false,
+          tooltip: 'yessss'
         },
         { field: 'bar', label: 'Bar', initialValue: '', required: true }
       ]}

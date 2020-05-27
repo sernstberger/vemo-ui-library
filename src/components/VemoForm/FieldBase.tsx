@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useFormikContext, useField, Field, getIn } from 'formik'
 import { TextField, BaseTextFieldProps } from '@material-ui/core'
+import Label from '../Form/ValidatedInputBase/Label'
 
 export interface ValidatedInputBaseProps extends BaseTextFieldProps {
   // This should take a Yup validation or an array of Yup validations
@@ -22,7 +23,7 @@ export interface ValidatedInputBaseProps extends BaseTextFieldProps {
   // maxLength?: number
   // minLength?: number
   // // size?: 'small' | 'medium' | 'large' | undefined
-  // tooltip?: any
+  tooltip?: any
   // readOnly?: boolean
 }
 
@@ -34,8 +35,11 @@ const VemoForm = (props: any) => {
     label,
     name,
     placeholder = `Enter ${label}`,
-    required
+    required,
+    tooltip
   } = props
+
+  const initialRequired = useRef(required).current
 
   const validate = async (value: any) => {
     let error = ''
@@ -98,6 +102,8 @@ const VemoForm = (props: any) => {
     return error
   }
 
+  const Component = TextField
+
   return (
     <Field name={name} validate={validate}>
       {({
@@ -112,7 +118,7 @@ const VemoForm = (props: any) => {
         const hasNestedErrors = getIn(touched, name) && getIn(errors, name)
         return (
           <div>
-            <TextField
+            <Component
               {...{ value, name, onChange, placeholder, label, required }}
               id={name}
               type="text"
@@ -124,12 +130,13 @@ const VemoForm = (props: any) => {
               }
               onBlur={onBlur(name)}
               disabled={isLoading || isSubmitting || disabled}
-              // label={
-              //   <Label
-              //     {...{ label, tooltip }}
-              //     required={!initialRequired && !required && !disabled}
-              //   />
-              // }
+              label={
+                <Label
+                  {...{ label, tooltip }}
+                  required={!initialRequired && !required && !disabled}
+                />
+              }
+              InputLabelProps={{ shrink: true, required: false }}
             />
           </div>
         )

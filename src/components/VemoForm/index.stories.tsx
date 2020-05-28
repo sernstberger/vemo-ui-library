@@ -14,12 +14,10 @@ export const Full = () => (
       fields={[
         {
           label: 'Foo',
-          initialValue: '',
           required: true,
-          disabled: false,
           tooltip: 'yessss'
         },
-        { label: 'Bar', initialValue: '', required: true }
+        { label: 'Bar', required: true }
       ]}
       onSubmit={async (values: any) => {
         await new Promise(resolve => setTimeout(resolve, 1500))

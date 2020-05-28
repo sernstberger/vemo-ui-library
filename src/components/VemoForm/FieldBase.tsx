@@ -8,6 +8,7 @@ export interface ValidatedInputBaseProps extends BaseTextFieldProps {
   // customValidation?: CustomValidationProps | CustomValidationProps[]
   // decimalScale?: any
   // exactLength?: number
+  initialValue: any
   name: string
   // hasCounter?: boolean
   // icon?: AdornmentProps
@@ -32,6 +33,7 @@ const VemoForm = (props: any) => {
     disabled,
     helperText,
     isLoading,
+    initialValue,
     label,
     name,
     placeholder = `Enter ${label}`,
@@ -102,8 +104,6 @@ const VemoForm = (props: any) => {
     return error
   }
 
-  const Component = TextField
-
   return (
     <Field name={name} validate={validate}>
       {({
@@ -118,10 +118,11 @@ const VemoForm = (props: any) => {
         const hasNestedErrors = getIn(touched, name) && getIn(errors, name)
         return (
           <div>
-            <Component
+            <TextField
               {...{ value, name, onChange, placeholder, label, required }}
               id={name}
               type="text"
+              defaultValue={initialValue}
               error={hasErrors || hasNestedErrors}
               helperText={
                 (hasErrors && meta.error) ||

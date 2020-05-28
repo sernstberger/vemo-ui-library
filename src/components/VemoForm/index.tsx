@@ -6,10 +6,12 @@ import Errors from './Errors'
 import { camelCase } from 'lodash'
 
 interface VemoFormFieldProps {
+  initialValue?: string
+  disabled?: boolean
   label: string
-  required: boolean
-  disabled: boolean
-  tooltip: string
+  required?: boolean
+  tooltip?: string
+  type?: 'text'
 }
 interface VemoFormProps {
   fields: VemoFormFieldProps[]
@@ -28,6 +30,10 @@ const VemoForm = (props: VemoFormProps) => {
     }
   })
 
+  const fieldTypes = {
+    text: FieldBase
+  }
+
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {props => {
@@ -36,12 +42,27 @@ const VemoForm = (props: VemoFormProps) => {
             <Errors />
             <div>
               {fields.map((field: any, index: number) => {
-                const { label, required, disabled, tooltip } = field
+                const {
+                  label,
+                  required = false,
+                  disabled = false,
+                  tooltip,
+                  type = 'text',
+                  initialValue = ''
+                } = field
                 const name = camelCase(label)
+                const Component = fieldTypes[type]
                 return (
-                  <FieldBase
+                  <Component
                     key={index}
-                    {...{ name, label, required, disabled, tooltip }}
+                    {...{
+                      name,
+                      label,
+                      required,
+                      disabled,
+                      tooltip,
+                      initialValue
+                    }}
                   />
                 )
               })}

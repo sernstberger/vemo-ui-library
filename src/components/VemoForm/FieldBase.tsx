@@ -1,16 +1,15 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { useFormikContext, useField, Field, getIn } from 'formik'
-import {
-  TextField,
-  StandardTextFieldProps,
-  Typography
-} from '@material-ui/core'
-import Label from '../Form/ValidatedInputBase/Label'
+import { TextField, StandardTextFieldProps } from '@material-ui/core'
+import Label from './Label'
+import { AnySchemaConstructor } from 'yup'
 
+export interface CustomValidationProps {
+  schema: AnySchemaConstructor // Yup schema
+  message: string
+}
 export interface FieldBaseProps extends StandardTextFieldProps {
-  // This should take a Yup validation or an array of Yup validations
-  // customValidation?: CustomValidationProps | CustomValidationProps[]
-  customValidation?: any
+  customValidation?: CustomValidationProps | CustomValidationProps[]
   // decimalScale?: any
   // exactLength?: number
   initialValue: any
@@ -48,7 +47,6 @@ const VemoForm = (props: FieldBaseProps) => {
   } = props
 
   const initialRequired = useRef(required).current
-  // const [counter, setCounter] = useState<number>(0)
 
   const validate = async (value: any) => {
     let error = ''

@@ -13,13 +13,13 @@ export const Full = () => (
     <VemoForm
       fields={[
         {
-          label: 'Foo',
+          label: 'Text',
           required: true,
-          tooltip: 'tool tip goes here',
+          tooltip: 'tool tip goes here'
         },
-        { label: 'Bar', required: true, type: 'textarea', maxLength: 100 },
+        { label: 'Textarea', required: true, type: 'textarea', maxLength: 100 },
         {
-          label: 'Select this',
+          label: 'Select',
           required: true,
           type: 'select',
           options: ['foo', 'bar']
@@ -30,5 +30,24 @@ export const Full = () => (
         alert(JSON.stringify(values, null, 2))
       }}
     />
+    <ul>
+      <li>File uploader</li>
+      <li>Number Input</li>
+      <li>Percentage input</li>
+      <li>Money Input</li>
+      <li>Datepicker</li>
+      <li>Checkboxes</li>
+      <li>Radio buttons</li>
+      <li>Switches</li>
+      <li>Tiles select</li>
+      <li>State select</li>
+      <li>Country select</li>
+      <li>Zip</li>
+      <li>Address inputs</li>
+      <li>Phone number</li>
+      <li>Slider with input</li>
+      <li>Credit card</li>
+      <li>Field array that handles all of these fields</li>
+    </ul>
   </div>
 )

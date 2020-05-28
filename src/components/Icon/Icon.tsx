@@ -77,9 +77,9 @@ export interface IconProps extends SvgIconProps {
 }
 
 const Icon = (props: IconProps) => {
-  const { name } = props
+  const { name, ...svgIconProps } = props
   const SelectedIcon = IconList[name]
-  return <SelectedIcon />
+  return <SelectedIcon {...svgIconProps} />
 }
 
 export default Icon

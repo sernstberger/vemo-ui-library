@@ -6,6 +6,7 @@ import Errors from './Errors'
 import FieldBase from './FieldBase'
 import SubmitButton from '../Form/SubmitButton'
 import Textarea from './Textarea'
+import Select from './Select'
 
 interface VemoFormFieldProps {
   initialValue?: string
@@ -14,6 +15,7 @@ interface VemoFormFieldProps {
   required?: boolean
   tooltip?: string
   type?: 'text' | 'number' | 'money' | 'textarea' | 'select' | 'radios'
+  options?: any
 }
 interface VemoFormProps {
   fields: VemoFormFieldProps[]
@@ -34,7 +36,8 @@ const VemoForm = (props: VemoFormProps) => {
 
   const fieldTypes = {
     text: FieldBase,
-    textarea: Textarea
+    textarea: Textarea,
+    select: Select
   }
 
   return (
@@ -52,7 +55,8 @@ const VemoForm = (props: VemoFormProps) => {
                   tooltip,
                   type = 'text',
                   initialValue = '',
-                  maxLength
+                  maxLength,
+                  options = undefined
                 } = field
                 const name = camelCase(label)
                 const Component = fieldTypes[type]
@@ -66,7 +70,8 @@ const VemoForm = (props: VemoFormProps) => {
                       disabled,
                       tooltip,
                       initialValue,
-                      maxLength
+                      maxLength,
+                      options
                     }}
                   />
                 )

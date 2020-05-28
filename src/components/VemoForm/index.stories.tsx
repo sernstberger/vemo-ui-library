@@ -17,7 +17,13 @@ export const Full = () => (
           required: true,
           tooltip: 'tool tip goes here'
         },
-        { label: 'Bar', required: true, type: 'textarea', maxLength: 10 }
+        { label: 'Bar', required: true, type: 'textarea', maxLength: 10 },
+        {
+          label: 'Select this',
+          required: true,
+          type: 'select',
+          options: ['foo', 'bar']
+        }
       ]}
       onSubmit={async (values: any) => {
         await new Promise(resolve => setTimeout(resolve, 1500))

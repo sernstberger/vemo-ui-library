@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { useFormikContext, useField, Field, getIn } from 'formik'
-import { TextField, BaseTextFieldProps, Typography } from '@material-ui/core'
+import { TextField, StandardTextFieldProps, Typography } from '@material-ui/core'
 import Label from '../Form/ValidatedInputBase/Label'
 
-export interface FieldBaseProps extends BaseTextFieldProps {
+export interface FieldBaseProps extends StandardTextFieldProps {
   // This should take a Yup validation or an array of Yup validations
   // customValidation?: CustomValidationProps | CustomValidationProps[]
   // decimalScale?: any
@@ -33,6 +33,7 @@ const VemoForm = (props: FieldBaseProps) => {
     initialValue,
     label,
     maxLength,
+    minLength,
     name,
     placeholder = `Enter ${label}`,
     required,
@@ -60,10 +61,10 @@ const VemoForm = (props: FieldBaseProps) => {
         error = `${label} can't be more than ${maxLength} characters`
         return error
       }
-      // if (value.length < minLength) {
-      //   error = `${label} can't be less than ${minLength} characters`
-      //   return error
-      // }
+      if (minLength && value.length < minLength) {
+        error = `${label} can't be less than ${minLength} characters`
+        return error
+      }
     }
 
     // // if value is numeric, validate length of digits only (no dashes)

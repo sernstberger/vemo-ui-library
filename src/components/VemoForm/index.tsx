@@ -1,9 +1,11 @@
 import React from 'react'
 import { Formik, Field, Form } from 'formik'
-import SubmitButton from '../Form/SubmitButton'
-import FieldBase from './FieldBase'
-import Errors from './Errors'
 import { camelCase } from 'lodash'
+
+import Errors from './Errors'
+import FieldBase from './FieldBase'
+import SubmitButton from '../Form/SubmitButton'
+import Textarea from './Textarea'
 
 interface VemoFormFieldProps {
   initialValue?: string
@@ -11,7 +13,7 @@ interface VemoFormFieldProps {
   label: string
   required?: boolean
   tooltip?: string
-  type?: 'text'
+  type?: 'text' | 'number' | 'money' | 'textarea' | 'select' | 'radios'
 }
 interface VemoFormProps {
   fields: VemoFormFieldProps[]
@@ -31,7 +33,8 @@ const VemoForm = (props: VemoFormProps) => {
   })
 
   const fieldTypes = {
-    text: FieldBase
+    text: FieldBase,
+    textarea: Textarea
   }
 
   return (
@@ -48,7 +51,8 @@ const VemoForm = (props: VemoFormProps) => {
                   disabled = false,
                   tooltip,
                   type = 'text',
-                  initialValue = ''
+                  initialValue = '',
+                  maxLength
                 } = field
                 const name = camelCase(label)
                 const Component = fieldTypes[type]
@@ -61,7 +65,8 @@ const VemoForm = (props: VemoFormProps) => {
                       required,
                       disabled,
                       tooltip,
-                      initialValue
+                      initialValue,
+                      maxLength
                     }}
                   />
                 )

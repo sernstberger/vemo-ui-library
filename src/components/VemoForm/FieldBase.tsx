@@ -1,16 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useFormikContext, useField, Field, getIn } from 'formik'
-import { TextField, BaseTextFieldProps } from '@material-ui/core'
+import { TextField, BaseTextFieldProps, Typography } from '@material-ui/core'
 import Label from '../Form/ValidatedInputBase/Label'
 
-export interface ValidatedInputBaseProps extends BaseTextFieldProps {
+export interface FieldBaseProps extends BaseTextFieldProps {
   // This should take a Yup validation or an array of Yup validations
   // customValidation?: CustomValidationProps | CustomValidationProps[]
   // decimalScale?: any
   // exactLength?: number
   initialValue: any
-  name: string
-  // hasCounter?: boolean
   // icon?: AdornmentProps
   // inputMode?:
   //   | 'decimal'
@@ -20,28 +18,30 @@ export interface ValidatedInputBaseProps extends BaseTextFieldProps {
   //   | 'search'
   //   | 'tel'
   //   | 'url'
-  // isLoading?: boolean
-  // maxLength?: number
-  // minLength?: number
+  isLoading?: boolean
+  maxLength?: number
+  minLength?: number
   // // size?: 'small' | 'medium' | 'large' | undefined
   tooltip?: any
-  // readOnly?: boolean
 }
 
-const VemoForm = (props: any) => {
+const VemoForm = (props: FieldBaseProps) => {
   const {
     disabled,
     helperText,
     isLoading,
     initialValue,
     label,
+    maxLength,
     name,
     placeholder = `Enter ${label}`,
     required,
-    tooltip
+    tooltip,
+    ...rest
   } = props
 
   const initialRequired = useRef(required).current
+  const [counter, setCounter] = useState<number>(0)
 
   const validate = async (value: any) => {
     let error = ''
@@ -51,20 +51,20 @@ const VemoForm = (props: any) => {
       return error
     }
 
-    // if (hasCounter) {
-    //   setCounter(value.length)
-    // }
+    if (maxLength) {
+      setCounter(value.length)
+    }
 
-    // if (value) {
-    //   if (value.length > maxLength) {
-    //     error = `${label} can't be more than ${maxLength} characters`
-    //     return error
-    //   }
-    //   if (value.length < minLength) {
-    //     error = `${label} can't be less than ${minLength} characters`
-    //     return error
-    //   }
-    // }
+    if (value) {
+      if (maxLength && value.length > maxLength) {
+        error = `${label} can't be more than ${maxLength} characters`
+        return error
+      }
+      // if (value.length < minLength) {
+      //   error = `${label} can't be less than ${minLength} characters`
+      //   return error
+      // }
+    }
 
     // // if value is numeric, validate length of digits only (no dashes)
     // if (value && value.length && exactLength) {
@@ -119,6 +119,7 @@ const VemoForm = (props: any) => {
         return (
           <div>
             <TextField
+              {...rest}
               {...{ value, name, onChange, placeholder, label, required }}
               id={name}
               type="text"
@@ -139,6 +140,17 @@ const VemoForm = (props: any) => {
               }
               InputLabelProps={{ shrink: true, required: false }}
             />
+            {maxLength && (
+              // <div className={classes.characterLimitText}>
+              <div>
+                <Typography
+                  variant="body2"
+                  color={hasErrors ? 'error' : 'textSecondary'}
+                >
+                  {`${counter} / ${maxLength} characters`}
+                </Typography>
+              </div>
+            )}
           </div>
         )
       }}

@@ -1,11 +1,16 @@
 import React, { useRef, useState } from 'react'
 import { useFormikContext, useField, Field, getIn } from 'formik'
-import { TextField, StandardTextFieldProps, Typography } from '@material-ui/core'
+import {
+  TextField,
+  StandardTextFieldProps,
+  Typography
+} from '@material-ui/core'
 import Label from '../Form/ValidatedInputBase/Label'
 
 export interface FieldBaseProps extends StandardTextFieldProps {
   // This should take a Yup validation or an array of Yup validations
   // customValidation?: CustomValidationProps | CustomValidationProps[]
+  customValidation?: any
   // decimalScale?: any
   // exactLength?: number
   initialValue: any
@@ -38,11 +43,12 @@ const VemoForm = (props: FieldBaseProps) => {
     placeholder = `Enter ${label}`,
     required,
     tooltip,
+    customValidation,
     ...rest
   } = props
 
   const initialRequired = useRef(required).current
-  const [counter, setCounter] = useState<number>(0)
+  // const [counter, setCounter] = useState<number>(0)
 
   const validate = async (value: any) => {
     let error = ''
@@ -50,21 +56,6 @@ const VemoForm = (props: FieldBaseProps) => {
     if (required && (!value || value.length === 0)) {
       error = `${label} is required`
       return error
-    }
-
-    if (maxLength) {
-      setCounter(value.length)
-    }
-
-    if (value) {
-      if (maxLength && value.length > maxLength) {
-        error = `${label} can't be more than ${maxLength} characters`
-        return error
-      }
-      if (minLength && value.length < minLength) {
-        error = `${label} can't be less than ${minLength} characters`
-        return error
-      }
     }
 
     // // if value is numeric, validate length of digits only (no dashes)
@@ -79,28 +70,28 @@ const VemoForm = (props: FieldBaseProps) => {
     //   }
     // }
 
-    // // handle custom validations
-    // if (value && customValidation) {
-    //   const customValidationArray = Array.isArray(customValidation)
-    //     ? customValidation
-    //     : [customValidation]
+    // handle custom validations
+    if (value && customValidation) {
+      const customValidationArray = Array.isArray(customValidation)
+        ? customValidation
+        : [customValidation]
 
-    //   await Promise.all(
-    //     customValidationArray.map(async cv => {
-    //       // check to see if the yup schema is valid
-    //       if (typeof cv.schema !== 'object') {
-    //         return
-    //       }
+      await Promise.all(
+        customValidationArray.map(async cv => {
+          // check to see if the yup schema is valid
+          if (typeof cv.schema !== 'object') {
+            return
+          }
 
-    //       // check to see if the the field's value is valid; returns boolean
-    //       const validateField = await cv.schema.isValid(value)
+          // check to see if the the field's value is valid; returns boolean
+          const validateField = await cv.schema.isValid(value)
 
-    //       if (!validateField) {
-    //         error = cv.message
-    //       }
-    //     })
-    //   )
-    // }
+          if (!validateField) {
+            error = cv.message
+          }
+        })
+      )
+    }
 
     return error
   }
@@ -124,6 +115,7 @@ const VemoForm = (props: FieldBaseProps) => {
               {...{ value, name, onChange, placeholder, label, required }}
               id={name}
               type="text"
+              margin="none"
               defaultValue={initialValue}
               error={hasErrors || hasNestedErrors}
               helperText={
@@ -141,17 +133,6 @@ const VemoForm = (props: FieldBaseProps) => {
               }
               InputLabelProps={{ shrink: true, required: false }}
             />
-            {maxLength && (
-              // <div className={classes.characterLimitText}>
-              <div>
-                <Typography
-                  variant="body2"
-                  color={hasErrors ? 'error' : 'textSecondary'}
-                >
-                  {`${counter} / ${maxLength} characters`}
-                </Typography>
-              </div>
-            )}
           </div>
         )
       }}

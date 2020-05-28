@@ -14,6 +14,17 @@ const styles = makeStyles((theme: Theme) =>
       right: 0,
       height: '75%'
       // width: theme.spacing(4.5)
+    },
+
+    TextWrapper: {
+      position: 'relative'
+    },
+
+    Counter: {
+      backgroundColor: 'yellow',
+      position: 'absolute',
+      right: 0,
+      top: 0
     }
   })
 )

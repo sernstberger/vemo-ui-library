@@ -3,8 +3,8 @@ import { Formik, Field, Form } from 'formik'
 import { camelCase } from 'lodash'
 
 import Errors from './Errors'
-import FieldBase from './FieldBase'
 import SubmitButton from '../Form/SubmitButton'
+import Text from './Text'
 import Textarea from './Textarea'
 import Select from './Select'
 
@@ -16,6 +16,7 @@ interface VemoFormFieldProps {
   tooltip?: string
   type?: 'text' | 'number' | 'money' | 'textarea' | 'select' | 'radios'
   options?: any
+  maxLength?: number
 }
 interface VemoFormProps {
   fields: VemoFormFieldProps[]
@@ -35,7 +36,7 @@ const VemoForm = (props: VemoFormProps) => {
   })
 
   const fieldTypes = {
-    text: FieldBase,
+    text: Text,
     textarea: Textarea,
     select: Select
   }

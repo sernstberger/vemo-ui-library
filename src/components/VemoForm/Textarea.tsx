@@ -1,23 +1,15 @@
-import React, { useState } from 'react'
-import FieldBase, { FieldBaseProps } from './FieldBase'
-import { Typography } from '@material-ui/core'
+import React from 'react'
+import Text, { TextProps } from './Text'
 
-interface TextareaProps extends FieldBaseProps {
-  // hasCounter?: boolean
+interface TextareaProps extends TextProps {
   minHeight?: number
-  // maxLength?: number
 }
 
 const Textarea = (props: TextareaProps) => {
-  const {
-    minHeight = 200,
-    // hasCounter = false,
-    // maxLength = false,
-    ...rest
-  } = props
-  const [counter, setCounter] = useState(0)
+  const { minHeight = 200, ...rest } = props
+
   return (
-    <FieldBase
+    <Text
       {...rest}
       multiline
       inputProps={{

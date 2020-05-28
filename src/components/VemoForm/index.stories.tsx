@@ -15,9 +15,9 @@ export const Full = () => (
         {
           label: 'Foo',
           required: true,
-          tooltip: 'tool tip goes here'
+          tooltip: 'tool tip goes here',
         },
-        { label: 'Bar', required: true, type: 'textarea', maxLength: 10 },
+        { label: 'Bar', required: true, type: 'textarea', maxLength: 100 },
         {
           label: 'Select this',
           required: true,

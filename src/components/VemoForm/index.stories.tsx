@@ -23,7 +23,10 @@ export const Full = () => (
           required: true,
           type: 'select',
           options: ['foo', 'bar']
-        }
+        },
+        // TODO: decimal scale needs work
+        // TODO: numbers are formatted as strings in formik - this needs to be fixed
+        { label: 'Number', required: true, type: 'number', decimalScale: 4 }
       ]}
       onSubmit={async (values: any) => {
         await new Promise(resolve => setTimeout(resolve, 1500))
@@ -32,7 +35,6 @@ export const Full = () => (
     />
     <ul>
       <li>File uploader</li>
-      <li>Number Input</li>
       <li>Percentage input</li>
       <li>Money Input</li>
       <li>Datepicker</li>
@@ -44,6 +46,7 @@ export const Full = () => (
       <li>Country select</li>
       <li>Zip</li>
       <li>Address inputs</li>
+      <li>email input</li>
       <li>Phone number</li>
       <li>Slider with input</li>
       <li>Credit card</li>

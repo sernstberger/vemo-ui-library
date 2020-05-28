@@ -7,10 +7,12 @@ import SubmitButton from '../Form/SubmitButton'
 import Text from './Text'
 import Textarea from './Textarea'
 import Select from './Select'
+import Number from './Number'
 
 interface VemoFormFieldProps {
-  initialValue?: string
+  decimalScale?: number
   disabled?: boolean
+  initialValue?: string
   label: string
   required?: boolean
   tooltip?: string
@@ -38,7 +40,8 @@ const VemoForm = (props: VemoFormProps) => {
   const fieldTypes = {
     text: Text,
     textarea: Textarea,
-    select: Select
+    select: Select,
+    number: Number
   }
 
   return (
@@ -57,7 +60,8 @@ const VemoForm = (props: VemoFormProps) => {
                   type = 'text',
                   initialValue = '',
                   maxLength,
-                  options = undefined
+                  options = undefined,
+                  decimalScale = 0
                 } = field
                 const name = camelCase(label)
                 const Component = fieldTypes[type]
@@ -72,7 +76,8 @@ const VemoForm = (props: VemoFormProps) => {
                       tooltip,
                       initialValue,
                       maxLength,
-                      options
+                      options,
+                      decimalScale
                     }}
                   />
                 )

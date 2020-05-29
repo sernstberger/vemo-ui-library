@@ -19,7 +19,6 @@ interface NumberFormatCustomProps {
 
 function NumberFormatCustom(props: NumberFormatCustomProps) {
   const { inputRef, onChange, decimalScale, ...other } = props
-  // console.log('!!!!!!', props)
 
   return (
     <NumberFormat
@@ -52,17 +51,15 @@ const Number = (props: NumberProps) => {
     ...rest
   } = props
 
-  console.log('!!!!!!', props)
+  const maxValueValidation: CustomValidationProps = {
+    schema: number().max(maxValue),
+    message: `${props.label} can't be more than ${maxValue}`
+  }
 
-  //   const maxValueValidation: CustomValidationProps = {
-  //     schema: number().max(maxValue),
-  //     message: `${label} can't be more than ${maxValue}`
-  //   }
-
-  //   const minValueValidation: CustomValidationProps = {
-  //     schema: number().min(minValue),
-  //     message: `${label} can't be less than ${minValue}`
-  //   }
+  const minValueValidation: CustomValidationProps = {
+    schema: number().min(minValue),
+    message: `${props.label} can't be less than ${minValue}`
+  }
 
   return (
     <FieldBase
@@ -78,7 +75,9 @@ const Number = (props: NumberProps) => {
       InputProps={{
         inputComponent: NumberFormatCustom as any
       }}
-      //       customValidation={customValidation || [maxValueValidation, minValueValidation]}
+      customValidation={
+        customValidation || [maxValueValidation, minValueValidation]
+      }
       placeholder="0.00"
     />
   )

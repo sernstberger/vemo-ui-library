@@ -1,19 +1,26 @@
 import React, { useRef } from 'react'
 import { useFormikContext, useField, Field, getIn } from 'formik'
-import { TextField, StandardTextFieldProps } from '@material-ui/core'
+import {
+  TextField,
+  StandardTextFieldProps,
+  InputAdornment
+} from '@material-ui/core'
 import Label from './Label'
 import { AnySchemaConstructor } from 'yup'
+import Icon, { IconProps } from '../Icon'
+import Adornment, { AdornmentProps } from './Adornment'
 
 export interface CustomValidationProps {
   schema: AnySchemaConstructor // Yup schema
   message: string
 }
+
 export interface FieldBaseProps extends StandardTextFieldProps {
   customValidation?: CustomValidationProps | CustomValidationProps[]
   // decimalScale?: any
   // exactLength?: number
   initialValue: any
-  // icon?: AdornmentProps
+  icon?: AdornmentProps
   // inputMode?:
   //   | 'decimal'
   //   | 'email'
@@ -43,6 +50,7 @@ const VemoForm = (props: FieldBaseProps) => {
     required,
     tooltip,
     customValidation,
+    icon,
     ...rest
   } = props
 
@@ -129,7 +137,22 @@ const VemoForm = (props: FieldBaseProps) => {
                   required={!initialRequired && !required && !disabled}
                 />
               }
-              InputLabelProps={{ shrink: true, required: false }}
+              InputLabelProps={{
+                shrink: true,
+                required: false
+              }}
+              InputProps={{
+                startAdornment: icon ? (
+                  <Adornment
+                    icon={{
+                      name: icon.name
+                    }}
+                    position={icon.position}
+                  />
+                ) : (
+                  undefined
+                )
+              }}
             />
           </div>
         )

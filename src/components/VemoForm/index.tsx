@@ -8,6 +8,7 @@ import Text from './Text'
 import Textarea from './Textarea'
 import Select from './Select'
 import Number from './Number'
+import Money from './Money'
 
 interface VemoFormFieldProps {
   decimalScale?: number
@@ -19,6 +20,8 @@ interface VemoFormFieldProps {
   type?: 'text' | 'number' | 'money' | 'textarea' | 'select' | 'radios'
   options?: any
   maxLength?: number
+  minValue?: number
+  maxValue?: number
 }
 interface VemoFormProps {
   fields: VemoFormFieldProps[]
@@ -41,7 +44,8 @@ const VemoForm = (props: VemoFormProps) => {
     text: Text,
     textarea: Textarea,
     select: Select,
-    number: Number
+    number: Number,
+    money: Money,
   }
 
   return (
@@ -61,7 +65,9 @@ const VemoForm = (props: VemoFormProps) => {
                   initialValue = '',
                   maxLength,
                   options = undefined,
-                  decimalScale = 0
+                  decimalScale = 0,
+                  minValue = 0,
+                  maxValue = 0
                 } = field
                 const name = camelCase(label)
                 const Component = fieldTypes[type]
@@ -77,7 +83,9 @@ const VemoForm = (props: VemoFormProps) => {
                       initialValue,
                       maxLength,
                       options,
-                      decimalScale
+                      decimalScale,
+                      minValue,
+                      maxValue
                     }}
                   />
                 )

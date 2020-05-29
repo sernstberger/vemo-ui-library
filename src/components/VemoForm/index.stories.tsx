@@ -15,7 +15,11 @@ export const Full = () => (
         {
           label: 'Text',
           required: true,
-          tooltip: 'tool tip goes here'
+          tooltip: 'tool tip goes here',
+          // icon: {
+          //   name: 'StudentsLine'
+          //   position: 'start'
+          // }
         },
         { label: 'Textarea', required: true, type: 'textarea', maxLength: 100 },
         {
@@ -26,7 +30,21 @@ export const Full = () => (
         },
         // TODO: decimal scale needs work
         // TODO: numbers are formatted as strings in formik - this needs to be fixed
-        { label: 'Number', required: true, type: 'number', decimalScale: 4 }
+        {
+          label: 'Number',
+          required: true,
+          type: 'number',
+          decimalScale: 4,
+          maxValue: 10,
+          minValue: 5
+        },
+        {
+          label: 'Money',
+          required: true,
+          type: 'money',
+          maxValue: 100,
+          minValue: 5
+        }
       ]}
       onSubmit={async (values: any) => {
         await new Promise(resolve => setTimeout(resolve, 1500))
@@ -36,7 +54,6 @@ export const Full = () => (
     <ul>
       <li>File uploader</li>
       <li>Percentage input</li>
-      <li>Money Input</li>
       <li>Datepicker</li>
       <li>Checkboxes</li>
       <li>Radio buttons</li>

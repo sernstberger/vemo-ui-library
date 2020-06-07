@@ -9,6 +9,7 @@ import Textarea from './Textarea'
 import Select from './Select'
 import Number from './Number'
 import Money from './Money'
+import Percentage from './Percentage'
 
 interface VemoFormFieldProps {
   decimalScale?: number
@@ -46,6 +47,7 @@ const VemoForm = (props: VemoFormProps) => {
     select: Select,
     number: Number,
     money: Money,
+    percentage: Percentage
   }
 
   return (

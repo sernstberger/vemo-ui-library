@@ -44,6 +44,11 @@ export const Full = () => (
           type: 'money',
           maxValue: 100,
           minValue: 5
+        },
+        {
+          label: 'Percentage',
+          required: true,
+          type: 'percentage',
         }
       ]}
       onSubmit={async (values: any) => {
@@ -53,7 +58,6 @@ export const Full = () => (
     />
     <ul>
       <li>File uploader</li>
-      <li>Percentage input</li>
       <li>Datepicker</li>
       <li>Checkboxes</li>
       <li>Radio buttons</li>
